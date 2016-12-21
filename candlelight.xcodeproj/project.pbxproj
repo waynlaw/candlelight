@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF5D84C11E0ABCA800912330 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = DF5D84C01E0ABCA800912330 /* Images */; };
 		DF8B0B551DFEDD7200BC1912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8B0B541DFEDD7200BC1912 /* AppDelegate.swift */; };
 		DF8B0B571DFEDD7200BC1912 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8B0B561DFEDD7200BC1912 /* ViewController.swift */; };
 		DF8B0B5A1DFEDD7200BC1912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8B0B581DFEDD7200BC1912 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF5D84C01E0ABCA800912330 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		DF8B0B511DFEDD7200BC1912 /* candlelight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = candlelight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8B0B541DFEDD7200BC1912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF8B0B561DFEDD7200BC1912 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF5D84BF1E0ABC8600912330 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DF5D84C01E0ABCA800912330 /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		DF8B0B481DFEDD7200BC1912 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +107,7 @@
 		DF8B0B531DFEDD7200BC1912 /* candlelight */ = {
 			isa = PBXGroup;
 			children = (
+				DF5D84BF1E0ABC8600912330 /* Resources */,
 				DF8B0B541DFEDD7200BC1912 /* AppDelegate.swift */,
 				DF8B0B561DFEDD7200BC1912 /* ViewController.swift */,
 				DF8B0B581DFEDD7200BC1912 /* Main.storyboard */,
@@ -235,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF5D84C11E0ABCA800912330 /* Images in Resources */,
 				DF8B0B5F1DFEDD7200BC1912 /* LaunchScreen.storyboard in Resources */,
 				DF8B0B5C1DFEDD7200BC1912 /* Assets.xcassets in Resources */,
 				DF8B0B5A1DFEDD7200BC1912 /* Main.storyboard in Resources */,
@@ -512,6 +524,7 @@
 				DF8B0B7B1DFEDD7200BC1912 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DF8B0B7C1DFEDD7200BC1912 /* Build configuration list for PBXNativeTarget "candlelightTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +533,7 @@
 				DF8B0B7E1DFEDD7200BC1912 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DF8B0B7F1DFEDD7200BC1912 /* Build configuration list for PBXNativeTarget "candlelightUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +542,7 @@
 				DF8B0B811DFEDD7200BC1912 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

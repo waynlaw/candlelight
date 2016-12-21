@@ -25,16 +25,19 @@ class ViewController: UIViewController {
     }
 
     func setupBottomButtons(parent: UIView) {
+        let buttonImages = ["images/btn_1.png", "images/btn_2.png", "images/btn_3.png", "images/btn_4.png", "images/btn_5.png"]
+        let buttonNum = 5
+        let buttonHeight = 44.0 as CGFloat
+
         let parentWidth = Int(parent.frame.width)
         let parentHeight = parent.frame.height
-        let buttonHeight = 44.0 as CGFloat
-        let buttonNum = 5
         for idx in 0 ..< buttonNum {
             let button = UIButton(type: UIButtonType.custom)
             let left = CGFloat(parentWidth * idx / buttonNum)
             let right = CGFloat(parentWidth * (idx + 1) / buttonNum)
             button.frame = CGRect(x: left, y: parentHeight - buttonHeight, width: right - left, height: buttonHeight)
             button.backgroundColor = UIColor(red: 0.1058, green: 0.1058, blue: 0.1058, alpha: 1.0)
+            button.setImage(UIImage(named: buttonImages[idx]), for: UIControlState.normal)
             parent.addSubview(button)
         }
 
