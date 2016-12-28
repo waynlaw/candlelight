@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12EFD80B9835E54E6840E205 /* Pods_candlelight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3516DF90A02186DD413A7B0A /* Pods_candlelight.framework */; };
 		570A9645EAD8F4389ADC19DF /* SiteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9299A384A656E8C59A63 /* SiteCollectionViewCell.swift */; };
+		570A99718D70AE8213C878BA /* SiteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9CF8041BC5DECC11B97E /* SiteInfo.swift */; };
 		570A9974140A8F382197C4B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A935B7171F8AFB58DB393 /* ViewController.swift */; };
+		570A9CB0F720723927B5F787 /* BoardCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9301CD3FA751429C2715 /* BoardCollectionViewDelegate.swift */; };
+		570A9CB3EA1E3DD78FF0FE1C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9A424F4406342BDB09A1 /* BoardViewController.swift */; };
 		570A9EBE1931BC71BC66079F /* SiteCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9957B69D9D839F5E68F1 /* SiteCollectionViewDelegate.swift */; };
+		570A9EC24FF03CC0E77190E7 /* ListCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A93D51AF4E6040B4B2BDC /* ListCrawler.swift */; };
+		570A9F96A199B841D9FE32DB /* TestCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A968A9E6CED0BB98815B2 /* TestCrawler.swift */; };
+		570A9FBFDB7CBF7B408A65B7 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A99CB67F22E9BA42FA035 /* ListItem.swift */; };
 		DF5D84C11E0ABCA800912330 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = DF5D84C01E0ABCA800912330 /* Images */; };
 		DF8B0B551DFEDD7200BC1912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8B0B541DFEDD7200BC1912 /* AppDelegate.swift */; };
 		DF8B0B5A1DFEDD7200BC1912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8B0B581DFEDD7200BC1912 /* Main.storyboard */; };
@@ -37,9 +44,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3516DF90A02186DD413A7B0A /* Pods_candlelight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_candlelight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570A9299A384A656E8C59A63 /* SiteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		570A9301CD3FA751429C2715 /* BoardCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		570A935B7171F8AFB58DB393 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		570A93D51AF4E6040B4B2BDC /* ListCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCrawler.swift; sourceTree = "<group>"; };
+		570A968A9E6CED0BB98815B2 /* TestCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCrawler.swift; sourceTree = "<group>"; };
 		570A9957B69D9D839F5E68F1 /* SiteCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		570A99CB67F22E9BA42FA035 /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		570A9A424F4406342BDB09A1 /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		570A9CF8041BC5DECC11B97E /* SiteInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteInfo.swift; sourceTree = "<group>"; };
+		57F16B1DD7A371E7A2E3D331 /* Pods-candlelight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-candlelight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-candlelight/Pods-candlelight.debug.xcconfig"; sourceTree = "<group>"; };
+		B2228F985C818CB0C0BD9F40 /* Pods-candlelight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-candlelight.release.xcconfig"; path = "Pods/Target Support Files/Pods-candlelight/Pods-candlelight.release.xcconfig"; sourceTree = "<group>"; };
 		DF5D84C01E0ABCA800912330 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		DF8B0B511DFEDD7200BC1912 /* candlelight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = candlelight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8B0B541DFEDD7200BC1912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12EFD80B9835E54E6840E205 /* Pods_candlelight.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,11 +97,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		570A9506AF79DFE04719FF85 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				570A99CB67F22E9BA42FA035 /* ListItem.swift */,
+				570A9CF8041BC5DECC11B97E /* SiteInfo.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		570A957F8AB4F1920273724E /* crawler */ = {
+			isa = PBXGroup;
+			children = (
+				570A93D51AF4E6040B4B2BDC /* ListCrawler.swift */,
+				570A968A9E6CED0BB98815B2 /* TestCrawler.swift */,
+			);
+			path = crawler;
+			sourceTree = "<group>";
+		};
 		570A95CAC75A131F861B736F /* controller */ = {
 			isa = PBXGroup;
 			children = (
 				570A9957B69D9D839F5E68F1 /* SiteCollectionViewDelegate.swift */,
 				570A935B7171F8AFB58DB393 /* ViewController.swift */,
+				570A9A424F4406342BDB09A1 /* BoardViewController.swift */,
+				570A957F8AB4F1920273724E /* crawler */,
+				570A9301CD3FA751429C2715 /* BoardCollectionViewDelegate.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -94,6 +132,7 @@
 			children = (
 				570A95CAC75A131F861B736F /* controller */,
 				570A9F57AA1F8F1779A85B25 /* view */,
+				570A9506AF79DFE04719FF85 /* model */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -114,6 +153,23 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		82A83CAECC6B1FC4BB416DE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3516DF90A02186DD413A7B0A /* Pods_candlelight.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B6C5A053F16308630702E193 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57F16B1DD7A371E7A2E3D331 /* Pods-candlelight.debug.xcconfig */,
+				B2228F985C818CB0C0BD9F40 /* Pods-candlelight.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DF5D84BF1E0ABC8600912330 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +185,8 @@
 				DF8B0B681DFEDD7200BC1912 /* candlelightTests */,
 				DF8B0B731DFEDD7200BC1912 /* candlelightUITests */,
 				DF8B0B521DFEDD7200BC1912 /* Products */,
+				B6C5A053F16308630702E193 /* Pods */,
+				82A83CAECC6B1FC4BB416DE7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,9 +239,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF8B0B791DFEDD7200BC1912 /* Build configuration list for PBXNativeTarget "candlelight" */;
 			buildPhases = (
+				04505DACC515369FEB9333D6 /* [CP] Check Pods Manifest.lock */,
 				DF8B0B4D1DFEDD7200BC1912 /* Sources */,
 				DF8B0B4E1DFEDD7200BC1912 /* Frameworks */,
 				DF8B0B4F1DFEDD7200BC1912 /* Resources */,
+				146B3815BADDA17A76E8BAD9 /* [CP] Embed Pods Frameworks */,
+				DD42218C87D81FD39F95A5FC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -307,6 +368,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		04505DACC515369FEB9333D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		146B3815BADDA17A76E8BAD9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-candlelight/Pods-candlelight-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD42218C87D81FD39F95A5FC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-candlelight/Pods-candlelight-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DF8B0B4D1DFEDD7200BC1912 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -316,6 +425,12 @@
 				570A9EBE1931BC71BC66079F /* SiteCollectionViewDelegate.swift in Sources */,
 				570A9645EAD8F4389ADC19DF /* SiteCollectionViewCell.swift in Sources */,
 				570A9974140A8F382197C4B3 /* ViewController.swift in Sources */,
+				570A9CB3EA1E3DD78FF0FE1C /* BoardViewController.swift in Sources */,
+				570A9EC24FF03CC0E77190E7 /* ListCrawler.swift in Sources */,
+				570A9FBFDB7CBF7B408A65B7 /* ListItem.swift in Sources */,
+				570A9F96A199B841D9FE32DB /* TestCrawler.swift in Sources */,
+				570A9CB0F720723927B5F787 /* BoardCollectionViewDelegate.swift in Sources */,
+				570A99718D70AE8213C878BA /* SiteInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +578,7 @@
 		};
 		DF8B0B7A1DFEDD7200BC1912 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57F16B1DD7A371E7A2E3D331 /* Pods-candlelight.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VHCPK6862V;
@@ -476,6 +592,7 @@
 		};
 		DF8B0B7B1DFEDD7200BC1912 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2228F985C818CB0C0BD9F40 /* Pods-candlelight.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VHCPK6862V;

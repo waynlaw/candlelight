@@ -7,5 +7,5 @@ workspace 'candlelight.xcworkspace'
 use_frameworks!
 
 target 'candlelight' do
-  pod 'FutureKit', '~> 2.3.0'
+  pod 'BrightFutures', '~> 5.1.0'
 end
