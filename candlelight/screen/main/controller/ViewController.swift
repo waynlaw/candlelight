@@ -3,6 +3,9 @@ import UIKit
 class ViewController: UIViewController {
 
     static let collectionReuseIdentifier = "collectionCell"
+
+    let bottomMenuController: BottomMenuController = BottomMenuController()
+
     var collectionSource: SiteCollectionViewDelegate?
 
     override func viewDidLoad() {
@@ -23,7 +26,9 @@ class ViewController: UIViewController {
         root.frame = CGRect(x: 0, y: 0, width: mainRect.width, height: mainRect.height)
 
         setupCollectionView(parent: root)
-        setupBottomButtons(parent: root)
+        bottomMenuController.setCurrentController(self)
+        bottomMenuController.setController(type: .site, controller: self)
+        bottomMenuController.setupBottomButtons(parent: root)
 
         self.view = root
     }
@@ -48,31 +53,6 @@ class ViewController: UIViewController {
         parent.addSubview(collectionView)
 
         collectionSource = source
-    }
-
-    func setupBottomButtons(parent: UIView) {
-        let buttonImages = ["images/btn_1.png", "images/btn_2.png", "images/btn_3.png", "images/btn_4.png", "images/btn_5.png"]
-        let btnCount = buttonImages.count
-        let buttonHeight = 44.0 as CGFloat
-
-        let parentWidth = Int(parent.frame.width)
-        let parentHeight = parent.frame.height
-        for idx in 0 ..< btnCount {
-            let button = UIButton(type: UIButtonType.custom)
-            let left = CGFloat(parentWidth * idx / btnCount)
-            let right = CGFloat(parentWidth * (idx + 1) / btnCount)
-            button.frame = CGRect(x: left, y: parentHeight - buttonHeight, width: right - left, height: buttonHeight)
-            button.backgroundColor = UIColor(red: 0.1058, green: 0.1058, blue: 0.1058, alpha: 1.0)
-            button.setImage(UIImage(named: buttonImages[idx]), for: UIControlState.normal)
-            parent.addSubview(button)
-        }
-
-        let dividerHeight = 1.0 as CGFloat
-        let divider = UIView()
-        let dividerTop = parentHeight - buttonHeight - dividerHeight
-        divider.backgroundColor = UIColor(red: 0.2431, green: 0.2431, blue: 0.2431, alpha: 1.0)
-        divider.frame = CGRect(x: parent.frame.origin.x, y: dividerTop, width: parent.frame.width, height: dividerHeight)
-        parent.addSubview(divider)
     }
 }
 

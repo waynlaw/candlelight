@@ -10,7 +10,7 @@ class SiteCollectionViewDelegate: NSObject, UICollectionViewDataSource, UICollec
             SiteInfo(title: "site E", crawler: TestCrawler())
     ]
 
-    weak var viewController: ViewController? = nil
+    weak var viewController: ViewController?
 
     public init(_ viewController: ViewController) {
         self.viewController = viewController
@@ -32,10 +32,13 @@ class SiteCollectionViewDelegate: NSObject, UICollectionViewDataSource, UICollec
     }
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let addController = BoardViewController(crawler: siteInfo[indexPath.row].crawler)
+        guard let parent = viewController else {
+            return
+        }
+        let addController = BoardViewController(crawler: siteInfo[indexPath.row].crawler, bottomMenuController: parent.bottomMenuController)
 
         addController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         addController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        viewController?.present(addController, animated: true, completion: nil)
+        parent.present(addController, animated: true, completion: nil)
     }
 }
