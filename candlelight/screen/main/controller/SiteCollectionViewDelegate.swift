@@ -3,7 +3,7 @@ import UIKit
 class SiteCollectionViewDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     let siteInfo = [
-            SiteInfo(title: "site A", crawler: TestCrawler()),
+            SiteInfo(title: "clien park", crawler: ClienParkBoardCrawler()),
             SiteInfo(title: "site B", crawler: TestCrawler()),
             SiteInfo(title: "site C", crawler: TestCrawler()),
             SiteInfo(title: "site D", crawler: TestCrawler()),

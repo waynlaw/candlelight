@@ -1,15 +1,21 @@
 PODS:
+  - Alamofire (4.2.0)
   - BrightFutures (5.1.0):
     - Result (~> 3.0)
+  - Kanna (2.1.1)
   - Result (3.1.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0)
   - BrightFutures (~> 5.1.0)
+  - Kanna (~> 2.1.0)
 
 SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   BrightFutures: 62aafb1a63520eda91c9286bf4be33e58e043938
+  Kanna: 9b4b086c218703f2b94f5b21a466217dd2f9332e
   Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
 
-PODFILE CHECKSUM: fca7178cbb26bddf51a3dbcc3a8a76e404fdb5e4
+PODFILE CHECKSUM: 26833de7fcc283f9d0cb96ebaf4524b23170f9a4
 
 COCOAPODS: 1.1.1
