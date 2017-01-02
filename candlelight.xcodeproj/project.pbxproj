@@ -20,7 +20,7 @@
 		570A9EC24FF03CC0E77190E7 /* ListCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A93D51AF4E6040B4B2BDC /* ListCrawler.swift */; };
 		570A9F96A199B841D9FE32DB /* TestCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A968A9E6CED0BB98815B2 /* TestCrawler.swift */; };
 		570A9FBFDB7CBF7B408A65B7 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A99CB67F22E9BA42FA035 /* ListItem.swift */; };
-		DF5D84C11E0ABCA800912330 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = DF5D84C01E0ABCA800912330 /* Images */; };
+		DF5D84C11E0ABCA800912330 /* images in Resources */ = {isa = PBXBuildFile; fileRef = DF5D84C01E0ABCA800912330 /* images */; };
 		DF8B0B551DFEDD7200BC1912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8B0B541DFEDD7200BC1912 /* AppDelegate.swift */; };
 		DF8B0B5A1DFEDD7200BC1912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8B0B581DFEDD7200BC1912 /* Main.storyboard */; };
 		DF8B0B5C1DFEDD7200BC1912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF8B0B5B1DFEDD7200BC1912 /* Assets.xcassets */; };
@@ -62,7 +62,7 @@
 		570A9F54BD572E143177FAE9 /* BottomMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomMenuController.swift; sourceTree = "<group>"; };
 		57F16B1DD7A371E7A2E3D331 /* Pods-candlelight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-candlelight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-candlelight/Pods-candlelight.debug.xcconfig"; sourceTree = "<group>"; };
 		B2228F985C818CB0C0BD9F40 /* Pods-candlelight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-candlelight.release.xcconfig"; path = "Pods/Target Support Files/Pods-candlelight/Pods-candlelight.release.xcconfig"; sourceTree = "<group>"; };
-		DF5D84C01E0ABCA800912330 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
+		DF5D84C01E0ABCA800912330 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		DF8B0B511DFEDD7200BC1912 /* candlelight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = candlelight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8B0B541DFEDD7200BC1912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF8B0B591DFEDD7200BC1912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 		DF5D84BF1E0ABC8600912330 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DF5D84C01E0ABCA800912330 /* Images */,
+				DF5D84C01E0ABCA800912330 /* images */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -362,7 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF5D84C11E0ABCA800912330 /* Images in Resources */,
+				DF5D84C11E0ABCA800912330 /* images in Resources */,
 				DF8B0B5F1DFEDD7200BC1912 /* LaunchScreen.storyboard in Resources */,
 				DF8B0B5C1DFEDD7200BC1912 /* Assets.xcassets in Resources */,
 				DF8B0B5A1DFEDD7200BC1912 /* Main.storyboard in Resources */,
