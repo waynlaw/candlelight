@@ -54,5 +54,9 @@ class ViewController: UIViewController {
 
         collectionSource = source
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
 }
 

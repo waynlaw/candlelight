@@ -73,5 +73,9 @@ class BoardViewController: UIViewController {
                     source.setBoardList(boardItems: result)
                 }
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
 }
 
