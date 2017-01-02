@@ -29,7 +29,11 @@ class ViewController: UIViewController {
         bottomMenuController.setCurrentController(self)
         bottomMenuController.setController(type: .site, controller: self)
         bottomMenuController.setupBottomButtons(parent: root)
-
+        
+        let a = ConfigureController(bottomMenuController: bottomMenuController)
+        
+        bottomMenuController.setController(type: .configure, controller: a)
+        
         self.view = root
     }
 

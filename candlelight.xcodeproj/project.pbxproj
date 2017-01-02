@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		12EFD80B9835E54E6840E205 /* Pods_candlelight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3516DF90A02186DD413A7B0A /* Pods_candlelight.framework */; };
+		21DA278B1E1A73A400D46551 /* ConfigureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA278A1E1A73A400D46551 /* ConfigureViewCell.swift */; };
+		21DA278D1E1A76F700D46551 /* ConfigureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA278C1E1A76F700D46551 /* ConfigureController.swift */; };
 		570A917976BC12DBD320C4A7 /* BottomMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9F54BD572E143177FAE9 /* BottomMenuController.swift */; };
 		570A92A6E296EDFD90BED53E /* ClienParkBoardCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9BCFC5EAC3B6A3E76556 /* ClienParkBoardCrawler.swift */; };
 		570A954B935DE77B957C56DB /* BottomMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A94BFB465E3C582A31863 /* BottomMenuType.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		21DA278A1E1A73A400D46551 /* ConfigureViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureViewCell.swift; sourceTree = "<group>"; };
+		21DA278C1E1A76F700D46551 /* ConfigureController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureController.swift; sourceTree = "<group>"; };
 		3516DF90A02186DD413A7B0A /* Pods_candlelight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_candlelight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570A9301CD3FA751429C2715 /* BoardCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		570A935B7171F8AFB58DB393 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				570A9957B69D9D839F5E68F1 /* SiteCollectionViewDelegate.swift */,
+				21DA278C1E1A76F700D46551 /* ConfigureController.swift */,
 				570A935B7171F8AFB58DB393 /* ViewController.swift */,
 				570A9A424F4406342BDB09A1 /* BoardViewController.swift */,
 				570A9301CD3FA751429C2715 /* BoardCollectionViewDelegate.swift */,
@@ -165,6 +170,7 @@
 		570A9F57AA1F8F1779A85B25 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				21DA278A1E1A73A400D46551 /* ConfigureViewCell.swift */,
 				DFA03E251E1A715700D039FC /* SiteCollectionViewCell.swift */,
 			);
 			path = view;
@@ -438,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21DA278D1E1A76F700D46551 /* ConfigureController.swift in Sources */,
 				DF8B0B551DFEDD7200BC1912 /* AppDelegate.swift in Sources */,
 				570A9EBE1931BC71BC66079F /* SiteCollectionViewDelegate.swift in Sources */,
 				570A9974140A8F382197C4B3 /* ViewController.swift in Sources */,
@@ -451,6 +458,7 @@
 				570A917976BC12DBD320C4A7 /* BottomMenuController.swift in Sources */,
 				570A954B935DE77B957C56DB /* BottomMenuType.swift in Sources */,
 				570A92A6E296EDFD90BED53E /* ClienParkBoardCrawler.swift in Sources */,
+				21DA278B1E1A73A400D46551 /* ConfigureViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
