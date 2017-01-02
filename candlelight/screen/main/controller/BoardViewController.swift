@@ -8,6 +8,8 @@ class BoardViewController: UIViewController {
 
     var collectionSource: BoardCollectionViewDelegate?
     var crawler: ListCrawler?
+    var boardItmes = [ListItem]()
+    var boardPage = 0
 
     required init?(coder aDecoder: NSCoder) {
         self.bottomMenuController = nil
@@ -69,9 +71,15 @@ class BoardViewController: UIViewController {
 
         collectionSource = source
 
-        crawler?.getList().onSuccess { result in
-                    source.setBoardList(boardItems: result)
-                }
+        onNeedToMoreList()
+    }
+    
+    func onNeedToMoreList() {
+        crawler?.getList(page: boardPage).onSuccess { result in
+            self.boardItmes.append(contentsOf: result)
+            self.boardPage += 1
+            self.collectionSource?.setBoardList(boardItems: self.boardItmes)
+        }
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
