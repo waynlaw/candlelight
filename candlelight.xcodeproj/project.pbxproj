@@ -23,7 +23,6 @@
 		570A9FBFDB7CBF7B408A65B7 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A99CB67F22E9BA42FA035 /* ListItem.swift */; };
 		DF5D84C11E0ABCA800912330 /* images in Resources */ = {isa = PBXBuildFile; fileRef = DF5D84C01E0ABCA800912330 /* images */; };
 		DF8B0B551DFEDD7200BC1912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8B0B541DFEDD7200BC1912 /* AppDelegate.swift */; };
-		DF8B0B5A1DFEDD7200BC1912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8B0B581DFEDD7200BC1912 /* Main.storyboard */; };
 		DF8B0B5C1DFEDD7200BC1912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF8B0B5B1DFEDD7200BC1912 /* Assets.xcassets */; };
 		DF8B0B5F1DFEDD7200BC1912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8B0B5D1DFEDD7200BC1912 /* LaunchScreen.storyboard */; };
 		DF8B0B6A1DFEDD7200BC1912 /* candlelightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8B0B691DFEDD7200BC1912 /* candlelightTests.swift */; };
@@ -68,7 +67,6 @@
 		DF5D84C01E0ABCA800912330 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		DF8B0B511DFEDD7200BC1912 /* candlelight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = candlelight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8B0B541DFEDD7200BC1912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DF8B0B591DFEDD7200BC1912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF8B0B5B1DFEDD7200BC1912 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF8B0B5E1DFEDD7200BC1912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF8B0B601DFEDD7200BC1912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 			children = (
 				DF5D84BF1E0ABC8600912330 /* Resources */,
 				DF8B0B541DFEDD7200BC1912 /* AppDelegate.swift */,
-				DF8B0B581DFEDD7200BC1912 /* Main.storyboard */,
 				DF8B0B5B1DFEDD7200BC1912 /* Assets.xcassets */,
 				DF8B0B5D1DFEDD7200BC1912 /* LaunchScreen.storyboard */,
 				DF8B0B601DFEDD7200BC1912 /* Info.plist */,
@@ -326,7 +323,6 @@
 				TargetAttributes = {
 					DF8B0B501DFEDD7200BC1912 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = VHCPK6862V;
 						ProvisioningStyle = Automatic;
 					};
 					DF8B0B641DFEDD7200BC1912 = {
@@ -371,7 +367,6 @@
 				DF5D84C11E0ABCA800912330 /* images in Resources */,
 				DF8B0B5F1DFEDD7200BC1912 /* LaunchScreen.storyboard in Resources */,
 				DF8B0B5C1DFEDD7200BC1912 /* Assets.xcassets in Resources */,
-				DF8B0B5A1DFEDD7200BC1912 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,14 +489,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DF8B0B581DFEDD7200BC1912 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DF8B0B591DFEDD7200BC1912 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DF8B0B5D1DFEDD7200BC1912 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -609,7 +596,7 @@
 			baseConfigurationReference = 57F16B1DD7A371E7A2E3D331 /* Pods-candlelight.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VHCPK6862V;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = candlelight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -624,7 +611,7 @@
 			baseConfigurationReference = B2228F985C818CB0C0BD9F40 /* Pods-candlelight.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VHCPK6862V;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = candlelight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
