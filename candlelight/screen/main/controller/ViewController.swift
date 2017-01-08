@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "자주 가는 게시판"
+        self.navigationItem.title = "함께 보기"
     }
 
     override func loadView() {
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         bottomMenuController.setController(type: .site, controller: self)
         bottomMenuController.setupBottomButtons(parent: root)
         
-        let configureController = ConfigureController(bottomMenuController: bottomMenuController)
+        let configureController = ConfigController(bottomMenuController: bottomMenuController)
         let navigationController = UINavigationController(rootViewController: configureController)
         
         bottomMenuController.setController(type: .configure, controller: navigationController)
