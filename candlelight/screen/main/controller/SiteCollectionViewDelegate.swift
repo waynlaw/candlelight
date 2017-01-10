@@ -36,9 +36,6 @@ class SiteCollectionViewDelegate: NSObject, UICollectionViewDataSource, UICollec
             return
         }
         let addController = BoardViewController(crawler: siteInfo[indexPath.row].crawler, bottomMenuController: parent.bottomMenuController)
-
-        addController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        addController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        parent.present(addController, animated: true, completion: nil)
+        parent.navigationController?.pushViewController(addController, animated: true)
     }
 }

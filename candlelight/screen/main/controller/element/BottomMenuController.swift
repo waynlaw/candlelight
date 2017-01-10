@@ -52,21 +52,12 @@ class BottomMenuController: NSObject {
 
     func onClickItem(_ sender: UIButton) {
         guard let type = BottomMenuType(rawValue: sender.tag),
-              let controller = controllers[type] else {
+              let controller = controllers[type],
+              let navigationController = current?.navigationController else {
             return
         }
-        if type == .site {
-            if let currentController = current {
-                if currentController == controller {
-                    return
-                }
-            }
-            current?.dismiss(animated: true, completion: {
-            })
-            return
-        }
-        controller.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        current?.present(controller, animated: true, completion: nil)
+        self.current = controller
+        navigationController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        navigationController.setViewControllers([controller], animated: true)
     }
 }

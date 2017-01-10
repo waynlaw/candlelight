@@ -48,7 +48,6 @@ class ConfigController: UIViewController {
         
         setupCollectionView(parent: root)
         
-        bottomMenuController?.setCurrentController(self)
         bottomMenuController?.setupBottomButtons(parent: root)
         
         self.view = root
