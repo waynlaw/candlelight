@@ -8,7 +8,7 @@ class BoardViewController: UIViewController {
 
     var collectionSource: BoardCollectionViewDelegate?
     var crawler: ListCrawler?
-    var boardItmes = [ListItem]()
+    var boardItems = [ListItem]()
     var boardPage = 0
 
     required init?(coder aDecoder: NSCoder) {
@@ -43,7 +43,6 @@ class BoardViewController: UIViewController {
         root.frame = CGRect(x: 0, y: 0, width: mainRect.width, height: mainRect.height)
 
         setupCollectionView(parent: root)
-        bottomMenuController?.setCurrentController(self)
         bottomMenuController?.setupBottomButtons(parent: root)
 
         self.view = root
@@ -76,9 +75,9 @@ class BoardViewController: UIViewController {
     
     func onNeedToMoreList() {
         crawler?.getList(page: boardPage).onSuccess { result in
-            self.boardItmes.append(contentsOf: result)
+            self.boardItems.append(contentsOf: result)
             self.boardPage += 1
-            self.collectionSource?.setBoardList(boardItems: self.boardItmes)
+            self.collectionSource?.setBoardList(boardItems: self.boardItems)
         }
     }
     
