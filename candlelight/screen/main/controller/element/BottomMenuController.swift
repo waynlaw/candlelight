@@ -51,15 +51,15 @@ class BottomMenuController: NSObject {
     }
 
     func onClickItem(_ sender: UIButton) {
-        guard let type = BottomMenuType(rawValue: sender.tag) else {
-            return
-        }
-        guard let controller = controllers[type] else {
+        guard let type = BottomMenuType(rawValue: sender.tag),
+              let controller = controllers[type] else {
             return
         }
         if type == .site {
-            if (current! == controller) {
-                return
+            if let currentController = current {
+                if currentController == controller {
+                    return
+                }
             }
             current?.dismiss(animated: true, completion: {
             })
