@@ -43,7 +43,7 @@ class ConfigController: UIViewController {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
         label.textColor = UIColor.lightGray
         label.textAlignment = NSTextAlignment.left
-        label.text = "자주 가는 사이트"
+        label.text = " 자주 가는 사이트"
         root.addSubview(label)
         
         setupCollectionView(parent: root)
@@ -62,7 +62,7 @@ class ConfigController: UIViewController {
         layout.sectionInset = UIEdgeInsets.zero
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 1
-//
+
         let source = SiteConfigDelegate(self)
         let collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         collectionView.register(SiteCollectionViewCell.self, forCellWithReuseIdentifier: ViewController.collectionReuseIdentifier)
