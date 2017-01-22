@@ -75,9 +75,31 @@ class BoardViewController: UIViewController {
     
     func onNeedToMoreList() {
         crawler?.getList(page: boardPage).onSuccess { result in
-            self.boardItems.append(contentsOf: result)
+            self.updateList(newItems: result)
             self.boardPage += 1
             self.collectionSource?.setBoardList(boardItems: self.boardItems)
+        }
+    }
+
+    func updateList(newItems:[ListItem]) {
+        var listIdx = 0
+        var newIdx = 0
+        let newItemsNum = newItems.count
+        while (listIdx < self.boardItems.count) {
+            if (newIdx >= newItemsNum) {
+                break
+            }
+            if (newItems[newIdx].id == self.boardItems[listIdx].id) {
+                self.boardItems[listIdx] = newItems[newIdx]
+                newIdx += 1
+            } else if (newItems[newIdx].id > self.boardItems[listIdx].id) {
+                self.boardItems.insert(newItems[newIdx], at: listIdx)
+                newIdx += 1
+            }
+            listIdx += 1
+        }
+        for idx in newIdx ..< newItemsNum {
+            self.boardItems.append(newItems[idx])
         }
     }
     
