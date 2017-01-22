@@ -35,7 +35,7 @@ class SiteConfigDelegate: NSObject, UICollectionViewDataSource, UICollectionView
         let email = Expression<String>("email")
         
         
-        db.run
+        //db.run
         
     }
         
