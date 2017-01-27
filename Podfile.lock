@@ -3,24 +3,27 @@ PODS:
   - BrightFutures (5.1.0):
     - Result (~> 3.0)
   - Kanna (2.1.1)
+  - Realm (2.3.0):
+    - Realm/Headers (= 2.3.0)
+  - Realm/Headers (2.3.0)
+  - RealmSwift (2.3.0):
+    - Realm (= 2.3.0)
   - Result (3.1.0)
-  - SQLite.swift (0.11.2):
-    - SQLite.swift/standard (= 0.11.2)
-  - SQLite.swift/standard (0.11.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - BrightFutures (~> 5.1.0)
   - Kanna (~> 2.1.0)
-  - SQLite.swift (~> 0.11.2)
+  - RealmSwift (~> 2.3.0)
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   BrightFutures: 62aafb1a63520eda91c9286bf4be33e58e043938
   Kanna: 9b4b086c218703f2b94f5b21a466217dd2f9332e
+  Realm: 69d7de9aa569a11eed490aaabc8f2109e3985ecf
+  RealmSwift: dc6f99ea55e59490cec69c860f91932b6bf7efb6
   Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
-  SQLite.swift: 670c3e9e0a806bbfd56a3de5d530768dc0e6fe7c
 
-PODFILE CHECKSUM: ae213e4ad092a7051b64d1f88ddac0e0b3fb7b41
+PODFILE CHECKSUM: 4dde0ffb979366105cc367b7c35792898d42e098
 
 COCOAPODS: 1.1.1

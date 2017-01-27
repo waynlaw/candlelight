@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		12EFD80B9835E54E6840E205 /* Pods_candlelight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3516DF90A02186DD413A7B0A /* Pods_candlelight.framework */; };
+		211977C41E34FA11008CFDAE /* SiteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211977C31E34FA11008CFDAE /* SiteConfig.swift */; };
+		2188B6031E3AE306000C1193 /* SiteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188B6021E3AE306000C1193 /* SiteConfigManager.swift */; };
 		21DA278B1E1A73A400D46551 /* ConfigureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA278A1E1A73A400D46551 /* ConfigureViewCell.swift */; };
 		21DA278D1E1A76F700D46551 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA278C1E1A76F700D46551 /* ConfigController.swift */; };
 		21FED2251E22536D009A9BFF /* SiteConfigDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FED2241E22536D009A9BFF /* SiteConfigDelegate.swift */; };
@@ -49,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		211977C31E34FA11008CFDAE /* SiteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteConfig.swift; path = config/SiteConfig.swift; sourceTree = "<group>"; };
+		2188B6021E3AE306000C1193 /* SiteConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteConfigManager.swift; path = manager/config/SiteConfigManager.swift; sourceTree = "<group>"; };
 		21DA278A1E1A73A400D46551 /* ConfigureViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureViewCell.swift; sourceTree = "<group>"; };
 		21DA278C1E1A76F700D46551 /* ConfigController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
 		21FED2241E22536D009A9BFF /* SiteConfigDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteConfigDelegate.swift; sourceTree = "<group>"; };
@@ -107,9 +111,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		211977C51E34FD7D008CFDAE /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				211977C61E34FD89008CFDAE /* config */,
+			);
+			name = manager;
+			sourceTree = "<group>";
+		};
+		211977C61E34FD89008CFDAE /* config */ = {
+			isa = PBXGroup;
+			children = (
+				2188B6021E3AE306000C1193 /* SiteConfigManager.swift */,
+			);
+			name = config;
+			sourceTree = "<group>";
+		};
+		21C68BDD1E34F9B200ECA5C0 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				211977C31E34FA11008CFDAE /* SiteConfig.swift */,
+			);
+			name = config;
+			sourceTree = "<group>";
+		};
 		570A9506AF79DFE04719FF85 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				21C68BDD1E34F9B200ECA5C0 /* config */,
 				570A99CB67F22E9BA42FA035 /* ListItem.swift */,
 				570A9CF8041BC5DECC11B97E /* SiteInfo.swift */,
 			);
@@ -153,6 +182,7 @@
 		570A95EDC3C4AD0347A59B35 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				211977C51E34FD7D008CFDAE /* manager */,
 				570A95CAC75A131F861B736F /* controller */,
 				570A9F57AA1F8F1779A85B25 /* view */,
 				570A9506AF79DFE04719FF85 /* model */,
@@ -321,11 +351,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Waynlaw;
 				TargetAttributes = {
 					DF8B0B501DFEDD7200BC1912 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = VK4UM2DHN5;
 						ProvisioningStyle = Automatic;
 					};
 					DF8B0B641DFEDD7200BC1912 = {
@@ -448,11 +479,13 @@
 				21FED2251E22536D009A9BFF /* SiteConfigDelegate.swift in Sources */,
 				570A9974140A8F382197C4B3 /* ViewController.swift in Sources */,
 				570A9CB3EA1E3DD78FF0FE1C /* BoardViewController.swift in Sources */,
+				2188B6031E3AE306000C1193 /* SiteConfigManager.swift in Sources */,
 				570A9EC24FF03CC0E77190E7 /* ListCrawler.swift in Sources */,
 				570A9FBFDB7CBF7B408A65B7 /* ListItem.swift in Sources */,
 				570A9F96A199B841D9FE32DB /* TestCrawler.swift in Sources */,
 				DFA03E261E1A715700D039FC /* SiteCollectionViewCell.swift in Sources */,
 				570A9CB0F720723927B5F787 /* BoardCollectionViewDelegate.swift in Sources */,
+				211977C41E34FA11008CFDAE /* SiteConfig.swift in Sources */,
 				570A99718D70AE8213C878BA /* SiteInfo.swift in Sources */,
 				570A917976BC12DBD320C4A7 /* BottomMenuController.swift in Sources */,
 				570A954B935DE77B957C56DB /* BottomMenuType.swift in Sources */,
@@ -522,6 +555,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -544,7 +578,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -571,6 +605,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -587,7 +622,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -599,14 +634,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 57F16B1DD7A371E7A2E3D331 /* Pods-candlelight.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VK4UM2DHN5;
 				INFOPLIST_FILE = candlelight/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = waynlaw.candlelight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -614,14 +651,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B2228F985C818CB0C0BD9F40 /* Pods-candlelight.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VK4UM2DHN5;
 				INFOPLIST_FILE = candlelight/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = waynlaw.candlelight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -693,7 +732,7 @@
 				DF8B0B781DFEDD7200BC1912 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		DF8B0B791DFEDD7200BC1912 /* Build configuration list for PBXNativeTarget "candlelight" */ = {
 			isa = XCConfigurationList;
@@ -702,7 +741,7 @@
 				DF8B0B7B1DFEDD7200BC1912 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		DF8B0B7C1DFEDD7200BC1912 /* Build configuration list for PBXNativeTarget "candlelightTests" */ = {
 			isa = XCConfigurationList;
@@ -711,7 +750,7 @@
 				DF8B0B7E1DFEDD7200BC1912 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		DF8B0B7F1DFEDD7200BC1912 /* Build configuration list for PBXNativeTarget "candlelightUITests" */ = {
 			isa = XCConfigurationList;
@@ -720,7 +759,7 @@
 				DF8B0B811DFEDD7200BC1912 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

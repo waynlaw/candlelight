@@ -1,6 +1,8 @@
 import UIKit
 
 class SiteCollectionViewDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    let scManager: SiteConfigManager!
 
     let siteInfo = [
             SiteInfo(title: "clien park", crawler: ClienParkBoardCrawler()),
@@ -14,6 +16,10 @@ class SiteCollectionViewDelegate: NSObject, UICollectionViewDataSource, UICollec
 
     public init(_ viewController: ViewController) {
         self.viewController = viewController
+       
+        scManager = SiteConfigManager()
+        let scs = scManager.select()
+        NSLog(scs.description)
     }
 
     public func numberOfSections(in collectionView: UICollectionView) -> Int {

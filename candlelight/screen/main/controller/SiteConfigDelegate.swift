@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SQLite
+import RealmSwift
 
 class SiteConfigDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
         
@@ -16,27 +16,13 @@ class SiteConfigDelegate: NSObject, UICollectionViewDataSource, UICollectionView
         "딴지일보"
     ]
     
-    let db: Connection?
+    let scManager: SiteConfigManager!
     
     weak var viewController: ConfigController?
         
     public init(_ viewController: ConfigController) {
         self.viewController = viewController
-        
-        do {
-            db = try Connection("db.sqlite3")
-        } catch _ {
-            db = nil
-        }
-        
-        let users = Table("users")
-        let id = Expression<Int64>("id")
-        let name = Expression<String?>("name")
-        let email = Expression<String>("email")
-        
-        
-        //db.run
-        
+        scManager = SiteConfigManager()
     }
         
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -44,13 +30,17 @@ class SiteConfigDelegate: NSObject, UICollectionViewDataSource, UICollectionView
     }
         
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sites.count;
+        return sites.count
     }
-        
+    
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // You can get called index to check the value of indexPath.row
+        let index = indexPath.row
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ViewController.collectionReuseIdentifier, for: indexPath) as! SiteCollectionViewCell
         cell.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
-        cell.setText(sites[indexPath.row])
+        cell.setText(sites[index])
         
         let sw = UISwitch(frame: CGRect(x: cell.bounds.width - 60, y: 10, width: 0, height: 0))
         
@@ -58,6 +48,10 @@ class SiteConfigDelegate: NSObject, UICollectionViewDataSource, UICollectionView
         sw.tintColor = UIColor.lightGray
         sw.thumbTintColor = UIColor.white
         sw.onTintColor = UIColor.lightGray
+        
+        if let sc = scManager.selectById(indexPath.row) {
+            sw.isOn = sc.isOn
+        }
         
         cell.addSubview(sw)
         
@@ -67,13 +61,20 @@ class SiteConfigDelegate: NSObject, UICollectionViewDataSource, UICollectionView
     }
 
     public func switchValueDidChange(sender: UISwitch){
-        switch (sender.tag) {
-        case 0:
-            NSLog("클리앙")
-        case 1:
-            NSLog("딴지일보")
-        default:
-            NSLog("호이호이")
+        
+        // You can get called index to check the value of sender.tag
+        let index = sender.tag
+        
+        if sender.tag > 3 {
+            NSLog("error")
         }
+        
+        // TODO : only upsert. is it Ok?
+        let sc = SiteConfig()
+        sc.id = index
+        sc.name = sites[index]
+        sc.isOn = sender.isOn
+        
+        scManager.upsert(sc)
     }
 }
