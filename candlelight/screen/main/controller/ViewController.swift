@@ -49,6 +49,7 @@ class ViewController: UIViewController {
         collectionView.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0)
         collectionView.dataSource = source
         collectionView.delegate = source
+        source.collectionView = collectionView
 
         parent.addSubview(collectionView)
 
@@ -61,6 +62,10 @@ class ViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        collectionSource?.reloadCollectionView()
     }
 }
 

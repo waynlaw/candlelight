@@ -58,6 +58,6 @@ class BottomMenuController: NSObject {
         }
         self.current = controller
         navigationController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        navigationController.setViewControllers([controller], animated: true)
+        navigationController.setViewControllers([controller], animated: false)
     }
 }
