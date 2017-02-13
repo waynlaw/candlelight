@@ -7,7 +7,7 @@ import Kanna
 
 class ClienParkBoardCrawler: ListCrawler {
 
-    static let siteUrl = "http://www.clien.net/cs2/bbs/board.php?bo_table=park&page="
+    let siteUrl = "http://www.clien.net/cs2/bbs/board.php?bo_table=park&page="
 
     func getList() -> Future<[ListItem], NoError> {
         return result(page: 0)
@@ -19,7 +19,7 @@ class ClienParkBoardCrawler: ListCrawler {
 
     func result(page: Int) -> Future<[ListItem], NoError> {
         return Future<[ListItem], NoError> { complete in
-            let url = ClienParkBoardCrawler.siteUrl + String(page + 1)
+            let url = self.siteUrl + String(page + 1)
             print(url)
             Alamofire.request(url).responseString(encoding: .utf8, completionHandler: { response in
                         if let html = response.result.value {
