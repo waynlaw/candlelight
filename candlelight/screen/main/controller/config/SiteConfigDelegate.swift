@@ -18,10 +18,10 @@ class SiteConfigDelegate: NSObject, UICollectionViewDataSource, UICollectionView
     
     let scManager: SiteConfigManager!
     
-    weak var viewController: ConfigController?
+    weak var configController: ConfigController?
         
-    public init(_ viewController: ConfigController) {
-        self.viewController = viewController
+    public init(_ configController: ConfigController) {
+        self.configController = configController
         scManager = SiteConfigManager()
     }
         
@@ -38,7 +38,7 @@ class SiteConfigDelegate: NSObject, UICollectionViewDataSource, UICollectionView
         // You can get called index to check the value of indexPath.row
         let index = indexPath.row
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ViewController.collectionReuseIdentifier, for: indexPath) as! SiteCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CommunityController.collectionReuseIdentifier, for: indexPath) as! SiteCollectionViewCell
         cell.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
         cell.setText(sites[index])
         

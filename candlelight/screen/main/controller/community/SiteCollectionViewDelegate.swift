@@ -7,15 +7,15 @@ class SiteCollectionViewDelegate: NSObject, UICollectionViewDataSource, UICollec
 
     var siteInfos: Array<SiteInfo> = []
     
-    weak var viewController: ViewController?
+    weak var communityController: CommunityController?
     weak var collectionView: UICollectionView? = nil
     
     let clienCrawler = ClienParkBoardCrawler()
     let ddanziCrawler = TestCrawler()
 
-    public init(_ viewController: ViewController) {
+    public init(_ communityController: CommunityController) {
         
-        self.viewController = viewController
+        self.communityController = communityController
         
         // load settings
         let scs = scManager.select()
@@ -41,14 +41,14 @@ class SiteCollectionViewDelegate: NSObject, UICollectionViewDataSource, UICollec
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ViewController.collectionReuseIdentifier, for: indexPath) as! SiteCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ConfigController.collectionReuseIdentifier, for: indexPath) as! SiteCollectionViewCell
         cell.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
         cell.setText(siteInfos[indexPath.row].title)
         return cell
     }
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let parent = viewController else {
+        guard let parent = communityController else {
             return
         }
         let addController = BoardViewController(crawler: siteInfos[indexPath.row].crawler, bottomMenuController: parent.bottomMenuController)

@@ -27,7 +27,7 @@ class BoardCollectionViewDelegate: NSObject, UICollectionViewDataSource, UIColle
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ViewController.collectionReuseIdentifier, for: indexPath) as! SiteCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CommunityController.collectionReuseIdentifier, for: indexPath) as! SiteCollectionViewCell
         cell.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
         if boardItems.count == indexPath.row {
             cell.setText("")

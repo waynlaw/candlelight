@@ -60,7 +60,7 @@ class BoardViewController: UIViewController {
 
         let source = BoardCollectionViewDelegate(self)
         let collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
-        collectionView.register(SiteCollectionViewCell.self, forCellWithReuseIdentifier: ViewController.collectionReuseIdentifier)
+        collectionView.register(SiteCollectionViewCell.self, forCellWithReuseIdentifier: CommunityController.collectionReuseIdentifier)
         collectionView.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0)
         collectionView.dataSource = source
         collectionView.delegate = source
