@@ -258,11 +258,11 @@
 			isa = PBXGroup;
 			children = (
 				DF5D84BF1E0ABC8600912330 /* Resources */,
+				570A975B8EBBAE1D68F7C99D /* screen */,
 				DF8B0B541DFEDD7200BC1912 /* AppDelegate.swift */,
 				DF8B0B5B1DFEDD7200BC1912 /* Assets.xcassets */,
 				DF8B0B5D1DFEDD7200BC1912 /* LaunchScreen.storyboard */,
 				DF8B0B601DFEDD7200BC1912 /* Info.plist */,
-				570A975B8EBBAE1D68F7C99D /* screen */,
 			);
 			path = candlelight;
 			sourceTree = "<group>";
