@@ -74,5 +74,4 @@ class ConfigController: UIViewController {
         
         collectionSource = source
     }
-
 }

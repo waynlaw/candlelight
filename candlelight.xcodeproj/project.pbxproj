@@ -21,11 +21,16 @@
 		570A917976BC12DBD320C4A7 /* BottomMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9F54BD572E143177FAE9 /* BottomMenuController.swift */; };
 		570A92A6E296EDFD90BED53E /* ClienParkBoardCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9BCFC5EAC3B6A3E76556 /* ClienParkBoardCrawler.swift */; };
 		570A954B935DE77B957C56DB /* BottomMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A94BFB465E3C582A31863 /* BottomMenuType.swift */; };
+		570A9844CA4F9C048D5C5DB4 /* ContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A968A6B8FB20CCA642699 /* ContentData.swift */; };
 		570A99718D70AE8213C878BA /* SiteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9CF8041BC5DECC11B97E /* SiteInfo.swift */; };
 		570A9EC24FF03CC0E77190E7 /* ListCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A93D51AF4E6040B4B2BDC /* ListCrawler.swift */; };
+		570A9EC3702C09D7738085A8 /* ContentCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9EA12641C496A2631BD2 /* ContentCrawler.swift */; };
 		570A9F96A199B841D9FE32DB /* TestCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A968A9E6CED0BB98815B2 /* TestCrawler.swift */; };
 		570A9FBFDB7CBF7B408A65B7 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A99CB67F22E9BA42FA035 /* ListItem.swift */; };
+		DF114BDF1E55F26400799A1F /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF114BDE1E55F26400799A1F /* ContentViewController.swift */; };
+		DF114BE11E55F27D00799A1F /* ClienParkContentCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF114BE01E55F27C00799A1F /* ClienParkContentCrawler.swift */; };
 		DF5D84C11E0ABCA800912330 /* images in Resources */ = {isa = PBXBuildFile; fileRef = DF5D84C01E0ABCA800912330 /* images */; };
+		DF8894B01E48A692004D1071 /* CrawlingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8894AF1E48A692004D1071 /* CrawlingError.swift */; };
 		DF8B0B551DFEDD7200BC1912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8B0B541DFEDD7200BC1912 /* AppDelegate.swift */; };
 		DF8B0B5C1DFEDD7200BC1912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF8B0B5B1DFEDD7200BC1912 /* Assets.xcassets */; };
 		DF8B0B5F1DFEDD7200BC1912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8B0B5D1DFEDD7200BC1912 /* LaunchScreen.storyboard */; };
@@ -65,14 +70,19 @@
 		3516DF90A02186DD413A7B0A /* Pods_candlelight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_candlelight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570A93D51AF4E6040B4B2BDC /* ListCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCrawler.swift; sourceTree = "<group>"; };
 		570A94BFB465E3C582A31863 /* BottomMenuType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomMenuType.swift; sourceTree = "<group>"; };
+		570A968A6B8FB20CCA642699 /* ContentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentData.swift; sourceTree = "<group>"; };
 		570A968A9E6CED0BB98815B2 /* TestCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCrawler.swift; sourceTree = "<group>"; };
 		570A99CB67F22E9BA42FA035 /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		570A9BCFC5EAC3B6A3E76556 /* ClienParkBoardCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClienParkBoardCrawler.swift; sourceTree = "<group>"; };
 		570A9CF8041BC5DECC11B97E /* SiteInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteInfo.swift; sourceTree = "<group>"; };
+		570A9EA12641C496A2631BD2 /* ContentCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentCrawler.swift; sourceTree = "<group>"; };
 		570A9F54BD572E143177FAE9 /* BottomMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomMenuController.swift; sourceTree = "<group>"; };
 		57F16B1DD7A371E7A2E3D331 /* Pods-candlelight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-candlelight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-candlelight/Pods-candlelight.debug.xcconfig"; sourceTree = "<group>"; };
 		B2228F985C818CB0C0BD9F40 /* Pods-candlelight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-candlelight.release.xcconfig"; path = "Pods/Target Support Files/Pods-candlelight/Pods-candlelight.release.xcconfig"; sourceTree = "<group>"; };
+		DF114BDE1E55F26400799A1F /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentViewController.swift; path = community/ContentViewController.swift; sourceTree = "<group>"; };
+		DF114BE01E55F27C00799A1F /* ClienParkContentCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClienParkContentCrawler.swift; sourceTree = "<group>"; };
 		DF5D84C01E0ABCA800912330 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		DF8894AF1E48A692004D1071 /* CrawlingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrawlingError.swift; sourceTree = "<group>"; };
 		DF8B0B511DFEDD7200BC1912 /* candlelight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = candlelight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8B0B541DFEDD7200BC1912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF8B0B5B1DFEDD7200BC1912 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,6 +126,7 @@
 		2105BEE61E51DBCE000FE20C /* community */ = {
 			isa = PBXGroup;
 			children = (
+				DF114BDE1E55F26400799A1F /* ContentViewController.swift */,
 				2105BEE81E51DBEE000FE20C /* BoardCollectionViewDelegate.swift */,
 				2105BEE91E51DBEE000FE20C /* BoardViewController.swift */,
 				2105BEEA1E51DBEE000FE20C /* SiteCollectionViewDelegate.swift */,
@@ -151,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				211977C31E34FA11008CFDAE /* SiteConfig.swift */,
+				570A968A6B8FB20CCA642699 /* ContentData.swift */,
 			);
 			name = config;
 			sourceTree = "<group>";
@@ -161,6 +173,7 @@
 				21C68BDD1E34F9B200ECA5C0 /* config */,
 				570A99CB67F22E9BA42FA035 /* ListItem.swift */,
 				570A9CF8041BC5DECC11B97E /* SiteInfo.swift */,
+				DF8894AF1E48A692004D1071 /* CrawlingError.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -177,10 +190,12 @@
 		570A957F8AB4F1920273724E /* crawler */ = {
 			isa = PBXGroup;
 			children = (
+				DF114BE01E55F27C00799A1F /* ClienParkContentCrawler.swift */,
 				570A93D51AF4E6040B4B2BDC /* ListCrawler.swift */,
 				570A968A9E6CED0BB98815B2 /* TestCrawler.swift */,
 				570A9BCFC5EAC3B6A3E76556 /* ClienParkBoardCrawler.swift */,
 				2105BEF21E51DEFB000FE20C /* DdanziCrawler.swift */,
+				570A9EA12641C496A2631BD2 /* ContentCrawler.swift */,
 			);
 			path = crawler;
 			sourceTree = "<group>";
@@ -375,7 +390,7 @@
 				TargetAttributes = {
 					DF8B0B501DFEDD7200BC1912 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = VK4UM2DHN5;
+						DevelopmentTeam = VHCPK6862V;
 						ProvisioningStyle = Automatic;
 					};
 					DF8B0B641DFEDD7200BC1912 = {
@@ -508,9 +523,14 @@
 				570A917976BC12DBD320C4A7 /* BottomMenuController.swift in Sources */,
 				570A954B935DE77B957C56DB /* BottomMenuType.swift in Sources */,
 				570A92A6E296EDFD90BED53E /* ClienParkBoardCrawler.swift in Sources */,
+				DF114BE11E55F27D00799A1F /* ClienParkContentCrawler.swift in Sources */,
 				2105BEEF1E51DBF6000FE20C /* SiteConfigDelegate.swift in Sources */,
 				21DA278B1E1A73A400D46551 /* ConfigureViewCell.swift in Sources */,
 				2105BEEC1E51DBEE000FE20C /* BoardViewController.swift in Sources */,
+				DF114BDF1E55F26400799A1F /* ContentViewController.swift in Sources */,
+				570A9EC3702C09D7738085A8 /* ContentCrawler.swift in Sources */,
+				DF8894B01E48A692004D1071 /* CrawlingError.swift in Sources */,
+				570A9844CA4F9C048D5C5DB4 /* ContentData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,7 +676,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VK4UM2DHN5;
+				DEVELOPMENT_TEAM = VHCPK6862V;
 				INFOPLIST_FILE = candlelight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -673,7 +693,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VK4UM2DHN5;
+				DEVELOPMENT_TEAM = VHCPK6862V;
 				INFOPLIST_FILE = candlelight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

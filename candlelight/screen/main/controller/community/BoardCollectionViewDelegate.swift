@@ -40,6 +40,13 @@ class BoardCollectionViewDelegate: NSObject, UICollectionViewDataSource, UIColle
     }
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        guard let parent = viewController,
+            let bottomMenuController = parent.bottomMenuController,
+            indexPath.row < boardItems.count else {
+            return
+        }
+        let item = boardItems[indexPath.row]
+        let addController = ContentViewController(item.url, bottomMenuController: bottomMenuController)
+        parent.navigationController?.pushViewController(addController, animated: true)
     }
 }
