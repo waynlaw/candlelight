@@ -7,7 +7,7 @@ class ContentViewController: UIViewController {
     let bottomMenuController: BottomMenuController?
 
     var crawler: ContentCrawler?
-    var contentTextView: UILabel?
+    var contentWebView: UIWebView?
 
     required init?(coder aDecoder: NSCoder) {
         self.bottomMenuController = nil
@@ -39,35 +39,43 @@ class ContentViewController: UIViewController {
         let mainRect = UIScreen.main.bounds
         root.frame = CGRect(x: 0, y: 0, width: mainRect.width, height: mainRect.height)
 
-        setupCollectionView(parent: root)
+        setupContentsView(parent: root)
         bottomMenuController?.setupBottomButtons(parent: root)
 
         self.view = root
     }
 
-    func setupCollectionView(parent: UIView) {
+    func setupContentsView(parent: UIView) {
         let parentFrame = parent.frame
         let frame = CGRect(x: parentFrame.origin.x, y: parentFrame.origin.y, width: parentFrame.size.width, height: parentFrame.size.height)
 
-        let leftMargin = 20.0 as CGFloat
-        let textLabel = UILabel(frame: CGRect(x: leftMargin, y: 0, width: frame.size.width - leftMargin, height: frame.size.height))
-        textLabel.textAlignment = .left
-        textLabel.textColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1.0)
-        parent.addSubview(textLabel)
+        let webview: UIWebView = UIWebView(frame: frame)
+        webview.isOpaque = false
+        webview.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
+        parent.addSubview(webview)
 
-        contentTextView = textLabel
-        
-        crawler?.getContent().onSuccess { result in
-            self.contentTextView?.text = result.content
-        }
+        contentWebView = webview
+
+        crawler?.getContent()
+                .onSuccess { result in
+                    let url = URL(string: "http://www.clien.net/cs2/bbs/")
+                    let html = self.fullHtmlFromBody(result.content)
+                    webview.loadHTMLString(html, baseURL: url)
+                }
     }
-    
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.portrait
     }
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+
+    func fullHtmlFromBody(_ body: String) -> String {
+        let header = "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:fb=\"http://www.facebook.com/2008/fbml\"><head></head><body><font color=\"#BFBFBF\">";
+        let footer = "</body></html>";
+        return header + body + footer;
     }
 }
 
