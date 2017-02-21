@@ -203,12 +203,12 @@
 		570A95CAC75A131F861B736F /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				2105BEF01E51DBFD000FE20C /* CommunityController.swift */,
 				2105BEE61E51DBCE000FE20C /* community */,
 				2105BEE71E51DBD4000FE20C /* config */,
-				21DA278C1E1A76F700D46551 /* ConfigController.swift */,
 				570A957F8AB4F1920273724E /* crawler */,
 				570A9530CB9DB024C33D94E1 /* element */,
+				2105BEF01E51DBFD000FE20C /* CommunityController.swift */,
+				21DA278C1E1A76F700D46551 /* ConfigController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
