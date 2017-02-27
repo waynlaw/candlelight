@@ -32,7 +32,7 @@ class ClienParkContentCrawler: ContentCrawler {
     func parseHTML(html: String) -> Result<ContentData, CrawlingError> {
         if let doc = HTML(html: html, encoding: .utf8) {
             if let content = doc.xpath("//span[@id='writeContents']").first,
-                let bodyText = content.text {
+                let bodyText = content.toHTML {
                 return .success(ContentData(content: bodyText))
             }
         }
