@@ -27,6 +27,7 @@ class ConfigController: UIViewController {
         
         super.init(nibName: nil, bundle: nil)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "설정"

@@ -34,7 +34,7 @@ class BottomMenuController: NSObject {
 
     func buttonImage(_ menuType: BottomMenuType) -> String {
         switch menuType {
-        case .board: return "images/btn_1.png"
+        case .bookmark: return "images/btn_1.png"
         case .site: return "images/btn_2.png"
         case .undefined_1: return "images/btn_3.png"
         case .undefined_2: return "images/btn_4.png"

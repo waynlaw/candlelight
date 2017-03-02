@@ -1,17 +1,30 @@
+
 import UIKit
 
-class CommunityController: UIViewController {
+class BookmarkController: UIViewController {
 
     static let collectionReuseIdentifier = "collectionCell"
 
-    let bottomMenuController: BottomMenuController = BottomMenuController()
+    let bottomMenuController: BottomMenuController?
 
-    var collectionSource: SiteCollectionViewDelegate?
+    var collectionSource: BookmarkViewDelegate?
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.bottomMenuController = nil
+        
+        super.init(coder: aDecoder)
+    }
+    
+    init(bottomMenuController: BottomMenuController) {
+        self.bottomMenuController = bottomMenuController
+        
+        super.init(nibName: nil, bundle: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "함께 보기"
+        self.navigationItem.title = "즐겨찾기"
     }
 
     override func loadView() {
@@ -22,21 +35,9 @@ class CommunityController: UIViewController {
         root.frame = CGRect(x: 0, y: 0, width: mainRect.width, height: mainRect.height)
 
         setupCollectionView(parent: root)
-        setupBottomMenu(parent: root)
-        
+        bottomMenuController?.setupBottomButtons(parent: root)
+
         self.view = root
-    }
-    
-    func setupBottomMenu(parent: UIView) {
-        bottomMenuController.setCurrentController(self)
-        bottomMenuController.setController(type: .site, controller: self)
-        bottomMenuController.setupBottomButtons(parent: parent)
-        
-        let configureController = ConfigController(bottomMenuController: bottomMenuController)
-        let bookmarkController = BookmarkController(bottomMenuController: bottomMenuController)
-        
-        bottomMenuController.setController(type: .bookmark, controller: bookmarkController)
-        bottomMenuController.setController(type: .configure, controller: configureController)
     }
 
     func setupCollectionView(parent: UIView) {
@@ -49,9 +50,9 @@ class CommunityController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 1
 
-        let source = SiteCollectionViewDelegate(self)
+        let source = BookmarkViewDelegate()
         let collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
-        collectionView.register(SiteCollectionViewCell.self, forCellWithReuseIdentifier: CommunityController.collectionReuseIdentifier)
+        collectionView.register(BookmarkViewCell.self, forCellWithReuseIdentifier: BookmarkController.collectionReuseIdentifier)
         collectionView.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0)
         collectionView.dataSource = source
         collectionView.delegate = source
@@ -61,17 +62,16 @@ class CommunityController: UIViewController {
 
         collectionSource = source
     }
-    
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.portrait
     }
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         collectionSource?.reloadCollectionView()
     }
 }
-
