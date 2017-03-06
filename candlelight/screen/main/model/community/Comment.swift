@@ -10,14 +10,16 @@ import Foundation
 
 class Comment{
     // 댓글
-    let content: String
+    var content: String?
    
     // 작성자
-    let author: String
+    var author: String?
     
     // 작성일
-    let regDate: NSDate
+    var regDate: NSDate?
     
     // 댓글 깊이
-    let depth: Int
+    var depth: Int?
+    
+    public init(){}
 }

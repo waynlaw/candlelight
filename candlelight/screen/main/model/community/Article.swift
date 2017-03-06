@@ -9,18 +9,20 @@ import Foundation
 
 class Article {
     // 제목
-    let title: String
+    var title: String?
     
     // 작성자
-    let author: String
+    var author: String?
     
     // 읽은 수
-    let readCount: Int
+    var readCount: Int?
     
     // 작성일
-    let regDate: NSDate
+    var regDate: NSDate?
     
     // 댓글
-    let comments: List<Comment>
+    var comments: [Comment]?
     
+    public init(){
+    }
 }
