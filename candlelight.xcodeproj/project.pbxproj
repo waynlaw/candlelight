@@ -16,6 +16,9 @@
 		2105BEF31E51DEFB000FE20C /* DdanziCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105BEF21E51DEFB000FE20C /* DdanziCrawler.swift */; };
 		211977C41E34FA11008CFDAE /* SiteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211977C31E34FA11008CFDAE /* SiteConfig.swift */; };
 		2188B6031E3AE306000C1193 /* SiteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188B6021E3AE306000C1193 /* SiteConfigManager.swift */; };
+		2194B2681E64571C00119FBD /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 2194B2671E64571C00119FBD /* template.html */; };
+		2194B26B1E6D816800119FBD /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2194B26A1E6D816800119FBD /* Article.swift */; };
+		2194B26D1E6D828800119FBD /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2194B26C1E6D828800119FBD /* Comment.swift */; };
 		21DA278B1E1A73A400D46551 /* ConfigureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA278A1E1A73A400D46551 /* ConfigureViewCell.swift */; };
 		21DA278D1E1A76F700D46551 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA278C1E1A76F700D46551 /* ConfigController.swift */; };
 		570A917976BC12DBD320C4A7 /* BottomMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9F54BD572E143177FAE9 /* BottomMenuController.swift */; };
@@ -70,6 +73,9 @@
 		2105BEF21E51DEFB000FE20C /* DdanziCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DdanziCrawler.swift; sourceTree = "<group>"; };
 		211977C31E34FA11008CFDAE /* SiteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteConfig.swift; path = config/SiteConfig.swift; sourceTree = "<group>"; };
 		2188B6021E3AE306000C1193 /* SiteConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteConfigManager.swift; path = manager/config/SiteConfigManager.swift; sourceTree = "<group>"; };
+		2194B2671E64571C00119FBD /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = template.html; path = html/template.html; sourceTree = "<group>"; };
+		2194B26A1E6D816800119FBD /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Article.swift; path = community/Article.swift; sourceTree = "<group>"; };
+		2194B26C1E6D828800119FBD /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = community/Comment.swift; sourceTree = "<group>"; };
 		21DA278A1E1A73A400D46551 /* ConfigureViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureViewCell.swift; sourceTree = "<group>"; };
 		21DA278C1E1A76F700D46551 /* ConfigController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
 		3516DF90A02186DD413A7B0A /* Pods_candlelight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_candlelight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +176,15 @@
 			name = config;
 			sourceTree = "<group>";
 		};
+		2194B2691E6D812700119FBD /* community */ = {
+			isa = PBXGroup;
+			children = (
+				2194B26A1E6D816800119FBD /* Article.swift */,
+				2194B26C1E6D828800119FBD /* Comment.swift */,
+			);
+			name = community;
+			sourceTree = "<group>";
+		};
 		21C68BDD1E34F9B200ECA5C0 /* config */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +198,7 @@
 		570A9506AF79DFE04719FF85 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				2194B2691E6D812700119FBD /* community */,
 				21C68BDD1E34F9B200ECA5C0 /* config */,
 				570A99CB67F22E9BA42FA035 /* ListItem.swift */,
 				570A9CF8041BC5DECC11B97E /* SiteInfo.swift */,
@@ -277,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				DF5D84C01E0ABCA800912330 /* images */,
+				2194B2671E64571C00119FBD /* template.html */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -405,7 +422,7 @@
 				TargetAttributes = {
 					DF8B0B501DFEDD7200BC1912 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = VHCPK6862V;
+						DevelopmentTeam = MN66WZL2L3;
 						ProvisioningStyle = Automatic;
 					};
 					DF8B0B641DFEDD7200BC1912 = {
@@ -447,6 +464,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2194B2681E64571C00119FBD /* template.html in Resources */,
 				DF5D84C11E0ABCA800912330 /* images in Resources */,
 				DF8B0B5F1DFEDD7200BC1912 /* LaunchScreen.storyboard in Resources */,
 				DF8B0B5C1DFEDD7200BC1912 /* Assets.xcassets in Resources */,
@@ -545,7 +563,9 @@
 				DF114BDF1E55F26400799A1F /* ContentViewController.swift in Sources */,
 				570A9EC3702C09D7738085A8 /* ContentCrawler.swift in Sources */,
 				DF8894B01E48A692004D1071 /* CrawlingError.swift in Sources */,
+				2194B26B1E6D816800119FBD /* Article.swift in Sources */,
 				570A9844CA4F9C048D5C5DB4 /* ContentData.swift in Sources */,
+				2194B26D1E6D828800119FBD /* Comment.swift in Sources */,
 				570A9A77637B1573CDACD171 /* BookmarkController.swift in Sources */,
 				570A919F0BFBB6F80EC66C1C /* BookmarkManager.swift in Sources */,
 				570A9951F90FA11AA58EFE61 /* BookmarkData.swift in Sources */,
@@ -696,7 +716,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VHCPK6862V;
+				DEVELOPMENT_TEAM = MN66WZL2L3;
 				INFOPLIST_FILE = candlelight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -713,7 +733,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VHCPK6862V;
+				DEVELOPMENT_TEAM = MN66WZL2L3;
 				INFOPLIST_FILE = candlelight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

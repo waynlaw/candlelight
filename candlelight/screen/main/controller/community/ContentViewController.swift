@@ -58,9 +58,18 @@ class ContentViewController: UIViewController {
 
         crawler?.getContent()
                 .onSuccess { result in
-                    let url = URL(string: "http://www.clien.net/cs2/bbs/")
+                    
                     let html = self.fullHtmlFromBody(result.content)
-                    webview.loadHTMLString(html, baseURL: url)
+                    
+                    do{
+                        let filepath = Bundle.main.path(forResource: "template", ofType: "html", inDirectory: "")
+                        let contents = try String(contentsOfFile: filepath!)
+                        
+                        let contentHtml = contents.replacingOccurrences(of: "{{title}}", with: "제목")
+                        
+                        webview.loadHTMLString(contentHtml, baseURL: nil)
+                    } catch {
+                    }
                 }
     }
 
@@ -73,9 +82,11 @@ class ContentViewController: UIViewController {
     }
 
     func fullHtmlFromBody(_ body: String) -> String {
-        let header = "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:fb=\"http://www.facebook.com/2008/fbml\"><head></head><body><font color=\"#BFBFBF\">";
-        let footer = "</body></html>";
-        return header + body + footer;
+        let header = "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:fb=\"http://www.facebook.com/2008/fbml\"><head></head><body><font color=\"#BFBFBF\">"
+        let footer = "</body></html>"
+        
+        let test = "<h2 style='font-color:yellow'>블라블라블라</h2>"
+        return header + test + footer;
     }
 }
 
