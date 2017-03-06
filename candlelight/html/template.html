@@ -2,12 +2,115 @@
     <head>
         <meta charset="UTF-8">
         <style>
+            .header{
+                padding-left: 10px;
+                padding-top: 0px;
+            }
+
+            .line{
+                height: 1px;
+                background-color: #a9a9a9;
+                margin:10px 10px 10px 10px;
+            }
+
+            .bodies{
+                padding: 10px
+            }
+
             .title{
-                color: yellow;
+                font-size:20px;
+                color: #797979;
+            }
+
+            .author{
+                padding-right:10px;
+                color:#a9a9a9;
+            }
+
+            .reg-date{
+                padding-right:5px;
+                color: #a9a9a9;
+            }
+
+            .read-count{
+                color: #a9a9a9;
+            }
+
+            .comments div{
+                padding-bottom:5px;
+                border-bottom:solid 1px #a9a9a9;
+            }
+
+            .depth1{
+                margin-left:10px;
+            }
+
+            .depth2{
+                margin-left:25px;
+            }
+
+            .depth3{
+                margin-left:40px;
+            }
+
+            .depth4{
+                margin-left:55px;
+            }
+
+            .depth5{
+                margin-left:70px;
+            }
+
+            .depth6{
+                margin-left:85px;
+            }
+
+            .depth7{
+                margin-left:100px;
             }
         </style>
     </head>
     <body>
-        <h2 class='title'>{{title}}</h2>
+        <div class='header'>
+            <h2 class='title'>{{title}}</h2>
+            <p>
+                <span class='author'>{{author}}</span>
+                <span class='reg-date'>{{regDate}}</span>
+                <span class='read-count'>{{readCount}} 읽음</span></p>
+        </div>
+        <div class='line'></div>
+        <div class='bodies'>
+            블라블라 블라 블라<br>
+        </div>
+        <div class='line'></div>
+        <div class='comments'>
+            <div class='depth1'>
+                <p>
+                    <span class='author'>{{author}}</span>
+                    <span class='reg-date'>{{regDate}}</span>
+                </p>
+                <span class='comment'>
+                    {{comment}}
+                </span>
+            </div>
+            <div class='depth2'>
+                <p>
+                    <span class='author'>{{author}}</span>
+                    <span class='reg-date'>{{regDate}}</span>
+                </p>
+                <span class='comment'>
+                    {{comment}}
+                </span>
+            </div>
+            <div class='depth3'>
+                <p>
+                    <span class='author'>{{author}}</span>
+                    <span class='reg-date'>{{regDate}}</span>
+                </p>
+                <span class='comment'>
+                    {{comment}}
+                </span>
+            </div>
+        </div>
     </body>
 </html>
