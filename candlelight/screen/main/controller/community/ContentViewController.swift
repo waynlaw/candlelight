@@ -65,7 +65,11 @@ class ContentViewController: UIViewController {
                         let filepath = Bundle.main.path(forResource: "template", ofType: "html", inDirectory: "")
                         let contents = try String(contentsOfFile: filepath!)
                         
-                        let contentHtml = contents.replacingOccurrences(of: "{{title}}", with: "제목")
+                        let contentHtml = contents.replacingOccurrences(of: "{{author}}", with: "작성자")
+                                                .replacingOccurrences(of: "{{regDate}}", with: "작성일")
+                                                .replacingOccurrences(of: "{{readCount}}", with: "조회수")
+                                                .replacingOccurrences(of: "{{content}}", with: "본문")
+                                                .replacingOccurrences(of: "{{reply}}", with: "댓글")
                         
                         webview.loadHTMLString(contentHtml, baseURL: nil)
                     } catch {
