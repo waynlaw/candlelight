@@ -18,32 +18,31 @@ class BookmarkManager {
     }
    
     func select() -> List<BookmarkData> {
-        let scs: Results<BookmarkData> = realm.objects(BookmarkData.self)
-        return List(scs)
+        let bms: Results<BookmarkData> = realm.objects(BookmarkData.self)
+        return List(bms)
     }
     
     func selectById(_ id: Int) -> BookmarkData? {
-        let sc = realm.object(ofType: BookmarkData.self, forPrimaryKey:  id)
-        return sc;
+        let bm = realm.object(ofType: BookmarkData.self, forPrimaryKey:  id)
+        return bm;
     }
     
     // Why real.add doesn't have return value?
-    func insert(_ sc: BookmarkData) {
+    func insert(_ bm: BookmarkData) {
         try! realm.write {
-            realm.add(sc)
+            realm.add(bm)
         }
     }
     
-    func upsert(_ sc: BookmarkData) {
+    func upsert(_ bm: BookmarkData) {
         try! realm.write {
-            realm.add(sc, update: true)
+            realm.add(bm, update: true)
         }
     }
     
-    func delete(_ sc: BookmarkData) {
+    func delete(_ bm: BookmarkData) {
         try! realm.write {
-            realm.delete(sc)
-            
+            realm.delete(bm)
         }
     }
 }

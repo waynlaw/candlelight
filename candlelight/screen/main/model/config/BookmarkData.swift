@@ -15,10 +15,10 @@ class BookmarkData: Object {
     dynamic var url: String = ""
 
     override static func primaryKey() -> String? {
-        return "id"
+        return "title"
     }
 
     override static func indexedProperties() -> [String] {
-        return ["id"]
+        return ["title"]
     }
 }

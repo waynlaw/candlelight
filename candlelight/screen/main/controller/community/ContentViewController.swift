@@ -8,6 +8,7 @@ class ContentViewController: UIViewController {
 
     var crawler: ContentCrawler?
     var contentWebView: UIWebView?
+    var url: String?
 
     required init?(coder aDecoder: NSCoder) {
         self.bottomMenuController = nil
@@ -18,6 +19,7 @@ class ContentViewController: UIViewController {
     init(_ url: String, bottomMenuController: BottomMenuController) {
         self.bottomMenuController = bottomMenuController
         self.crawler = ClienParkContentCrawler(url)
+        self.url = url
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -75,6 +77,30 @@ class ContentViewController: UIViewController {
                     } catch {
                     }
                 }
+        setupBookmarkButton(parent, parentFrame)
+    }
+
+    func setupBookmarkButton(_ parent: UIView, _ parentFrame:CGRect) {
+        let bookmarkButtonWidth = 100.0 as CGFloat
+        let bookmarkButtonHeight = 100.0 as CGFloat
+        let xPos = parentFrame.origin.x + parentFrame.size.width - bookmarkButtonWidth
+        let yPos = parentFrame.origin.y
+        let uiButton = UIButton(type: .system)
+        uiButton.setTitle("Bookmark", for: .normal)
+        uiButton.frame = CGRect(x: xPos, y: yPos, width: bookmarkButtonWidth, height: bookmarkButtonHeight)
+        uiButton.addTarget(self, action: #selector(bookMarkClicked), for: UIControlEvents.touchUpInside)
+        parent.addSubview(uiButton)
+    }
+
+    func bookMarkClicked() {
+        guard let url = self.url else {
+            return
+        }
+        let bookmarkManager = BookmarkManager()
+        let bookmark = BookmarkData()
+        bookmark.title = url
+        bookmark.url = url
+        bookmarkManager.upsert(bookmark)
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
