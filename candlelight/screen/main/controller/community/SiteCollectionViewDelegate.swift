@@ -11,7 +11,7 @@ class SiteCollectionViewDelegate: NSObject, UICollectionViewDataSource, UICollec
     weak var collectionView: UICollectionView? = nil
     
     let clienCrawler = ClienParkBoardCrawler()
-    let ddanziCrawler = DdanziCrawler()
+    let ddanziCrawler = DdanziBoardCrawler()
 
     public init(_ communityController: CommunityController) {
         

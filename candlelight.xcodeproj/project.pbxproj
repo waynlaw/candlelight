@@ -13,8 +13,8 @@
 		2105BEED1E51DBEE000FE20C /* SiteCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105BEEA1E51DBEE000FE20C /* SiteCollectionViewDelegate.swift */; };
 		2105BEEF1E51DBF6000FE20C /* SiteConfigDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105BEEE1E51DBF6000FE20C /* SiteConfigDelegate.swift */; };
 		2105BEF11E51DBFD000FE20C /* CommunityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105BEF01E51DBFD000FE20C /* CommunityController.swift */; };
-		2105BEF31E51DEFB000FE20C /* DdanziCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105BEF21E51DEFB000FE20C /* DdanziCrawler.swift */; };
 		211977C41E34FA11008CFDAE /* SiteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211977C31E34FA11008CFDAE /* SiteConfig.swift */; };
+		21654EEF1E895F3300356429 /* DdanziBoardCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654EEE1E895F3300356429 /* DdanziBoardCrawler.swift */; };
 		2188B6031E3AE306000C1193 /* SiteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188B6021E3AE306000C1193 /* SiteConfigManager.swift */; };
 		2194B2681E64571C00119FBD /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 2194B2671E64571C00119FBD /* template.html */; };
 		2194B26B1E6D816800119FBD /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2194B26A1E6D816800119FBD /* Article.swift */; };
@@ -70,8 +70,8 @@
 		2105BEEA1E51DBEE000FE20C /* SiteCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteCollectionViewDelegate.swift; path = community/SiteCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		2105BEEE1E51DBF6000FE20C /* SiteConfigDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteConfigDelegate.swift; path = config/SiteConfigDelegate.swift; sourceTree = "<group>"; };
 		2105BEF01E51DBFD000FE20C /* CommunityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityController.swift; sourceTree = "<group>"; };
-		2105BEF21E51DEFB000FE20C /* DdanziCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DdanziCrawler.swift; sourceTree = "<group>"; };
 		211977C31E34FA11008CFDAE /* SiteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteConfig.swift; path = config/SiteConfig.swift; sourceTree = "<group>"; };
+		21654EEE1E895F3300356429 /* DdanziBoardCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DdanziBoardCrawler.swift; sourceTree = "<group>"; };
 		2188B6021E3AE306000C1193 /* SiteConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteConfigManager.swift; path = manager/config/SiteConfigManager.swift; sourceTree = "<group>"; };
 		2194B2671E64571C00119FBD /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = template.html; path = html/template.html; sourceTree = "<group>"; };
 		2194B26A1E6D816800119FBD /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Article.swift; path = community/Article.swift; sourceTree = "<group>"; };
@@ -219,11 +219,11 @@
 		570A957F8AB4F1920273724E /* crawler */ = {
 			isa = PBXGroup;
 			children = (
+				21654EEE1E895F3300356429 /* DdanziBoardCrawler.swift */,
 				570A93D51AF4E6040B4B2BDC /* ListCrawler.swift */,
 				570A968A9E6CED0BB98815B2 /* TestCrawler.swift */,
 				570A9BCFC5EAC3B6A3E76556 /* ClienParkBoardCrawler.swift */,
 				DF114BE01E55F27C00799A1F /* ClienParkContentCrawler.swift */,
-				2105BEF21E51DEFB000FE20C /* DdanziCrawler.swift */,
 				570A9EA12641C496A2631BD2 /* ContentCrawler.swift */,
 			);
 			path = crawler;
@@ -545,12 +545,12 @@
 				2105BEEB1E51DBEE000FE20C /* BoardCollectionViewDelegate.swift in Sources */,
 				2105BEF11E51DBFD000FE20C /* CommunityController.swift in Sources */,
 				2188B6031E3AE306000C1193 /* SiteConfigManager.swift in Sources */,
+				21654EEF1E895F3300356429 /* DdanziBoardCrawler.swift in Sources */,
 				2105BEED1E51DBEE000FE20C /* SiteCollectionViewDelegate.swift in Sources */,
 				570A9EC24FF03CC0E77190E7 /* ListCrawler.swift in Sources */,
 				570A9FBFDB7CBF7B408A65B7 /* ListItem.swift in Sources */,
 				570A9F96A199B841D9FE32DB /* TestCrawler.swift in Sources */,
 				DFA03E261E1A715700D039FC /* SiteCollectionViewCell.swift in Sources */,
-				2105BEF31E51DEFB000FE20C /* DdanziCrawler.swift in Sources */,
 				211977C41E34FA11008CFDAE /* SiteConfig.swift in Sources */,
 				570A99718D70AE8213C878BA /* SiteInfo.swift in Sources */,
 				570A917976BC12DBD320C4A7 /* BottomMenuController.swift in Sources */,
