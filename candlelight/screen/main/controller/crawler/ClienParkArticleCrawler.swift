@@ -5,7 +5,7 @@ import enum Result.NoError
 import Alamofire
 import Kanna
 
-class ClienParkContentCrawler: ContentCrawler {
+class ClienParkArticleCrawler: ContentCrawler {
 
     let baseUrl = "http://www.clien.net/cs2/"
     let url: String
@@ -14,12 +14,12 @@ class ClienParkContentCrawler: ContentCrawler {
         self.url = baseUrl + url.substring(from: url.index(url.startIndex, offsetBy: 3))
     }
 
-    func getContent() -> Future<ContentData, CrawlingError>{
+    func getContent() -> Future<Article, CrawlingError>{
         return result()
     }
 
-    func result() -> Future<ContentData, CrawlingError> {
-        return Future<ContentData, CrawlingError> { complete in
+    func result() -> Future<Article, CrawlingError> {
+        return Future<Article, CrawlingError> { complete in
             print(url)
             Alamofire.request(url).responseString(encoding: .utf8, completionHandler: { response in
                         if let html = response.result.value {
@@ -29,13 +29,13 @@ class ClienParkContentCrawler: ContentCrawler {
         }
     }
 
-    func parseHTML(html: String) -> Result<ContentData, CrawlingError> {
+    func parseHTML(html: String) -> Result<Article, CrawlingError> {
         if let doc = HTML(html: html, encoding: .utf8) {
             if let content = doc.xpath("//span[@id='writeContents']").first,
                 let bodyText = content.toHTML {
-                return .success(ContentData(content: bodyText))
+                return .success(Article())
             }
         }
-        return Result<ContentData, CrawlingError>(error: CrawlingError.contentNotFound)
+        return Result<Article, CrawlingError>(error: CrawlingError.contentNotFound)
     }
 }

@@ -18,7 +18,7 @@ class ContentViewController: UIViewController {
 
     init(_ url: String, bottomMenuController: BottomMenuController) {
         self.bottomMenuController = bottomMenuController
-        self.crawler = ClienParkContentCrawler(url)
+        self.crawler = ClienParkArticleCrawler(url)
         self.url = url
 
         super.init(nibName: nil, bundle: nil)
@@ -61,7 +61,7 @@ class ContentViewController: UIViewController {
         crawler?.getContent()
                 .onSuccess { result in
                     
-                    let html = self.fullHtmlFromBody(result.content)
+//                     let html = self.fullHtmlFromBody(result.content)
                     
                     do{
                         let filepath = Bundle.main.path(forResource: "template", ofType: "html", inDirectory: "")

@@ -25,4 +25,13 @@ class Article {
     
     public init(){
     }
+    
+    public init(title: String, author: String, readCount: Int, regDate: NSDate, comments: [Comment]){
+        self.title = title
+        self.author = author
+        self.readCount = readCount
+        self.regDate = regDate
+        self.comments = comments
+        
+    }
 }
