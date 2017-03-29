@@ -1,23 +1,15 @@
 import UIKit
 import Foundation
+import RealmSwift
 
 class BookmarkViewDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    var bookmarkDataList: Array<BookmarkData> = []
+    var bookmarkDataList: List<BookmarkData> = List()
     var collectionView: UICollectionView?
+    var bookmarkManager: BookmarkManager = BookmarkManager()
     
     public override init() {
-        let testData1 = BookmarkData()
-        testData1.id = 0
-        testData1.title = "Test Data 1"
-        testData1.url = "https://github.com/"
-        bookmarkDataList.append(testData1)
-
-        let testData2 = BookmarkData()
-        testData2.id = 0
-        testData2.title = "Test Data 2"
-        testData2.url = "https://google.com/"
-        bookmarkDataList.append(testData2)
+        bookmarkDataList = bookmarkManager.select()
     }
 
     public func numberOfSections(in collectionView: UICollectionView) -> Int {

@@ -8,7 +8,7 @@ class ContentViewController: UIViewController {
 
     var crawler: ContentCrawler?
     var contentWebView: UIWebView?
-    var url: String?
+    var contentsInfo: ListItem?
 
     required init?(coder aDecoder: NSCoder) {
         self.bottomMenuController = nil
@@ -16,10 +16,10 @@ class ContentViewController: UIViewController {
         super.init(coder: aDecoder)
     }
 
-    init(_ url: String, bottomMenuController: BottomMenuController) {
+    init(_ contentsInfo: ListItem, bottomMenuController: BottomMenuController) {
         self.bottomMenuController = bottomMenuController
-        self.crawler = ClienParkArticleCrawler(url)
-        self.url = url
+        self.crawler = ClienParkArticleCrawler(contentsInfo.url)
+        self.contentsInfo = contentsInfo
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -78,13 +78,13 @@ class ContentViewController: UIViewController {
     }
 
     func bookMarkClicked() {
-        guard let url = self.url else {
+        guard let contentsInfo = self.contentsInfo else {
             return
         }
         let bookmarkManager = BookmarkManager()
         let bookmark = BookmarkData()
-        bookmark.title = url
-        bookmark.url = url
+        bookmark.title = contentsInfo.title
+        bookmark.url = contentsInfo.url
         bookmarkManager.upsert(bookmark)
     }
 
