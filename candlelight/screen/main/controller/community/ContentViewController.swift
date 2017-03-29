@@ -59,7 +59,7 @@ class ContentViewController: UIViewController {
         contentWebView = webview
 
         crawler?.getContent()
-                .onSuccess { result in
+                .onSuccess { article in
                     
 //                     let html = self.fullHtmlFromBody(result.content)
                     
@@ -67,10 +67,10 @@ class ContentViewController: UIViewController {
                         let filepath = Bundle.main.path(forResource: "template", ofType: "html", inDirectory: "")
                         let contents = try String(contentsOfFile: filepath!)
                         
-                        let contentHtml = contents.replacingOccurrences(of: "{{author}}", with: "작성자")
-                                                .replacingOccurrences(of: "{{regDate}}", with: "작성일")
-                                                .replacingOccurrences(of: "{{readCount}}", with: "조회수")
-                                                .replacingOccurrences(of: "{{content}}", with: "본문")
+                        let contentHtml = contents.replacingOccurrences(of: "{{author}}", with: article.title!)
+                                                .replacingOccurrences(of: "{{regDate}}", with: article.regDate!.description)
+                                                .replacingOccurrences(of: "{{readCount}}", with: article.readCount!.description)
+                                                .replacingOccurrences(of: "{{content}}", with: article.content!)
                                                 .replacingOccurrences(of: "{{reply}}", with: "댓글")
                         
                         webview.loadHTMLString(contentHtml, baseURL: nil)

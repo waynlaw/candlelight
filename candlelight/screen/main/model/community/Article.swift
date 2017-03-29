@@ -17,6 +17,9 @@ class Article {
     // 읽은 수
     var readCount: Int?
     
+    // 읽은 수
+    var content: String?
+    
     // 작성일
     var regDate: NSDate?
     
@@ -26,10 +29,11 @@ class Article {
     public init(){
     }
     
-    public init(title: String, author: String, readCount: Int, regDate: NSDate, comments: [Comment]){
+    public init(title: String, author: String, readCount: Int, content: String, regDate: NSDate, comments: [Comment]){
         self.title = title
         self.author = author
         self.readCount = readCount
+        self.content = content
         self.regDate = regDate
         self.comments = comments
         
