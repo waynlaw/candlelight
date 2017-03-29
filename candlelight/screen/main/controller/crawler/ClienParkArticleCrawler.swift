@@ -34,23 +34,27 @@ class ClienParkArticleCrawler: ContentCrawler {
             let authorOption = doc.xpath("//p[contains(@class, 'user_info')]//span").first?.text
             let readCountOption = doc.xpath("//p[contains(@class, 'post_info')]").first?.text
             let contentOption = doc.xpath("//div[@id='resContents']").first?.innerHTML
+            let commentsOption = doc.xpath("//div[contains(@class, 'reply_base')]")
            
-            guard let title = titleOption,
-                  let author = authorOption,
+            guard let title = titleOption, let author = authorOption,
                   let readCount = readCountOption,
                   let content = contentOption
                 else {
-                    NSLog("failed")
                     return .success(Article())
             }
+         
+            let comments = commentsOption.map({(c) -> HTMLDocument in
+                HTML(html: c.toHTML!, encoding: .utf8)!
+            }).map({ (cts) -> Comment in
+                let author = (cts.xpath("//li[contains(@class, 'user_id')]").first?.text)!
+                let date = (cts.xpath("//li[2]").first?.text)!
+                let content = (cts.xpath("//textarea").first?.text)!
+                
+                return Comment(author: author, content: content, regDate: NSDate(), depth: 1)
+            })
             
-            NSLog("there")
-            NSLog(title)
-            NSLog(author)
             let arr = readCount.components(separatedBy: ",")[1].components(separatedBy: ":")[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            NSLog(arr)
-            NSLog(content)
-            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: NSDate(), comments:[Comment]()))
+            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: NSDate(), comments: comments))
         }
         return Result<Article, CrawlingError>(error: CrawlingError.contentNotFound)
     }

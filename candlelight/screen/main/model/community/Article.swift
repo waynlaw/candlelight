@@ -36,6 +36,68 @@ class Article {
         self.content = content
         self.regDate = regDate
         self.comments = comments
-        
     }
+    
+    func toHtml() -> String{
+        do{
+            let filepath = Bundle.main.path(forResource: "template", ofType: "html", inDirectory: "")
+            let contents = try String(contentsOfFile: filepath!)
+            
+            // Optional guard
+            guard let _ = title,
+                let _ = author,
+                let _ = regDate,
+                let _ = readCount,
+                let _ = content,
+                let _ = comments else {
+                    return ""
+            }
+            
+            let coms = comments!.map({ (c) -> String in
+                c.toHtml()
+            }).reduce("", {$0 + $1})
+        
+            let contentHtml = contents.replacingOccurrences(of: "{{title}}", with: self.title!)
+                .replacingOccurrences(of: "{{author}}", with: self.author!)
+                .replacingOccurrences(of: "{{regDate}}", with: self.regDate!.description)
+                .replacingOccurrences(of: "{{readCount}}", with: self.readCount!.description)
+                .replacingOccurrences(of: "{{content}}", with: self.content!)
+                .replacingOccurrences(of: "{{comments}}", with: coms)
+            
+            return contentHtml
+            
+        } catch {
+        }
+        return ""
+    }
+/*
+            <div class='depth1'>
+                <p>
+                    <span class='author'>{{author}}</span>
+                    <span class='reg-date'>{{regDate}}</span>
+                </p>
+                <span class='comment'>
+                    {{comment}}
+                </span>
+            </div>
+            <div class='depth2'>
+                <p>
+                    <span class='author'>{{author}}</span>
+                    <span class='reg-date'>{{regDate}}</span>
+                </p>
+                <span class='comment'>
+                    {{comment}}
+                </span>
+            </div>
+            <div class='depth3'>
+                <p>
+                    <span class='author'>{{author}}</span>
+                    <span class='reg-date'>{{regDate}}</span>
+                </p>
+                <span class='comment'>
+                    {{comment}}
+                </span>
+            </div>
+*/
+    
 }

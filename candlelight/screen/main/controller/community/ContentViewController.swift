@@ -59,24 +59,9 @@ class ContentViewController: UIViewController {
         contentWebView = webview
 
         crawler?.getContent()
-                .onSuccess { article in
-                    
-//                     let html = self.fullHtmlFromBody(result.content)
-                    
-                    do{
-                        let filepath = Bundle.main.path(forResource: "template", ofType: "html", inDirectory: "")
-                        let contents = try String(contentsOfFile: filepath!)
-                        
-                        let contentHtml = contents.replacingOccurrences(of: "{{author}}", with: article.title!)
-                                                .replacingOccurrences(of: "{{regDate}}", with: article.regDate!.description)
-                                                .replacingOccurrences(of: "{{readCount}}", with: article.readCount!.description)
-                                                .replacingOccurrences(of: "{{content}}", with: article.content!)
-                                                .replacingOccurrences(of: "{{reply}}", with: "댓글")
-                        
-                        webview.loadHTMLString(contentHtml, baseURL: nil)
-                    } catch {
-                    }
-                }
+            .onSuccess { article in
+                webview.loadHTMLString(article.toHtml(), baseURL: nil)
+        }
         setupBookmarkButton(parent, parentFrame)
     }
 
@@ -111,6 +96,7 @@ class ContentViewController: UIViewController {
         return .lightContent
     }
 
+    // for test
     func fullHtmlFromBody(_ body: String) -> String {
         let header = "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:fb=\"http://www.facebook.com/2008/fbml\"><head></head><body><font color=\"#BFBFBF\">"
         let footer = "</body></html>"

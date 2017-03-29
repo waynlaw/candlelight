@@ -22,4 +22,16 @@ class Comment{
     var depth: Int?
     
     public init(){}
+    
+    public init(author: String, content: String, regDate: NSDate, depth: Int){
+        self.content = content
+        self.author = author
+        self.regDate = regDate
+        self.depth = depth
+    }
+    
+    func toHtml() -> String {
+        let res = "<div class='depth\(depth!) '> <p> <span class='author'>\(author!)</span> <span class='reg-date'>\(regDate!)</span> </p> <span class='comment'> \(content!) </span> </div>"
+        return res
+    }
 }
