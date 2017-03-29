@@ -46,11 +46,15 @@ class ClienParkArticleCrawler: ContentCrawler {
             let comments = commentsOption.map({(c) -> HTMLDocument in
                 HTML(html: c.toHTML!, encoding: .utf8)!
             }).map({ (cts) -> Comment in
+                guard let b = cts.xpath("//div").first?["style"] else {
+                        return Comment()
+                }
+                let depth = b.components(separatedBy: ":")[1].components(separatedBy: "px")[0] == "1" ? 0 : 1
                 let author = (cts.xpath("//li[contains(@class, 'user_id')]").first?.text)!
                 let date = (cts.xpath("//li[2]").first?.text)!
                 let content = (cts.xpath("//textarea").first?.text)!
                 
-                return Comment(author: author, content: content, regDate: NSDate(), depth: 1)
+                return Comment(author: author, content: content, regDate: NSDate(), depth: depth)
             })
             
             let arr = readCount.components(separatedBy: ",")[1].components(separatedBy: ":")[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
