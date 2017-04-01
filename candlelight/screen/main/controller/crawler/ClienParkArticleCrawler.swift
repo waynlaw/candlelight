@@ -36,13 +36,15 @@ class ClienParkArticleCrawler: ContentCrawler {
             let contentOption = doc.xpath("//div[@id='resContents']").first?.innerHTML
             let commentsOption = doc.xpath("//div[contains(@class, 'reply_base')]")
            
-            guard let title = titleOption, let author = authorOption,
+            guard let title = titleOption,
                   let readCount = readCountOption,
                   let content = contentOption
                 else {
+                    print("data is invalid")
                     return .success(Article())
             }
-         
+
+            let author = authorOption ?? "" // TODO: should fix it when name is image.
             let comments = commentsOption.map({(c) -> HTMLDocument in
                 HTML(html: c.toHTML!, encoding: .utf8)!
             }).map({ (cts) -> Comment in
