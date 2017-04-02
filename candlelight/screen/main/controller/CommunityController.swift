@@ -10,8 +10,10 @@ class CommunityController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
 
-        self.navigationItem.title = "함께 보기"
+//        self.navigationItem.title = "함께 보기"
     }
 
     override func loadView() {

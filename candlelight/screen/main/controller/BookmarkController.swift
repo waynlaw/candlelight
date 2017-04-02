@@ -24,7 +24,7 @@ class BookmarkController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "즐겨찾기"
+//        self.navigationItem.title = "즐겨찾기"
     }
 
     override func loadView() {

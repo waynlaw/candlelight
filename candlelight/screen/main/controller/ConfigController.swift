@@ -30,7 +30,7 @@ class ConfigController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "설정"
+//        self.navigationItem.title = "설정"
     }
     
     override func loadView() {
@@ -41,7 +41,7 @@ class ConfigController: UIViewController {
         root.frame = CGRect(x: 0, y: 0, width: mainRect.width, height: mainRect.height)
         root.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0)
         
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 80))
         label.textColor = UIColor.lightGray
         label.textAlignment = NSTextAlignment.left
         label.text = " 자주 가는 사이트"
@@ -56,7 +56,7 @@ class ConfigController: UIViewController {
  
     func setupCollectionView(parent: UIView) {
         let parentFrame = parent.frame
-        let frame = CGRect(x: 0, y: 130, width: parentFrame.size.width, height: parentFrame.size.height)
+        let frame = CGRect(x: 0, y: 60, width: parentFrame.size.width, height: parentFrame.size.height)
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: frame.size.width, height: 50)
