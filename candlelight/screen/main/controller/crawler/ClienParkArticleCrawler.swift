@@ -20,8 +20,9 @@ class ClienParkArticleCrawler: ContentCrawler {
 
     func result() -> Future<Article, CrawlingError> {
         return Future<Article, CrawlingError> { complete in
-            Alamofire.request(url).responseString(encoding: .utf8, completionHandler: { response in
-                        if let html = response.result.value {
+            Alamofire.request(url).responseData(completionHandler: { response in
+                        if let htmlWithoutEncoding = response.result.value,
+                           let html = String(data: DataEncodingHelper.healing(htmlWithoutEncoding), encoding: .utf8) {
                             complete(self.parseHTML(html: html))
                         }
                     })
