@@ -52,7 +52,17 @@ class ClienParkArticleCrawler: ContentCrawler {
                         return Comment()
                 }
                 let depth = b.components(separatedBy: ":")[1].components(separatedBy: "px")[0] == "1" ? 0 : 1
-                let author = (cts.xpath("//li[contains(@class, 'user_id')]").first?.text)!
+                
+                
+                let authorHtml = cts.xpath("//li[contains(@class, 'user_id')]").first
+                
+                var author = ""
+                if (authorHtml?.innerHTML!.contains("img"))! {
+                    author = matches(for: "[a-z0-9]+(?=.gif)", in: (authorHtml?.innerHTML)!).first!
+                } else {
+                    author = (authorHtml?.text)!
+                }
+                
                 let date = (cts.xpath("//li[2]").first?.text)!
                 let content = (cts.xpath("//textarea").first?.text)!
                 
@@ -63,5 +73,18 @@ class ClienParkArticleCrawler: ContentCrawler {
             return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: NSDate(), comments: comments))
         }
         return Result<Article, CrawlingError>(error: CrawlingError.contentNotFound)
+    }
+    
+    func matches(for regex: String, in text: String) -> [String] {
+        
+        do {
+            let regex = try NSRegularExpression(pattern: regex)
+            let nsString = text as NSString
+            let results = regex.matches(in: text, range: NSRange(location: 0, length: nsString.length))
+            return results.map { nsString.substring(with: $0.range)}
+        } catch let error {
+            print("invalid regex: \(error.localizedDescription)")
+            return []
+        }
     }
 }
