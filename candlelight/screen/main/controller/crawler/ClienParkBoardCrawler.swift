@@ -33,7 +33,7 @@ class ClienParkBoardCrawler: ListCrawler {
         var result = [ListItem]()
         if let doc = HTML(html: html, encoding: .utf8) {
             for content in doc.xpath("//div[contains(@class, 'board_main')]//tr") {
-                let titleOption = content.xpath("td[2]").first?.text
+                let titleOption = content.xpath("td[2]").first?.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 let pageIdOption = content.xpath("td[1]").first?.text.flatMap{v in Int(v)}
                 let urlOption = content.xpath("td[2]/a").first?["href"]
                 let authorOption = content.xpath("td[3]").first?.text
