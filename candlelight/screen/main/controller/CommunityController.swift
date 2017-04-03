@@ -6,7 +6,7 @@ class CommunityController: UIViewController {
 
     let bottomMenuController: BottomMenuController = BottomMenuController()
 
-    var collectionSource: SiteCollectionViewDelegate?
+    var collectionSource: CommunityViewDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +51,7 @@ class CommunityController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 1
 
-        let source = SiteCollectionViewDelegate(self)
+        let source = CommunityViewDelegate(self)
         let collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         collectionView.register(SiteCollectionViewCell.self, forCellWithReuseIdentifier: CommunityController.collectionReuseIdentifier)
         collectionView.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0)

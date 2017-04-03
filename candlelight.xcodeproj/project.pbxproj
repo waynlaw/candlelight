@@ -10,7 +10,7 @@
 		12EFD80B9835E54E6840E205 /* Pods_candlelight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3516DF90A02186DD413A7B0A /* Pods_candlelight.framework */; };
 		2105BEEB1E51DBEE000FE20C /* BoardCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105BEE81E51DBEE000FE20C /* BoardCollectionViewDelegate.swift */; };
 		2105BEEC1E51DBEE000FE20C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105BEE91E51DBEE000FE20C /* BoardViewController.swift */; };
-		2105BEED1E51DBEE000FE20C /* SiteCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105BEEA1E51DBEE000FE20C /* SiteCollectionViewDelegate.swift */; };
+		2105BEED1E51DBEE000FE20C /* CommunityViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105BEEA1E51DBEE000FE20C /* CommunityViewDelegate.swift */; };
 		2105BEEF1E51DBF6000FE20C /* SiteConfigDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105BEEE1E51DBF6000FE20C /* SiteConfigDelegate.swift */; };
 		2105BEF11E51DBFD000FE20C /* CommunityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105BEF01E51DBFD000FE20C /* CommunityController.swift */; };
 		211977C41E34FA11008CFDAE /* SiteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211977C31E34FA11008CFDAE /* SiteConfig.swift */; };
@@ -21,11 +21,11 @@
 		2194B26D1E6D828800119FBD /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2194B26C1E6D828800119FBD /* Comment.swift */; };
 		21DA278B1E1A73A400D46551 /* ConfigureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA278A1E1A73A400D46551 /* ConfigureViewCell.swift */; };
 		21DA278D1E1A76F700D46551 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA278C1E1A76F700D46551 /* ConfigController.swift */; };
+		21DBD84A1E92631800C13A6B /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DBD8491E92631800C13A6B /* BookmarkManager.swift */; };
+		21DBD84D1E9263CA00C13A6B /* BookmarkViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DBD84C1E9263CA00C13A6B /* BookmarkViewDelegate.swift */; };
 		570A917976BC12DBD320C4A7 /* BottomMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9F54BD572E143177FAE9 /* BottomMenuController.swift */; };
-		570A919F0BFBB6F80EC66C1C /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9F1CDFF423DD5B679E8C /* BookmarkManager.swift */; };
 		570A92944D78CC58435F3CDA /* BookmarkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9447AD041E32B066207B /* BookmarkViewCell.swift */; };
 		570A92A6E296EDFD90BED53E /* ClienParkBoardCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9BCFC5EAC3B6A3E76556 /* ClienParkBoardCrawler.swift */; };
-		570A93AD0841F9AB7DCC3814 /* BookmarkViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9DA9D8A2FB8D09CE0561 /* BookmarkViewDelegate.swift */; };
 		570A954B935DE77B957C56DB /* BottomMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A94BFB465E3C582A31863 /* BottomMenuType.swift */; };
 		570A9844CA4F9C048D5C5DB4 /* ContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A968A6B8FB20CCA642699 /* ContentData.swift */; };
 		570A9951F90FA11AA58EFE61 /* BookmarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9AC6B3D576CED7474BB7 /* BookmarkData.swift */; };
@@ -67,7 +67,7 @@
 /* Begin PBXFileReference section */
 		2105BEE81E51DBEE000FE20C /* BoardCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoardCollectionViewDelegate.swift; path = community/BoardCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		2105BEE91E51DBEE000FE20C /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoardViewController.swift; path = community/BoardViewController.swift; sourceTree = "<group>"; };
-		2105BEEA1E51DBEE000FE20C /* SiteCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteCollectionViewDelegate.swift; path = community/SiteCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		2105BEEA1E51DBEE000FE20C /* CommunityViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommunityViewDelegate.swift; path = community/CommunityViewDelegate.swift; sourceTree = "<group>"; };
 		2105BEEE1E51DBF6000FE20C /* SiteConfigDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteConfigDelegate.swift; path = config/SiteConfigDelegate.swift; sourceTree = "<group>"; };
 		2105BEF01E51DBFD000FE20C /* CommunityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityController.swift; sourceTree = "<group>"; };
 		211977C31E34FA11008CFDAE /* SiteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteConfig.swift; path = config/SiteConfig.swift; sourceTree = "<group>"; };
@@ -78,6 +78,8 @@
 		2194B26C1E6D828800119FBD /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = community/Comment.swift; sourceTree = "<group>"; };
 		21DA278A1E1A73A400D46551 /* ConfigureViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureViewCell.swift; sourceTree = "<group>"; };
 		21DA278C1E1A76F700D46551 /* ConfigController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
+		21DBD8491E92631800C13A6B /* BookmarkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkManager.swift; path = manager/bookmark/BookmarkManager.swift; sourceTree = "<group>"; };
+		21DBD84C1E9263CA00C13A6B /* BookmarkViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkViewDelegate.swift; path = bookmark/BookmarkViewDelegate.swift; sourceTree = "<group>"; };
 		3516DF90A02186DD413A7B0A /* Pods_candlelight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_candlelight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570A903C760071BBCE1A708A /* BookmarkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkController.swift; sourceTree = "<group>"; };
 		570A93D51AF4E6040B4B2BDC /* ListCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCrawler.swift; sourceTree = "<group>"; };
@@ -89,9 +91,7 @@
 		570A9AC6B3D576CED7474BB7 /* BookmarkData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkData.swift; path = config/BookmarkData.swift; sourceTree = "<group>"; };
 		570A9BCFC5EAC3B6A3E76556 /* ClienParkBoardCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClienParkBoardCrawler.swift; sourceTree = "<group>"; };
 		570A9CF8041BC5DECC11B97E /* SiteInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteInfo.swift; sourceTree = "<group>"; };
-		570A9DA9D8A2FB8D09CE0561 /* BookmarkViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkViewDelegate.swift; path = community/BookmarkViewDelegate.swift; sourceTree = "<group>"; };
 		570A9EA12641C496A2631BD2 /* ContentCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentCrawler.swift; sourceTree = "<group>"; };
-		570A9F1CDFF423DD5B679E8C /* BookmarkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkManager.swift; path = manager/config/BookmarkManager.swift; sourceTree = "<group>"; };
 		570A9F54BD572E143177FAE9 /* BottomMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomMenuController.swift; sourceTree = "<group>"; };
 		57F16B1DD7A371E7A2E3D331 /* Pods-candlelight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-candlelight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-candlelight/Pods-candlelight.debug.xcconfig"; sourceTree = "<group>"; };
 		B2228F985C818CB0C0BD9F40 /* Pods-candlelight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-candlelight.release.xcconfig"; path = "Pods/Target Support Files/Pods-candlelight/Pods-candlelight.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,11 +142,10 @@
 		2105BEE61E51DBCE000FE20C /* community */ = {
 			isa = PBXGroup;
 			children = (
-				DF114BDE1E55F26400799A1F /* ContentViewController.swift */,
-				2105BEE81E51DBEE000FE20C /* BoardCollectionViewDelegate.swift */,
+				2105BEEA1E51DBEE000FE20C /* CommunityViewDelegate.swift */,
 				2105BEE91E51DBEE000FE20C /* BoardViewController.swift */,
-				2105BEEA1E51DBEE000FE20C /* SiteCollectionViewDelegate.swift */,
-				570A9DA9D8A2FB8D09CE0561 /* BookmarkViewDelegate.swift */,
+				2105BEE81E51DBEE000FE20C /* BoardCollectionViewDelegate.swift */,
+				DF114BDE1E55F26400799A1F /* ContentViewController.swift */,
 			);
 			name = community;
 			sourceTree = "<group>";
@@ -162,6 +161,7 @@
 		211977C51E34FD7D008CFDAE /* manager */ = {
 			isa = PBXGroup;
 			children = (
+				21DBD8481E9262DF00C13A6B /* bookmark */,
 				211977C61E34FD89008CFDAE /* config */,
 			);
 			name = manager;
@@ -171,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				2188B6021E3AE306000C1193 /* SiteConfigManager.swift */,
-				570A9F1CDFF423DD5B679E8C /* BookmarkManager.swift */,
 			);
 			name = config;
 			sourceTree = "<group>";
@@ -193,6 +192,22 @@
 				570A9AC6B3D576CED7474BB7 /* BookmarkData.swift */,
 			);
 			name = config;
+			sourceTree = "<group>";
+		};
+		21DBD8481E9262DF00C13A6B /* bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				21DBD8491E92631800C13A6B /* BookmarkManager.swift */,
+			);
+			name = bookmark;
+			sourceTree = "<group>";
+		};
+		21DBD84B1E9263B200C13A6B /* bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				21DBD84C1E9263CA00C13A6B /* BookmarkViewDelegate.swift */,
+			);
+			name = bookmark;
 			sourceTree = "<group>";
 		};
 		570A9506AF79DFE04719FF85 /* model */ = {
@@ -233,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				2105BEE61E51DBCE000FE20C /* community */,
+				21DBD84B1E9263B200C13A6B /* bookmark */,
 				2105BEE71E51DBD4000FE20C /* config */,
 				570A957F8AB4F1920273724E /* crawler */,
 				570A9530CB9DB024C33D94E1 /* element */,
@@ -541,12 +557,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				21DA278D1E1A76F700D46551 /* ConfigController.swift in Sources */,
+				21DBD84A1E92631800C13A6B /* BookmarkManager.swift in Sources */,
 				DF8B0B551DFEDD7200BC1912 /* AppDelegate.swift in Sources */,
 				2105BEEB1E51DBEE000FE20C /* BoardCollectionViewDelegate.swift in Sources */,
 				2105BEF11E51DBFD000FE20C /* CommunityController.swift in Sources */,
+				21DBD84D1E9263CA00C13A6B /* BookmarkViewDelegate.swift in Sources */,
 				2188B6031E3AE306000C1193 /* SiteConfigManager.swift in Sources */,
 				21654EEF1E895F3300356429 /* DdanziBoardCrawler.swift in Sources */,
-				2105BEED1E51DBEE000FE20C /* SiteCollectionViewDelegate.swift in Sources */,
+				2105BEED1E51DBEE000FE20C /* CommunityViewDelegate.swift in Sources */,
 				570A9EC24FF03CC0E77190E7 /* ListCrawler.swift in Sources */,
 				570A9FBFDB7CBF7B408A65B7 /* ListItem.swift in Sources */,
 				570A9F96A199B841D9FE32DB /* TestCrawler.swift in Sources */,
@@ -567,9 +585,7 @@
 				570A9844CA4F9C048D5C5DB4 /* ContentData.swift in Sources */,
 				2194B26D1E6D828800119FBD /* Comment.swift in Sources */,
 				570A9A77637B1573CDACD171 /* BookmarkController.swift in Sources */,
-				570A919F0BFBB6F80EC66C1C /* BookmarkManager.swift in Sources */,
 				570A9951F90FA11AA58EFE61 /* BookmarkData.swift in Sources */,
-				570A93AD0841F9AB7DCC3814 /* BookmarkViewDelegate.swift in Sources */,
 				570A92944D78CC58435F3CDA /* BookmarkViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-class SiteCollectionViewDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class CommunityViewDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     let scManager: SiteConfigManager = SiteConfigManager()
 
