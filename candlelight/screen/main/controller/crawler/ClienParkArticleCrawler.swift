@@ -34,7 +34,7 @@ class ClienParkArticleCrawler: ContentCrawler {
             let titleOption = doc.xpath("//div[contains(@class, 'view_title')]").first?.text
             let authorOption = doc.xpath("//p[contains(@class, 'user_info')]//span").first?.text
             let readCountOption = doc.xpath("//p[contains(@class, 'post_info')]").first?.text
-            let contentOption = doc.xpath("//div[@id='resContents']").first?.innerHTML
+            let contentOption = doc.xpath("//span[@id='writeContents']").first?.innerHTML
             let commentsOption = doc.xpath("//div[contains(@class, 'reply_base')]")
            
             guard let title = titleOption,
