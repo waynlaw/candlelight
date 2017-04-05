@@ -2,12 +2,16 @@ import Foundation
 import UIKit
 
 class BottomMenuController: NSObject {
+    static let buttonHeight: CGFloat = 44.0 as CGFloat
+    static let dividerHeight: CGFloat = 1.0 as CGFloat
+    static let bottomMenuHeight: CGFloat = buttonHeight + dividerHeight
+
     weak var current: UIViewController? = nil
     var controllers = [BottomMenuType: UIViewController]()
 
     func setupBottomButtons(parent: UIView) {
         let btnCount = BottomMenuType.all.count
-        let buttonHeight = 44.0 as CGFloat
+
 
         let parentWidth = Int(parent.frame.width)
         let parentHeight = parent.frame.height
@@ -16,7 +20,7 @@ class BottomMenuController: NSObject {
             let button = UIButton(type: UIButtonType.custom)
             let left = CGFloat(parentWidth * idx / btnCount)
             let right = CGFloat(parentWidth * (idx + 1) / btnCount)
-            button.frame = CGRect(x: left, y: parentHeight - buttonHeight, width: right - left, height: buttonHeight)
+            button.frame = CGRect(x: left, y: parentHeight - BottomMenuController.buttonHeight, width: right - left, height: BottomMenuController.buttonHeight)
             button.backgroundColor = UIColor(red: 0.1058, green: 0.1058, blue: 0.1058, alpha: 1.0)
             button.setImage(UIImage(named: buttonImage(menuType)), for: UIControlState.normal)
             button.tag = menuType.rawValue
@@ -24,11 +28,11 @@ class BottomMenuController: NSObject {
             parent.addSubview(button)
         }
 
-        let dividerHeight = 1.0 as CGFloat
+
         let divider = UIView()
-        let dividerTop = parentHeight - buttonHeight - dividerHeight
+        let dividerTop = parentHeight - BottomMenuController.bottomMenuHeight
         divider.backgroundColor = UIColor(red: 0.2431, green: 0.2431, blue: 0.2431, alpha: 1.0)
-        divider.frame = CGRect(x: parent.frame.origin.x, y: dividerTop, width: parent.frame.width, height: dividerHeight)
+        divider.frame = CGRect(x: parent.frame.origin.x, y: dividerTop, width: parent.frame.width, height: BottomMenuController.dividerHeight)
         parent.addSubview(divider)
     }
 

@@ -49,7 +49,7 @@ class ContentViewController: UIViewController {
 
     func setupContentsView(parent: UIView) {
         let parentFrame = parent.frame
-        let frame = CGRect(x: parentFrame.origin.x, y: parentFrame.origin.y, width: parentFrame.size.width, height: parentFrame.size.height)
+        let frame = CGRect(x: parentFrame.origin.x, y: parentFrame.origin.y, width: parentFrame.size.width, height: parentFrame.size.height - BottomMenuController.bottomMenuHeight)
 
         let webview: UIWebView = UIWebView(frame: frame)
         webview.isOpaque = false
