@@ -1,6 +1,6 @@
 import UIKit
 
-class ContentViewController: UIViewController {
+class ContentViewController: UIViewController, UIWebViewDelegate {
 
     static let collectionReuseIdentifier = "collectionCell"
 
@@ -9,6 +9,7 @@ class ContentViewController: UIViewController {
     var crawler: ContentCrawler?
     var contentWebView: UIWebView?
     var contentsInfo: ListItem?
+    var progressView: ProgressView?
 
     required init?(coder aDecoder: NSCoder) {
         self.bottomMenuController = nil
@@ -43,26 +44,49 @@ class ContentViewController: UIViewController {
 
         setupContentsView(parent: root)
         bottomMenuController?.setupBottomButtons(parent: root)
+        setupProgressView(parent: root)
 
         self.view = root
+    }
+
+    func setupProgressView(parent: UIView) {
+        let progressFrame = CGRect(x: 0, y: 0, width: parent.frame.width, height: ProgressView.lineWidth)
+        let progressView = ProgressView(frame: progressFrame)
+        parent.addSubview(progressView)
+        self.progressView = progressView
     }
 
     func setupContentsView(parent: UIView) {
         let parentFrame = parent.frame
         let frame = CGRect(x: parentFrame.origin.x, y: parentFrame.origin.y, width: parentFrame.size.width, height: parentFrame.size.height - BottomMenuController.bottomMenuHeight)
 
-        let webview: UIWebView = UIWebView(frame: frame)
-        webview.isOpaque = false
-        webview.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
-        parent.addSubview(webview)
+        let webView: UIWebView = UIWebView(frame: frame)
+        webView.isOpaque = false
+        webView.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
+        webView.delegate = self
+        parent.addSubview(webView)
 
-        contentWebView = webview
+        contentWebView = webView
 
         crawler?.getContent()
             .onSuccess { article in
-                webview.loadHTMLString(article.toHtml(), baseURL: nil)
+                webView.loadHTMLString(article.toHtml(), baseURL: nil)
         }
         setupBookmarkButton(parent, parentFrame)
+    }
+
+    public func webViewDidStartLoad(_ webView: UIWebView) {
+        self.progressView?.webViewDidStartLoad(webView: webView)
+
+    }
+
+    public func webViewDidFinishLoad(_ webView: UIWebView) {
+        self.progressView?.webViewDidFinishLoad(webView: webView)
+    }
+
+    public func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        self.progressView?.webView(webView: webView, didFailLoadWithError: error)
+        print(error.localizedDescription)
     }
 
     func setupBookmarkButton(_ parent: UIView, _ parentFrame:CGRect) {
