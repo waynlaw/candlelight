@@ -2,6 +2,6 @@ import Foundation
 import BrightFutures
 import Result
 
-protocol ContentCrawler {
+protocol ArticleCrawler {
     func getContent() -> Future<Article, CrawlingError>
 }

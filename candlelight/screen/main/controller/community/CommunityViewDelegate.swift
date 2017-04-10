@@ -21,7 +21,7 @@ class CommunityViewDelegate: NSObject, UICollectionViewDataSource, UICollectionV
         let scs = scManager.select()
         
         for sc in scs {
-            let selectedCrawler: ListCrawler!
+            let selectedCrawler: BoardCrawler!
             if sc.id == 0 {
                 selectedCrawler = clienCrawler
             } else {
@@ -62,7 +62,7 @@ class CommunityViewDelegate: NSObject, UICollectionViewDataSource, UICollectionV
         let scs = scManager.select()
         
         for sc in scs {
-            let selectedCrawler: ListCrawler!
+            let selectedCrawler: BoardCrawler!
             if sc.id == 0 {
                 selectedCrawler = clienCrawler
             } else {

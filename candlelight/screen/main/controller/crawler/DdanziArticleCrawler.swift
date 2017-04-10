@@ -5,30 +5,30 @@ import enum Result.NoError
 import Alamofire
 import Kanna
 
-class ClienParkArticleCrawler: ArticleCrawler {
-
+class DdanziArticleCrawler: ArticleCrawler {
+    
     let baseUrl = "http://www.clien.net/cs2/"
     let url: String
-
+    
     init(_ url: String) {
         self.url = baseUrl + url.substring(from: url.index(url.startIndex, offsetBy: 3))
     }
-
+    
     func getContent() -> Future<Article, CrawlingError>{
         return result()
     }
-
+    
     func result() -> Future<Article, CrawlingError> {
         return Future<Article, CrawlingError> { complete in
             Alamofire.request(url).responseData(completionHandler: { response in
-                        if let htmlWithoutEncoding = response.result.value,
-                           let html = String(data: DataEncodingHelper.healing(htmlWithoutEncoding), encoding: .utf8) {
-                            complete(self.parseHTML(html: html))
-                        }
-                    })
+                if let htmlWithoutEncoding = response.result.value,
+                    let html = String(data: DataEncodingHelper.healing(htmlWithoutEncoding), encoding: .utf8) {
+                    complete(self.parseHTML(html: html))
+                }
+            })
         }
     }
-
+    
     func parseHTML(html: String) -> Result<Article, CrawlingError> {
         if let doc = HTML(html: html, encoding: .utf8) {
             let titleOption = doc.xpath("//div[contains(@class, 'view_title')]").first?.text
@@ -36,10 +36,10 @@ class ClienParkArticleCrawler: ArticleCrawler {
             let readCountOption = doc.xpath("//p[contains(@class, 'post_info')]").first?.text
             let contentOption = doc.xpath("//div[@id='resContents']").first?.innerHTML
             let commentsOption = doc.xpath("//div[contains(@class, 'reply_base')]")
-           
+            
             guard let title = titleOption,
-                  let readCount = readCountOption,
-                  let content = contentOption
+                let readCount = readCountOption,
+                let content = contentOption
                 else {
                     print("data is invalid")
                     return .success(Article())
@@ -50,7 +50,7 @@ class ClienParkArticleCrawler: ArticleCrawler {
                 HTML(html: c.toHTML!, encoding: .utf8)!
             }).map({ (cts) -> Comment in
                 guard let b = cts.xpath("//div").first?["style"] else {
-                        return Comment()
+                    return Comment()
                 }
                 let depth = b.components(separatedBy: ":")[1].components(separatedBy: "px")[0] == "1" ? 0 : 1
                 

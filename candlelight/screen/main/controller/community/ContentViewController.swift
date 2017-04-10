@@ -6,7 +6,7 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
 
     let bottomMenuController: BottomMenuController?
 
-    var crawler: ContentCrawler?
+    var crawler: ArticleCrawler?
     var contentWebView: UIWebView?
     var contentsInfo: ListItem?
     var progressView: ProgressView?

@@ -5,7 +5,7 @@ import enum Result.NoError
 import Alamofire
 import Kanna
 
-class DdanziBoardCrawler: ListCrawler {
+class DdanziBoardCrawler: BoardCrawler {
     
     let siteUrl = "http://www.ddanzi.com/index.php?mid=free&page="
     

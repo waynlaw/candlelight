@@ -7,7 +7,7 @@ class BoardViewController: UIViewController {
     let bottomMenuController: BottomMenuController?
 
     var collectionSource: BoardCollectionViewDelegate?
-    var crawler: ListCrawler?
+    var crawler: BoardCrawler?
     var boardItems = [ListItem]()
     var boardPage = 0
 
@@ -17,7 +17,7 @@ class BoardViewController: UIViewController {
         super.init(coder: aDecoder)
     }
 
-    init(crawler: ListCrawler, bottomMenuController: BottomMenuController) {
+    init(crawler: BoardCrawler, bottomMenuController: BottomMenuController) {
         self.bottomMenuController = bottomMenuController
 
         super.init(nibName: nil, bundle: nil)

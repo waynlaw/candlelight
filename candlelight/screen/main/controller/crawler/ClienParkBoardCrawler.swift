@@ -5,7 +5,7 @@ import enum Result.NoError
 import Alamofire
 import Kanna
 
-class ClienParkBoardCrawler: ListCrawler {
+class ClienParkBoardCrawler: BoardCrawler {
 
     let siteUrl = "http://www.clien.net/cs2/bbs/board.php?bo_table=park&page="
 
