@@ -4,7 +4,7 @@ class ProgressView: UIView {
 
     static let lineWidth: CGFloat = 2
 
-    var theBool: Bool = false
+    var isFinished: Bool = false
     var myTimer: Timer = Timer()
     var didFinishTimer: Timer = Timer()
 
@@ -25,7 +25,7 @@ class ProgressView: UIView {
     }
 
     func inits() {
-        isHidden = true
+        startAnimatingProgressBar()
     }
 
     override func draw(_ rect: CGRect) {
@@ -35,7 +35,7 @@ class ProgressView: UIView {
         aPath.addLine(to: CGPoint(x: frame.width * CGFloat(progress * 0.9 + 0.1), y: 0))
         aPath.close()
 
-        UIColor.init(colorLiteralRed: 0.4, green: 0.4, blue: 1.0, alpha: 1.0).set()
+        UIColor.init(colorLiteralRed: 0.0, green: 0.0, blue: 1.0, alpha: 1.0).set()
         aPath.stroke()
         aPath.fill()
     }
@@ -48,7 +48,7 @@ class ProgressView: UIView {
     }
 
     func startAnimatingProgressBar() {
-        self.theBool = false
+        self.isFinished = false
         self.isHidden = false
         self.alpha = 0
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
@@ -62,12 +62,12 @@ class ProgressView: UIView {
     }
 
     func finishAnimatingProgressBar() {
-        self.theBool = true
+        self.isFinished = true
     }
 
     func timerCallback() {
         // refer: http://stackoverflow.com/questions/28147096/progressbar-webview-in-swift
-        if self.theBool {
+        if self.isFinished {
             if self.progress >= 1 {
                 UIView.animate(withDuration: 0.2, animations: { () -> Void in
                     self.alpha = 0
@@ -107,10 +107,6 @@ class ProgressView: UIView {
     func webViewDidStartLoad(webView: UIWebView) {
         webViewLoadsCount += 1
 
-        if webViewLoadsCount <= 1 {
-            startAnimatingProgressBar()
-        }
-
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
 
@@ -125,7 +121,7 @@ class ProgressView: UIView {
     }
 
     func webView(webView: UIWebView, didFailLoadWithError error: Error) {
-        theBool = true
+        isFinished = true
         webViewLoadsCount = 0
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
