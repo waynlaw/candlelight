@@ -7,11 +7,11 @@ import Kanna
 
 class DdanziArticleCrawler: ArticleCrawler {
     
-    let baseUrl = "http://www.clien.net/cs2/"
+    let baseUrl = "http://www.ddanzi.com/free/"
     let url: String
     
     init(_ url: String) {
-        self.url = baseUrl + url.substring(from: url.index(url.startIndex, offsetBy: 3))
+        self.url = url
     }
     
     func getContent() -> Future<Article, CrawlingError>{
@@ -31,11 +31,11 @@ class DdanziArticleCrawler: ArticleCrawler {
     
     func parseHTML(html: String) -> Result<Article, CrawlingError> {
         if let doc = HTML(html: html, encoding: .utf8) {
-            let titleOption = doc.xpath("//div[contains(@class, 'view_title')]").first?.text
-            let authorOption = doc.xpath("//p[contains(@class, 'user_info')]//span").first?.text
-            let readCountOption = doc.xpath("//p[contains(@class, 'post_info')]").first?.text
-            let contentOption = doc.xpath("//div[@id='resContents']").first?.innerHTML
-            let commentsOption = doc.xpath("//div[contains(@class, 'reply_base')]")
+            let titleOption = doc.xpath("//div[contains(@class, 'read_header')]//h1").first?.text
+            let authorOption = doc.xpath("//div[contains(@class, 'read_header')]//a[contains(@class, 'author')]").first?.text
+            let readCountOption = doc.xpath("//span[contains(@class, 'read')]").first?.text
+            let contentOption = doc.xpath("//div[contains(@class, 'xe_content')]").first?.innerHTML
+            let commentsOption = doc.xpath("//div[@id='cmt_list']//ul//li")
             
             guard let title = titleOption,
                 let readCount = readCountOption,
@@ -46,32 +46,29 @@ class DdanziArticleCrawler: ArticleCrawler {
             }
             
             let author = authorOption ?? "" // TODO: should fix it when name is image.
+            
             let comments = commentsOption.map({(c) -> HTMLDocument in
                 HTML(html: c.toHTML!, encoding: .utf8)!
             }).map({ (cts) -> Comment in
-                guard let b = cts.xpath("//div").first?["style"] else {
-                    return Comment()
-                }
-                let depth = b.components(separatedBy: ":")[1].components(separatedBy: "px")[0] == "1" ? 0 : 1
+                let author = (cts.xpath("//h3[contains(@class, 'author')]").first?.text)!
+                let date = (cts.xpath("//p[contains(@class, 'time')]").first?.text)!
                 
-                
-                let authorHtml = cts.xpath("//li[contains(@class, 'user_id')]").first
-                
-                var author = ""
-                if (authorHtml?.innerHTML!.contains("img"))! {
-                    author = matches(for: "[a-z0-9]+(?=.gif)", in: (authorHtml?.innerHTML)!).first!
-                } else {
-                    author = (authorHtml?.text)!
+                let className = (cts.xpath("//div").first?.className)!
+
+                var depth = 0
+                if className.contains("indent") {
+                    depth = Int(className.substring(from: className.index(className.endIndex, offsetBy: -1)))!
                 }
                 
-                let date = (cts.xpath("//li[2]").first?.text)!
-                let content = (cts.xpath("//textarea").first?.text)!
+                let content = (cts.xpath("//div[contains(@class, 'xe_content')]").first?.text)!
                 
                 return Comment(author: author, content: content, regDate: NSDate(), depth: depth)
+//                return Comment()
             })
             
-            let arr = readCount.components(separatedBy: ",")[1].components(separatedBy: ":")[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            let arr = readCount.components(separatedBy: ":")[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: NSDate(), comments: comments))
+            
         }
         return Result<Article, CrawlingError>(error: CrawlingError.contentNotFound)
     }

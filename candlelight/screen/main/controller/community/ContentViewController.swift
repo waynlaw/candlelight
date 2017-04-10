@@ -19,7 +19,14 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
 
     init(_ contentsInfo: ListItem, bottomMenuController: BottomMenuController) {
         self.bottomMenuController = bottomMenuController
-        self.crawler = ClienParkArticleCrawler(contentsInfo.url)
+        
+        // 크롤러 분기 귀찮으니까... 일단 이렇게. 차주 리팩토링 합시다.
+        if (contentsInfo.url.contains("park")) {
+            self.crawler = ClienParkArticleCrawler(contentsInfo.url)
+        } else {
+            self.crawler = DdanziArticleCrawler(contentsInfo.url)
+        }
+
         self.contentsInfo = contentsInfo
 
         super.init(nibName: nil, bundle: nil)
@@ -118,15 +125,6 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-
-    // for test
-    func fullHtmlFromBody(_ body: String) -> String {
-        let header = "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:fb=\"http://www.facebook.com/2008/fbml\"><head></head><body><font color=\"#BFBFBF\">"
-        let footer = "</body></html>"
-        
-        let test = "<h2 style='font-color:yellow'>블라블라블라</h2>"
-        return header + test + footer;
     }
 }
 

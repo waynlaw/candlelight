@@ -56,20 +56,20 @@ class DdanziBoardCrawler: BoardCrawler {
         
         if let doc = HTML(html: html, encoding: .utf8) {
             for content in doc.xpath("//table//tbody//tr") {
-                let titleOption = content.xpath("td[2]//a").first?.text
+                let titleOption = content.xpath("td[2]//a").map{v in v.text!}.joined(separator: " ")
                 let pageIdOption = content.xpath("td[1]").first?.text.flatMap{v in Int(v.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))}
                 let urlOption = content.xpath("td[2]//a").first?["href"]
                 let authorOption = content.xpath("td[3]//a").first?.text
                 let readCountOption = content.xpath("td[5]").first?.text.flatMap{v in Int(v)}
                 
                 guard let pageId = pageIdOption,
-                    let title = titleOption,
+//                    let title = titleOption,
                     let url = urlOption,
                     let author = authorOption,
                     let readCount = readCountOption else {
                         continue
                 }
-                result.append(ListItem(id: pageId, title: title, url: url, author: author, date: "", readCount: readCount))
+                result.append(ListItem(id: pageId, title: titleOption, url: url, author: author, date: "", readCount: readCount))
             }
         }
         return .success(result)
