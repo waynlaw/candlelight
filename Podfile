@@ -11,4 +11,5 @@ target 'candlelight' do
   pod 'Alamofire', '~> 4.0'
   pod 'Kanna', '~> 2.1.0'
   pod 'RealmSwift', '~> 2.3.0'
+  pod 'GradientLoadingBar', '~> 1.0'
 end

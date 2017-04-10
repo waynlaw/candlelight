@@ -1,4 +1,5 @@
 import UIKit
+import GradientLoadingBar
 
 class BoardViewController: UIViewController {
 
@@ -74,11 +75,15 @@ class BoardViewController: UIViewController {
     }
     
     func onNeedToMoreList() {
+        GradientLoadingBar.sharedInstance().show()
+
         crawler?.getList(page: boardPage).onSuccess { result in
             //self.boardItems.append(contentsOf: result)
             self.updateList(newItems: result)
             self.boardPage += 1
             self.collectionSource?.setBoardList(boardItems: self.boardItems)
+
+            GradientLoadingBar.sharedInstance().hide()
         }
     }
 
