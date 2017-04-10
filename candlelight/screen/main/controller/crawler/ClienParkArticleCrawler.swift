@@ -31,6 +31,11 @@ class ClienParkArticleCrawler: ArticleCrawler {
 
     func parseHTML(html: String) -> Result<Article, CrawlingError> {
         if let doc = HTML(html: html, encoding: .utf8) {
+            // remove a signature
+            if let signature = doc.xpath("//div[contains(@class, 'signature')]").first {
+                signature.parent?.removeChild(signature)
+            }
+
             let titleOption = doc.xpath("//div[contains(@class, 'view_title')]").first?.text
             let authorOption = doc.xpath("//p[contains(@class, 'user_info')]//span").first?.text
             let readCountOption = doc.xpath("//p[contains(@class, 'post_info')]").first?.text
