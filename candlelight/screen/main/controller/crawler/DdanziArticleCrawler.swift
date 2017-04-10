@@ -67,7 +67,7 @@ class DdanziArticleCrawler: ArticleCrawler {
             })
             
             let arr = readCount.components(separatedBy: ":")[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: NSDate(), comments: comments))
+            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: Date(), comments: comments))
             
         }
         return Result<Article, CrawlingError>(error: CrawlingError.contentNotFound)
