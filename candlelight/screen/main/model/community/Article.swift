@@ -10,26 +10,26 @@ import Foundation
 class Article {
     // 제목
     var title: String?
-    
+
     // 작성자
     var author: String?
-    
+
     // 읽은 수
     var readCount: Int?
-    
+
     // 읽은 수
     var content: String?
-    
+
     // 작성일
-    var regDate: NSDate?
-    
+    var regDate: Date?
+
     // 댓글
     var comments: [Comment]?
-    
-    public init(){
+
+    public init() {
     }
-    
-    public init(title: String, author: String, readCount: Int, content: String, regDate: NSDate, comments: [Comment]){
+
+    public init(title: String, author: String, readCount: Int, content: String, regDate: Date, comments: [Comment]) {
         self.title = title
         self.author = author
         self.readCount = readCount
@@ -37,38 +37,45 @@ class Article {
         self.regDate = regDate
         self.comments = comments
     }
-    
-    func toHtml() -> String{
-        do{
+
+    func toHtml() -> String {
+        do {
             let filepath = Bundle.main.path(forResource: "template", ofType: "html", inDirectory: "")
             let contents = try String(contentsOfFile: filepath!)
-            
+
             // Optional guard
             guard let _ = title,
-                let _ = author,
-                let _ = regDate,
-                let _ = readCount,
-                let _ = content,
-                let _ = comments else {
-                    return ""
+                  let _ = author,
+                  let _ = regDate,
+                  let _ = readCount,
+                  let _ = content,
+                  let _ = comments else {
+                return ""
             }
-            
+
             let coms = comments!.map({ (c) -> String in
                 c.toHtml()
-            }).reduce("", {$0 + $1})
-        
+            }).reduce("", { $0 + $1 })
+
             let contentHtml = contents.replacingOccurrences(of: "{{title}}", with: self.title!)
-                .replacingOccurrences(of: "{{author}}", with: self.author!)
-                .replacingOccurrences(of: "{{regDate}}", with: self.regDate!.description)
-                .replacingOccurrences(of: "{{readCount}}", with: self.readCount!.description)
-                .replacingOccurrences(of: "{{content}}", with: self.content!)
-                .replacingOccurrences(of: "{{comments}}", with: coms)
-            
+                    .replacingOccurrences(of: "{{author}}", with: self.author!)
+                    .replacingOccurrences(of: "{{regDate}}", with: dateToString(self.regDate!))
+                    .replacingOccurrences(of: "{{readCount}}", with: self.readCount!.description)
+                    .replacingOccurrences(of: "{{content}}", with: self.content!)
+                    .replacingOccurrences(of: "{{comments}}", with: coms)
+
             return contentHtml
-            
+
         } catch {
         }
         return ""
+    }
+
+    func dateToString(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH:mm:ss")
+        return formatter.string(from: date)
     }
 /*
             <div class='depth1'>
@@ -99,5 +106,5 @@ class Article {
                 </span>
             </div>
 */
-    
+
 }

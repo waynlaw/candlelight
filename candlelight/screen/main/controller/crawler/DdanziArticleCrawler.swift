@@ -62,7 +62,7 @@ class DdanziArticleCrawler: ArticleCrawler {
                 
                 let content = (cts.xpath("//div[contains(@class, 'xe_content')]").first?.text)!
                 
-                return Comment(author: author, content: content, regDate: NSDate(), depth: depth)
+                return Comment(author: author, content: content, regDate: Date(), depth: depth)
 //                return Comment()
             })
             
