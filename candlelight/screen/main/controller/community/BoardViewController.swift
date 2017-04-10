@@ -76,6 +76,7 @@ class BoardViewController: UIViewController {
     
     func onNeedToMoreList() {
         GradientLoadingBar.sharedInstance().show()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
         crawler?.getList(page: boardPage).onSuccess { result in
             //self.boardItems.append(contentsOf: result)
@@ -84,6 +85,7 @@ class BoardViewController: UIViewController {
             self.collectionSource?.setBoardList(boardItems: self.boardItems)
 
             GradientLoadingBar.sharedInstance().hide()
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
 

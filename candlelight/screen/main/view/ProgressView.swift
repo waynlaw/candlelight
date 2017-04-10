@@ -83,23 +83,23 @@ class ProgressView: UIView {
         } else {
             //Start slow
             if self.progress >= 0.00 && self.progress <= 0.10 {
-                let number = drand48() / 8000;
+                let number = drand48() / 2000;
 
                 setProgress(progress: self.progress + Float(number))
                 //Middle speed up a bit
             } else if self.progress >= 0.10 && self.progress <= 0.42 {
-                let smallerNumber = drand48() / 2000;
+                let smallerNumber = drand48() / 1000;
                 setProgress(progress: self.progress + Float(smallerNumber))
 
                 //slow it down again
-            } else if progress >= 0.42 && self.progress <= 0.80 {
+            } else if progress >= 0.42 && self.progress <= 0.90 {
                 let superSmallNumber = drand48() / 8000;
                 setProgress(progress: self.progress + Float(superSmallNumber))
 
                 //Stop it
-            } else if self.progress == 0.80 {
+            } else if self.progress == 0.90 {
                 print("Stop:\(self.progress)")
-                setProgress(progress: 0.80)
+                setProgress(progress: 0.90)
             }
         }
     }
