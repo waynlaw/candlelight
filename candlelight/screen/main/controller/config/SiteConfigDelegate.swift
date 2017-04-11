@@ -13,7 +13,8 @@ class SiteConfigDelegate: NSObject, UICollectionViewDataSource, UICollectionView
         
     let sites = [
         "클리앙",
-        "딴지일보"
+        "딴지일보",
+        "오늘의유머"
     ]
     
     let scManager: SiteConfigManager!
