@@ -8,6 +8,7 @@ class BoardViewController: UIViewController {
     let bottomMenuController: BottomMenuController?
 
     var collectionSource: BoardCollectionViewDelegate?
+    var refreshControl: UIRefreshControl?
     var crawler: BoardCrawler?
     var boardItems = [ListItem]()
     var boardPage = 0
@@ -67,6 +68,13 @@ class BoardViewController: UIViewController {
         collectionView.delegate = source
         source.collectionView = collectionView
 
+        let refreshControl = UIRefreshControl()
+        let textColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0)
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes:[NSForegroundColorAttributeName: textColor])
+        refreshControl.addTarget(self, action:#selector(onRefreshList), for: .valueChanged)
+        collectionView.addSubview(refreshControl) // not required when using UITableViewController
+        self.refreshControl = refreshControl
+
         parent.addSubview(collectionView)
 
         collectionSource = source
@@ -76,6 +84,7 @@ class BoardViewController: UIViewController {
     
     func onNeedToMoreList() {
         GradientLoadingBar.sharedInstance().show()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
         crawler?.getList(page: boardPage).onSuccess { result in
             //self.boardItems.append(contentsOf: result)
@@ -84,7 +93,17 @@ class BoardViewController: UIViewController {
             self.collectionSource?.setBoardList(boardItems: self.boardItems)
 
             GradientLoadingBar.sharedInstance().hide()
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
+    }
+
+    func onRefreshList() {
+        self.boardPage = 0
+        self.boardItems.removeAll(keepingCapacity: false)
+        self.collectionSource?.setBoardList(boardItems: self.boardItems)
+        self.refreshControl?.endRefreshing()
+
+        onNeedToMoreList()
     }
 
     func updateList(newItems:[ListItem]) {
