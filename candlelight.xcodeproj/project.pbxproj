@@ -26,6 +26,7 @@
 		21DA278D1E1A76F700D46551 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA278C1E1A76F700D46551 /* ConfigController.swift */; };
 		21DBD84A1E92631800C13A6B /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DBD8491E92631800C13A6B /* BookmarkManager.swift */; };
 		21DBD84D1E9263CA00C13A6B /* BookmarkViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DBD84C1E9263CA00C13A6B /* BookmarkViewDelegate.swift */; };
+		21DDC4681E9FC20500EFE301 /* TodayHumorArticleCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DDC4671E9FC20500EFE301 /* TodayHumorArticleCrawler.swift */; };
 		570A917976BC12DBD320C4A7 /* BottomMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9F54BD572E143177FAE9 /* BottomMenuController.swift */; };
 		570A91A631A53A78139CB66F /* DataEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A998EBEFAC88F49F63A3D /* DataEncodingHelper.swift */; };
 		570A92944D78CC58435F3CDA /* BookmarkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9447AD041E32B066207B /* BookmarkViewCell.swift */; };
@@ -86,6 +87,7 @@
 		21DA278C1E1A76F700D46551 /* ConfigController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
 		21DBD8491E92631800C13A6B /* BookmarkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkManager.swift; path = manager/bookmark/BookmarkManager.swift; sourceTree = "<group>"; };
 		21DBD84C1E9263CA00C13A6B /* BookmarkViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkViewDelegate.swift; path = bookmark/BookmarkViewDelegate.swift; sourceTree = "<group>"; };
+		21DDC4671E9FC20500EFE301 /* TodayHumorArticleCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayHumorArticleCrawler.swift; sourceTree = "<group>"; };
 		3516DF90A02186DD413A7B0A /* Pods_candlelight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_candlelight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570A903C760071BBCE1A708A /* BookmarkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkController.swift; sourceTree = "<group>"; };
 		570A9447AD041E32B066207B /* BookmarkViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkViewCell.swift; sourceTree = "<group>"; };
@@ -243,10 +245,11 @@
 				21C1C6811E9BA9AE00B526C0 /* BoardCrawler.swift */,
 				570A9BCFC5EAC3B6A3E76556 /* ClienParkBoardCrawler.swift */,
 				21654EEE1E895F3300356429 /* DdanziBoardCrawler.swift */,
+				211644E31E9D197900E31D65 /* TodayHumorBoardCrawler.swift */,
 				570A9EA12641C496A2631BD2 /* ArticleCrawler.swift */,
 				DF114BE01E55F27C00799A1F /* ClienParkArticleCrawler.swift */,
 				21C1C67F1E9BA8B700B526C0 /* DdanziArticleCrawler.swift */,
-				211644E31E9D197900E31D65 /* TodayHumorBoardCrawler.swift */,
+				21DDC4671E9FC20500EFE301 /* TodayHumorArticleCrawler.swift */,
 			);
 			path = crawler;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 			files = (
 				21DA278D1E1A76F700D46551 /* ConfigController.swift in Sources */,
 				21DBD84A1E92631800C13A6B /* BookmarkManager.swift in Sources */,
+				21DDC4681E9FC20500EFE301 /* TodayHumorArticleCrawler.swift in Sources */,
 				DF8B0B551DFEDD7200BC1912 /* AppDelegate.swift in Sources */,
 				2105BEEB1E51DBEE000FE20C /* BoardCollectionViewDelegate.swift in Sources */,
 				2105BEF11E51DBFD000FE20C /* CommunityController.swift in Sources */,

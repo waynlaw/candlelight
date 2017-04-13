@@ -12,6 +12,7 @@ class CommunityViewDelegate: NSObject, UICollectionViewDataSource, UICollectionV
     
     let clienCrawler = ClienParkBoardCrawler()
     let ddanziCrawler = DdanziBoardCrawler()
+    let todayhumerCrawler = TodayHumorBoardCrawler()
 
     public init(_ communityController: CommunityController) {
         
@@ -24,8 +25,10 @@ class CommunityViewDelegate: NSObject, UICollectionViewDataSource, UICollectionV
             let selectedCrawler: BoardCrawler!
             if sc.id == 0 {
                 selectedCrawler = clienCrawler
-            } else {
+            } else if sc.id == 1 {
                 selectedCrawler = ddanziCrawler
+            } else {
+                selectedCrawler = todayhumerCrawler
             }
             siteInfos.append(SiteInfo(title: sc.name, crawler: selectedCrawler, isOn: sc.isOn))
         }
@@ -65,8 +68,10 @@ class CommunityViewDelegate: NSObject, UICollectionViewDataSource, UICollectionV
             let selectedCrawler: BoardCrawler!
             if sc.id == 0 {
                 selectedCrawler = clienCrawler
-            } else {
+            } else if sc.id == 1 {
                 selectedCrawler = ddanziCrawler
+            } else {
+                selectedCrawler = todayhumerCrawler
             }
             if sc.isOn {
                 siteInfos.append(SiteInfo(title: sc.name, crawler: selectedCrawler, isOn: sc.isOn))

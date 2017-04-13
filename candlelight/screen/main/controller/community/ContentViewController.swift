@@ -23,8 +23,10 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
         // 크롤러 분기 귀찮으니까... 일단 이렇게. 차주 리팩토링 합시다.
         if (contentsInfo.url.contains("park")) {
             self.crawler = ClienParkArticleCrawler(contentsInfo.url)
-        } else {
+        } else if contentsInfo.url.contains("ddanzi") {
             self.crawler = DdanziArticleCrawler(contentsInfo.url)
+        } else {
+            self.crawler = TodayHumorArticleCrawler(contentsInfo.url)
         }
 
         self.contentsInfo = contentsInfo
