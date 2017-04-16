@@ -15,6 +15,7 @@
 		2105BEF11E51DBFD000FE20C /* CommunityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105BEF01E51DBFD000FE20C /* CommunityController.swift */; };
 		211644E41E9D197900E31D65 /* TodayHumorBoardCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211644E31E9D197900E31D65 /* TodayHumorBoardCrawler.swift */; };
 		211977C41E34FA11008CFDAE /* SiteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211977C31E34FA11008CFDAE /* SiteConfig.swift */; };
+		2138B7071EA3939700F9E2E6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2138B7061EA3939700F9E2E6 /* Media.xcassets */; };
 		21654EEF1E895F3300356429 /* DdanziBoardCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654EEE1E895F3300356429 /* DdanziBoardCrawler.swift */; };
 		2188B6031E3AE306000C1193 /* SiteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188B6021E3AE306000C1193 /* SiteConfigManager.swift */; };
 		2194B2681E64571C00119FBD /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 2194B2671E64571C00119FBD /* template.html */; };
@@ -76,6 +77,7 @@
 		2105BEF01E51DBFD000FE20C /* CommunityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityController.swift; sourceTree = "<group>"; };
 		211644E31E9D197900E31D65 /* TodayHumorBoardCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayHumorBoardCrawler.swift; sourceTree = "<group>"; };
 		211977C31E34FA11008CFDAE /* SiteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteConfig.swift; path = config/SiteConfig.swift; sourceTree = "<group>"; };
+		2138B7061EA3939700F9E2E6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../../Desktop/Media.xcassets; sourceTree = "<group>"; };
 		21654EEE1E895F3300356429 /* DdanziBoardCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DdanziBoardCrawler.swift; sourceTree = "<group>"; };
 		2188B6021E3AE306000C1193 /* SiteConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteConfigManager.swift; path = manager/config/SiteConfigManager.swift; sourceTree = "<group>"; };
 		2194B2671E64571C00119FBD /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = template.html; path = html/template.html; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				570A975B8EBBAE1D68F7C99D /* screen */,
 				DF8B0B541DFEDD7200BC1912 /* AppDelegate.swift */,
 				DF8B0B5B1DFEDD7200BC1912 /* Assets.xcassets */,
+				2138B7061EA3939700F9E2E6 /* Media.xcassets */,
 				DF8B0B5D1DFEDD7200BC1912 /* LaunchScreen.storyboard */,
 				DF8B0B601DFEDD7200BC1912 /* Info.plist */,
 				570A97A0BE848304564AC73F /* util */,
@@ -500,6 +503,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2138B7071EA3939700F9E2E6 /* Media.xcassets in Resources */,
 				2194B2681E64571C00119FBD /* template.html in Resources */,
 				DF5D84C11E0ABCA800912330 /* images in Resources */,
 				DF8B0B5F1DFEDD7200BC1912 /* LaunchScreen.storyboard in Resources */,
