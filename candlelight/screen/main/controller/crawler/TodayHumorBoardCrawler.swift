@@ -12,7 +12,6 @@ class TodayHumorBoardCrawler: BoardCrawler {
     func getList(page: Int) -> Future<[ListItem]?, NoError> {
         return Future<[ListItem]?, NoError> { complete in
             let url = self.siteUrl + String(page + 1)
-            print(url)
             Alamofire.request(url).responseString(encoding: .utf8, completionHandler: { response in
                 if let html = response.result.value {
                     complete(self.parseHTML(html: html))
@@ -28,13 +27,15 @@ class TodayHumorBoardCrawler: BoardCrawler {
         if let doc = HTML(html: html, encoding: .utf8) {
             for content in doc.xpath("//table[contains(@class, 'table_list')]//tr[contains(@class, 'view')]") {
                 
-                let titleOption = content.xpath("td[3]//a").first?.text
+                let title = content.xpath("td[3]").map({ (XMLElement) -> String in
+                    XMLElement.text!
+                }).joined(separator: " ")
                 let pageIdOption = content.xpath("td[1]").first?.text.flatMap{v in Int(v)}
                 let urlOption = content.xpath("td[3]//a").first?["href"]
                 let authorOption = content.xpath("td[4]//a").first?.text
                 let readCountOption = content.xpath("td[6]").first?.text.flatMap{v in Int(v)}
                 guard let pageId = pageIdOption,
-                    let title = titleOption,
+//                    let title = titleOption,
                     let url = urlOption,
                     let author = authorOption,
                     let readCount = readCountOption else {

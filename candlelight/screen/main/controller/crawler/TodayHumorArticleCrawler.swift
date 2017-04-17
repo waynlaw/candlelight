@@ -23,23 +23,44 @@ class TodayHumorArticleCrawler: ArticleCrawler {
             Alamofire.request(url).responseData(completionHandler: { response in
                 if let htmlWithoutEncoding = response.result.value,
                     let html = String(data: DataEncodingHelper.healing(htmlWithoutEncoding), encoding: .utf8) {
-                    complete(self.parseHTML(html: html))
+                    self.parseComment(html: html).onSuccess(callback: { (comment) in
+                        complete(self.parseHTML(html: html, comment: comment))
+                    })
                 }
             })
         }
     }
     
-    func parseHTML(html: String) -> Result<Article, CrawlingError> {
+    func parseComment(html: String) -> Future<NSDictionary, CrawlingError> {
+        if let doc = HTML(html: html, encoding: .utf8) {
+            return Future<NSDictionary, CrawlingError> { complete in
+                Alamofire.request("http://www.todayhumor.co.kr/board/ajax_memo_list.php?parent_table=sisa&parent_id=896044&last_memo_no=0&_=1492426501849").responseJSON { response in
+                    switch response.result {
+                    case .success(let JSON):
+                        print("Success with JSON: \(JSON)")
+                        
+                        let response = JSON as! NSDictionary
+                        
+                        //example if there is an id
+                        complete(.success(response))
+                    case .failure(let error):
+                        print("Request failed with error: \(error)")
+                        complete(.success(NSDictionary()))
+                    }
+                }
+            }
+        }
+        return Future<NSDictionary, CrawlingError> { complete in
+            complete(.success(NSDictionary()))
+        }
+    }
+    
+    func parseHTML(html: String, comment: NSDictionary) -> Result<Article, CrawlingError> {
         if let doc = HTML(html: html, encoding: .utf8) {
             let titleOption = doc.xpath("//div[contains(@class, 'viewSubjectDiv')]").first?.text
-            
-            // ??
             let authorOption = doc.xpath("//div[contains(@class, 'writerInfoContents')]//div[2]//a").first?.text
-            
-            
             let readCountOption = doc.xpath("//div[contains(@class, 'writerInfoContents')]//div[4]").first?.text
             let contentOption = doc.xpath("//div[contains(@class, 'viewContent')]").first?.innerHTML
-            let commentsOption = doc.xpath("//div[@id='memoContainerDiv']//ul//li")
             
             guard let title = titleOption,
                 let readCount = readCountOption,
@@ -49,35 +70,14 @@ class TodayHumorArticleCrawler: ArticleCrawler {
                     return .success(Article())
             }
             
+            // comment parsing해서 데이터를 얻어야 함
+            print(comment.count.description)
+            
             let author = authorOption ?? "" // TODO: should fix it when name is image.
             
-//            let comments = commentsOption.map({(c) -> HTMLDocument in
-//                HTML(html: c.toHTML!, encoding: .utf8)!
-//            }).map({ (cts) -> Comment in
-//                let author = (cts.xpath("//h3[contains(@class, 'author')]").first?.text)!
-//                let date = (cts.xpath("//p[contains(@class, 'time')]").first?.text)!
-//                
-//                let className = (cts.xpath("//div").first?.className)!
-//                
-//                var depth = 0
-//                if className.contains("indent") {
-//                    depth = Int(className.substring(from: className.index(className.endIndex, offsetBy: -1)))!
-//                }
-//                
-//                let content = (cts.xpath("//div[contains(@class, 'xe_content')]").first?.text)!
-//                
-//                return Comment(author: author, content: content, regDate: Date(), depth: depth)
-//                //                return Comment()
-//            })
-            
-            let comments = [Comment]()
             let arr = readCount.components(separatedBy: ":")[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             
-            
-            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: Date(), comments: comments))
-            
-//            return .success(Article())
-            
+            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: Date(), comments: [Comment]()))
         }
         return Result<Article, CrawlingError>(error: CrawlingError.contentNotFound)
     }
