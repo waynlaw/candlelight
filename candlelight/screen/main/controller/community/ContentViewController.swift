@@ -67,12 +67,19 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
 
     func setupContentsView(parent: UIView) {
         let parentFrame = parent.frame
-        let frame = CGRect(x: parentFrame.origin.x, y: parentFrame.origin.y, width: parentFrame.size.width, height: parentFrame.size.height - BottomMenuController.bottomMenuHeight)
+        let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+        let frame = CGRect(
+            x: parentFrame.origin.x,
+            y: parentFrame.origin.y + statusBarHeight,
+            width: parentFrame.size.width,
+            height: parentFrame.size.height - BottomMenuController.bottomMenuHeight
+        )
 
         let webView: UIWebView = UIWebView(frame: frame)
         webView.isOpaque = false
         webView.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
         webView.delegate = self
+        webView.scrollView.contentInset = UIEdgeInsetsMake(-statusBarHeight, 0, 0, 0)
         parent.addSubview(webView)
 
         contentWebView = webView
