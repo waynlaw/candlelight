@@ -9,16 +9,8 @@ class DdanziBoardCrawler: BoardCrawler {
     
     let siteUrl = "http://www.ddanzi.com/index.php?mid=free&page="
     
-    func getList() -> Future<[ListItem], NoError> {
-        return result(page: 0)
-    }
-    
-    func getList(page: Int) -> Future<[ListItem], NoError> {
-        return result(page: page)
-    }
-    
-    func result(page: Int) -> Future<[ListItem], NoError> {
-        return Future<[ListItem], NoError> { complete in
+    func getList(page: Int) -> Future<[ListItem]?, NoError> {
+        return Future<[ListItem]?, NoError> { complete in
             let url = self.siteUrl + String(page + 1)
             
             // TODO: 일단 일주일 사이 무사히 통과함
@@ -31,12 +23,14 @@ class DdanziBoardCrawler: BoardCrawler {
             Alamofire.request(url, headers: headers).responseString(encoding: .utf8, completionHandler: { response in
                 if let html = response.result.value {
                     complete(self.parseHTML(html: html))
+                } else {
+                    complete(.success(nil))
                 }
             })
         }
     }
     
-    func parseHTML(html: String) -> Result<Array<ListItem>, NoError> {
+    func parseHTML(html: String) -> Result<Array<ListItem>?, NoError> {
 /*
  <tr>
  <td class="no">3366070</td>

@@ -8,28 +8,22 @@ import Kanna
 class TodayHumorBoardCrawler: BoardCrawler {
     
     let siteUrl = "http://www.todayhumor.co.kr/board/list.php?table=bestofbest&page="
-    
-    func getList() -> Future<[ListItem], NoError> {
-        return result(page: 0)
-    }
-    
-    func getList(page: Int) -> Future<[ListItem], NoError> {
-        return result(page: page)
-    }
-    
-    func result(page: Int) -> Future<[ListItem], NoError> {
-        return Future<[ListItem], NoError> { complete in
+
+    func getList(page: Int) -> Future<[ListItem]?, NoError> {
+        return Future<[ListItem]?, NoError> { complete in
             let url = self.siteUrl + String(page + 1)
             print(url)
             Alamofire.request(url).responseString(encoding: .utf8, completionHandler: { response in
                 if let html = response.result.value {
                     complete(self.parseHTML(html: html))
+                } else {
+                    complete(.success(nil))
                 }
             })
         }
     }
     
-    func parseHTML(html: String) -> Result<Array<ListItem>, NoError> {
+    func parseHTML(html: String) -> Result<Array<ListItem>?, NoError> {
         var result = [ListItem]()
         if let doc = HTML(html: html, encoding: .utf8) {
             for content in doc.xpath("//table[contains(@class, 'table_list')]//tr[contains(@class, 'view')]") {

@@ -87,10 +87,11 @@ class BoardViewController: UIViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
         crawler?.getList(page: boardPage).onSuccess { result in
-            //self.boardItems.append(contentsOf: result)
-            self.updateList(newItems: result)
-            self.boardPage += 1
-            self.collectionSource?.setBoardList(boardItems: self.boardItems)
+            if let resultList = result {
+                self.updateList(newItems: resultList)
+                self.boardPage += 1
+                self.collectionSource?.setBoardList(boardItems: self.boardItems)
+            }
 
             GradientLoadingBar.sharedInstance().hide()
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
