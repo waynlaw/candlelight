@@ -38,6 +38,7 @@
 		570A99718D70AE8213C878BA /* SiteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9CF8041BC5DECC11B97E /* SiteInfo.swift */; };
 		570A9A77637B1573CDACD171 /* BookmarkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A903C760071BBCE1A708A /* BookmarkController.swift */; };
 		570A9AD0B12D6431195F193B /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A951378D9D80E1015C5F3 /* ProgressView.swift */; };
+		570A9B4878836F869E3E7CE0 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9DF3DDAE49583EA5153B /* Community.swift */; };
 		570A9EC3702C09D7738085A8 /* ArticleCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9EA12641C496A2631BD2 /* ArticleCrawler.swift */; };
 		570A9FBFDB7CBF7B408A65B7 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A99CB67F22E9BA42FA035 /* ListItem.swift */; };
 		DF114BDF1E55F26400799A1F /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF114BDE1E55F26400799A1F /* ContentViewController.swift */; };
@@ -101,6 +102,7 @@
 		570A9AC6B3D576CED7474BB7 /* BookmarkData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkData.swift; path = config/BookmarkData.swift; sourceTree = "<group>"; };
 		570A9BCFC5EAC3B6A3E76556 /* ClienParkBoardCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClienParkBoardCrawler.swift; sourceTree = "<group>"; };
 		570A9CF8041BC5DECC11B97E /* SiteInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteInfo.swift; sourceTree = "<group>"; };
+		570A9DF3DDAE49583EA5153B /* Community.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
 		570A9EA12641C496A2631BD2 /* ArticleCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleCrawler.swift; sourceTree = "<group>"; };
 		570A9F54BD572E143177FAE9 /* BottomMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomMenuController.swift; sourceTree = "<group>"; };
 		57F16B1DD7A371E7A2E3D331 /* Pods-candlelight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-candlelight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-candlelight/Pods-candlelight.debug.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				570A99CB67F22E9BA42FA035 /* ListItem.swift */,
 				570A9CF8041BC5DECC11B97E /* SiteInfo.swift */,
 				DF8894AF1E48A692004D1071 /* CrawlingError.swift */,
+				570A9DF3DDAE49583EA5153B /* Community.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				570A92944D78CC58435F3CDA /* BookmarkViewCell.swift in Sources */,
 				570A91A631A53A78139CB66F /* DataEncodingHelper.swift in Sources */,
 				570A9AD0B12D6431195F193B /* ProgressView.swift in Sources */,
+				570A9B4878836F869E3E7CE0 /* Community.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,13 +1,13 @@
 import Foundation
 
 class SiteInfo {
+    let community: Community
     let title: String
-    let crawler: BoardCrawler
     let isOn: Bool
 
-    init(title: String, crawler: BoardCrawler, isOn: Bool = false) {
+    init(community: Community, title: String, isOn: Bool = false) {
+        self.community = community
         self.title = title
-        self.crawler = crawler
         self.isOn = isOn
     }
 }

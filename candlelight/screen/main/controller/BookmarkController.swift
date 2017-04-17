@@ -23,8 +23,6 @@ class BookmarkController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        self.navigationItem.title = "즐겨찾기"
     }
 
     override func loadView() {
@@ -42,7 +40,13 @@ class BookmarkController: UIViewController {
 
     func setupCollectionView(parent: UIView) {
         let parentFrame = parent.frame
-        let frame = CGRect(x: parentFrame.origin.x, y: parentFrame.origin.y, width: parentFrame.size.width, height: parentFrame.size.height)
+        let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+        let frame = CGRect(
+            x: parentFrame.origin.x,
+            y: parentFrame.origin.y + statusBarHeight,
+            width: parentFrame.size.width,
+            height: parentFrame.size.height - BottomMenuController.bottomMenuHeight - statusBarHeight
+        )
 
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: frame.size.width, height: 50)
@@ -50,12 +54,13 @@ class BookmarkController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 1
 
-        let source = BookmarkViewDelegate()
+        let source = BookmarkViewDelegate(self)
         let collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         collectionView.register(BookmarkViewCell.self, forCellWithReuseIdentifier: BookmarkController.collectionReuseIdentifier)
         collectionView.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0)
         collectionView.dataSource = source
         collectionView.delegate = source
+        collectionView.contentInset = UIEdgeInsetsMake(-statusBarHeight, 0, 0, 0)
         source.collectionView = collectionView
 
         parent.addSubview(collectionView)

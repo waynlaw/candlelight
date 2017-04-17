@@ -11,6 +11,7 @@ import RealmSwift
 
 class BookmarkData: Object {
     dynamic var id: Int = 0
+    dynamic var community: Int = 0
     dynamic var title: String = ""
     dynamic var url: String = ""
 

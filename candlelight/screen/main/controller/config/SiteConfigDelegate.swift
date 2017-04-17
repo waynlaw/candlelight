@@ -10,13 +10,7 @@ import UIKit
 import RealmSwift
 
 class SiteConfigDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-        
-    let sites = [
-        "클리앙",
-        "딴지일보",
-        "오늘의유머"
-    ]
-    
+
     let scManager: SiteConfigManager!
     
     weak var configController: ConfigController?
@@ -31,7 +25,7 @@ class SiteConfigDelegate: NSObject, UICollectionViewDataSource, UICollectionView
     }
         
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sites.count
+        return Community.TOTAL_COUNT.rawValue
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -41,7 +35,7 @@ class SiteConfigDelegate: NSObject, UICollectionViewDataSource, UICollectionView
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CommunityController.collectionReuseIdentifier, for: indexPath) as! SiteCollectionViewCell
         cell.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
-        cell.setText(sites[index])
+        cell.setText(name(Community(rawValue: index)))
         
         let sw = UISwitch(frame: CGRect(x: cell.bounds.width - 60, y: 10, width: 0, height: 0))
         
@@ -73,7 +67,7 @@ class SiteConfigDelegate: NSObject, UICollectionViewDataSource, UICollectionView
         // TODO : only upsert. is it Ok?
         let sc = SiteConfig()
         sc.id = index
-        sc.name = sites[index]
+        sc.name = name(Community(rawValue: index))
         sc.isOn = sender.isOn
         
         scManager.upsert(sc)

@@ -10,10 +10,6 @@ class CommunityViewDelegate: NSObject, UICollectionViewDataSource, UICollectionV
     weak var communityController: CommunityController?
     weak var collectionView: UICollectionView? = nil
     
-    let clienCrawler = ClienParkBoardCrawler()
-    let ddanziCrawler = DdanziBoardCrawler()
-    let todayhumerCrawler = TodayHumorBoardCrawler()
-
     public init(_ communityController: CommunityController) {
         
         self.communityController = communityController
@@ -22,15 +18,9 @@ class CommunityViewDelegate: NSObject, UICollectionViewDataSource, UICollectionV
         let scs = scManager.select()
         
         for sc in scs {
-            let selectedCrawler: BoardCrawler!
-            if sc.id == 0 {
-                selectedCrawler = clienCrawler
-            } else if sc.id == 1 {
-                selectedCrawler = ddanziCrawler
-            } else {
-                selectedCrawler = todayhumerCrawler
+            if let community = Community(rawValue: sc.id) {
+                siteInfos.append(SiteInfo(community: community, title: sc.name, isOn: sc.isOn))
             }
-            siteInfos.append(SiteInfo(title: sc.name, crawler: selectedCrawler, isOn: sc.isOn))
         }
     }
 
@@ -54,7 +44,7 @@ class CommunityViewDelegate: NSObject, UICollectionViewDataSource, UICollectionV
         guard let parent = communityController else {
             return
         }
-        let addController = BoardViewController(crawler: siteInfos[indexPath.row].crawler, bottomMenuController: parent.bottomMenuController)
+        let addController = BoardViewController(community: siteInfos[indexPath.row].community, bottomMenuController: parent.bottomMenuController)
         parent.navigationController?.pushViewController(addController, animated: true)
     }
     
@@ -65,16 +55,9 @@ class CommunityViewDelegate: NSObject, UICollectionViewDataSource, UICollectionV
         let scs = scManager.select()
         
         for sc in scs {
-            let selectedCrawler: BoardCrawler!
-            if sc.id == 0 {
-                selectedCrawler = clienCrawler
-            } else if sc.id == 1 {
-                selectedCrawler = ddanziCrawler
-            } else {
-                selectedCrawler = todayhumerCrawler
-            }
-            if sc.isOn {
-                siteInfos.append(SiteInfo(title: sc.name, crawler: selectedCrawler, isOn: sc.isOn))
+            if sc.isOn,
+               let community = Community(rawValue: sc.id) {
+                siteInfos.append(SiteInfo(community: community, title: sc.name, isOn: sc.isOn))
             }
         }
         collectionView?.reloadData()

@@ -5,6 +5,7 @@ class BoardViewController: UIViewController {
 
     static let collectionReuseIdentifier = "collectionCell"
 
+    var community: Community = Community.CLIEN
     let bottomMenuController: BottomMenuController?
 
     var collectionSource: BoardCollectionViewDelegate?
@@ -19,12 +20,13 @@ class BoardViewController: UIViewController {
         super.init(coder: aDecoder)
     }
 
-    init(crawler: BoardCrawler, bottomMenuController: BottomMenuController) {
+    init(community: Community, bottomMenuController: BottomMenuController) {
+        self.community = community
         self.bottomMenuController = bottomMenuController
 
         super.init(nibName: nil, bundle: nil)
 
-        self.crawler = crawler
+        self.crawler = boardCrawler(community)
     }
 
     override func viewDidLoad() {
@@ -66,7 +68,7 @@ class BoardViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 1
 
-        let source = BoardCollectionViewDelegate(self)
+        let source = BoardCollectionViewDelegate(self, community)
         let collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         collectionView.register(SiteCollectionViewCell.self, forCellWithReuseIdentifier: CommunityController.collectionReuseIdentifier)
         collectionView.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0)

@@ -6,6 +6,7 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
 
     let bottomMenuController: BottomMenuController?
 
+    var community: Community = Community.CLIEN
     var crawler: ArticleCrawler?
     var contentWebView: UIWebView?
     var contentsInfo: ListItem?
@@ -17,18 +18,10 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
         super.init(coder: aDecoder)
     }
 
-    init(_ contentsInfo: ListItem, bottomMenuController: BottomMenuController) {
+    init(_ contentsInfo: ListItem, _ community: Community, bottomMenuController: BottomMenuController) {
         self.bottomMenuController = bottomMenuController
-        
-        // 크롤러 분기 귀찮으니까... 일단 이렇게. 차주 리팩토링 합시다.
-        if (contentsInfo.url.contains("park")) {
-            self.crawler = ClienParkArticleCrawler(contentsInfo.url)
-        } else if contentsInfo.url.contains("ddanzi") {
-            self.crawler = DdanziArticleCrawler(contentsInfo.url)
-        } else {
-            self.crawler = TodayHumorArticleCrawler(contentsInfo.url)
-        }
-
+        self.community = community
+        self.crawler = articleCrawler(community, contentsInfo.url)
         self.contentsInfo = contentsInfo
 
         super.init(nibName: nil, bundle: nil)
@@ -72,7 +65,7 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
             x: parentFrame.origin.x,
             y: parentFrame.origin.y + statusBarHeight,
             width: parentFrame.size.width,
-            height: parentFrame.size.height - BottomMenuController.bottomMenuHeight
+            height: parentFrame.size.height - BottomMenuController.bottomMenuHeight - statusBarHeight
         )
 
         let webView: UIWebView = UIWebView(frame: frame)
@@ -123,6 +116,7 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
         }
         let bookmarkManager = BookmarkManager()
         let bookmark = BookmarkData()
+        bookmark.community = community.rawValue
         bookmark.title = contentsInfo.title
         bookmark.url = contentsInfo.url
         bookmarkManager.upsert(bookmark)

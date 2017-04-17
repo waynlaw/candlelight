@@ -30,7 +30,6 @@ class ConfigController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationItem.title = "설정"
     }
     
     override func loadView() {

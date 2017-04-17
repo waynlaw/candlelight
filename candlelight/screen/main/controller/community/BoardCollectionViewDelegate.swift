@@ -3,12 +3,14 @@ import UIKit
 class BoardCollectionViewDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     var boardItems: [ListItem] = []
+    let community: Community
 
     weak var viewController: BoardViewController? = nil
     weak var collectionView: UICollectionView? = nil
 
-    public init(_ viewController: BoardViewController) {
+    public init(_ viewController: BoardViewController, _ community: Community) {
         self.viewController = viewController
+        self.community = community
     }
 
     func setBoardList(boardItems: [ListItem]) {
@@ -46,7 +48,7 @@ class BoardCollectionViewDelegate: NSObject, UICollectionViewDataSource, UIColle
             return
         }
         let item = boardItems[indexPath.row]
-        let addController = ContentViewController(item, bottomMenuController: bottomMenuController)
+        let addController = ContentViewController(item, community, bottomMenuController: bottomMenuController)
         if let navigationController = parent.navigationController {
             navigationController.setNavigationBarHidden(true, animated: false)
             navigationController.interactivePopGestureRecognizer?.delegate = nil
