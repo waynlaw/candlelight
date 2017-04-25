@@ -23,39 +23,60 @@ class TodayHumorArticleCrawler: ArticleCrawler {
             Alamofire.request(url).responseData(completionHandler: { response in
                 if let htmlWithoutEncoding = response.result.value,
                     let html = String(data: DataEncodingHelper.healing(htmlWithoutEncoding), encoding: .utf8) {
-                    self.parseComment(html: html).onSuccess(callback: { (comment) in
-                        complete(self.parseHTML(html: html, comment: comment))
+                    self.parseComment(html: html).onSuccess(callback: { (comments) in
+                        complete(self.parseHTML(html: html, comments: comments))
                     })
                 }
             })
         }
     }
     
-    func parseComment(html: String) -> Future<NSDictionary, CrawlingError> {
+    func parseComment(html: String) -> Future<[Comment], CrawlingError> {
         if let doc = HTML(html: html, encoding: .utf8) {
-            return Future<NSDictionary, CrawlingError> { complete in
-                Alamofire.request("http://www.todayhumor.co.kr/board/ajax_memo_list.php?parent_table=sisa&parent_id=896044&last_memo_no=0&_=1492426501849").responseJSON { response in
+            return Future<[Comment], CrawlingError> { complete in
+                
+                let parentId = matches(for: "(?<=id = \")[0-9]+(?=.;)", in: html).first!
+                
+                Alamofire.request("http://www.todayhumor.co.kr/board/ajax_memo_list.php?parent_table=sisa&parent_id=" + parentId).responseJSON { response in
                     switch response.result {
                     case .success(let JSON):
-                        print("Success with JSON: \(JSON)")
-                        
                         let response = JSON as! NSDictionary
                         
+                        let memos = response["memos"] as! NSArray
+                        
+                        
+                        
+                        var comments = [Comment]()
+                        for memo in memos {
+                            let memoDic = memo as! NSDictionary
+                            
+                            let content = memoDic["memo"] as! String
+                            let author = memoDic["name"] as! String
+                            let regDate = memoDic["date"] as! String
+                            let depth = memoDic["parent_memo_no"] as? String
+                            
+                            if let d = depth {
+                                comments.append(Comment(author: author, content: content, regDate: Date(), depth: 1))
+                            } else {
+                                comments.append(Comment(author: author, content: content, regDate: Date(), depth: 0))
+                            }
+                        }
+                        
                         //example if there is an id
-                        complete(.success(response))
+                        complete(.success(comments))
                     case .failure(let error):
-                        print("Request failed with error: \(error)")
-                        complete(.success(NSDictionary()))
+//                        print("Request failed with error: \(error)")
+                        complete(.success([Comment]()))
                     }
                 }
             }
         }
-        return Future<NSDictionary, CrawlingError> { complete in
-            complete(.success(NSDictionary()))
+        return Future<[Comment], CrawlingError> { complete in
+            complete(.success([Comment]()))
         }
     }
     
-    func parseHTML(html: String, comment: NSDictionary) -> Result<Article, CrawlingError> {
+    func parseHTML(html: String, comments: [Comment]) -> Result<Article, CrawlingError> {
         if let doc = HTML(html: html, encoding: .utf8) {
             let titleOption = doc.xpath("//div[contains(@class, 'viewSubjectDiv')]").first?.text
             let authorOption = doc.xpath("//div[contains(@class, 'writerInfoContents')]//div[2]//a").first?.text
@@ -71,13 +92,13 @@ class TodayHumorArticleCrawler: ArticleCrawler {
             }
             
             // comment parsing해서 데이터를 얻어야 함
-            print(comment.count.description)
+            print(comments.count.description)
             
             let author = authorOption ?? "" // TODO: should fix it when name is image.
             
             let arr = readCount.components(separatedBy: ":")[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             
-            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: Date(), comments: [Comment]()))
+            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: Date(), comments: comments))
         }
         return Result<Article, CrawlingError>(error: CrawlingError.contentNotFound)
     }
