@@ -1,4 +1,5 @@
 import UIKit
+import GradientLoadingBar
 
 class ContentViewController: UIViewController, UIWebViewDelegate {
 
@@ -77,9 +78,15 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
 
         contentWebView = webView
 
+        GradientLoadingBar.sharedInstance().show()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         crawler?.getContent()
             .onSuccess { article in
                 webView.loadHTMLString(article.toHtml(), baseURL: nil)
+                
+                GradientLoadingBar.sharedInstance().hide()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
         setupBookmarkButton(parent, parentFrame)
     }
