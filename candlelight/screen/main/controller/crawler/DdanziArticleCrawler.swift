@@ -37,9 +37,13 @@ class DdanziArticleCrawler: ArticleCrawler {
             let contentOption = doc.xpath("//div[contains(@class, 'xe_content')]").first?.innerHTML
             let commentsOption = doc.xpath("//div[@id='cmt_list']//ul//li")
             
+            
+            let regDateOption = doc.xpath("//div[contains(@class, 'read_header')]//p[contains(@class, 'time')]").first?.text
+            
             guard let title = titleOption,
                 let readCount = readCountOption,
-                let content = contentOption
+                let content = contentOption,
+                let regDate = regDateOption
                 else {
                     print("data is invalid")
                     return .success(Article())
@@ -71,7 +75,11 @@ class DdanziArticleCrawler: ArticleCrawler {
             
             let arr = readCount.components(separatedBy: ":")[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             
-            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: Date(), comments: comments))
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm"
+            let dd = (formatter.date(from: regDate))
+            
+            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate:dd!, comments: comments))
         }
         return Result<Article, CrawlingError>(error: CrawlingError.contentNotFound)
     }

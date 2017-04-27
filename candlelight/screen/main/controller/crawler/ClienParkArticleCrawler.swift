@@ -81,8 +81,17 @@ class ClienParkArticleCrawler: ArticleCrawler {
                 return Comment(author: author, content: content, regDate: dd!, depth: depth)
             })
 
+            
+            let regDate = readCount.components(separatedBy: ",")[0]
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm"
+            let dd = (formatter.date(from: regDate))
+            
             let arr = readCount.components(separatedBy: ",")[1].components(separatedBy: ":")[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            return .success(Article(title: title, author: author, readCount: Int(arr)!, content: content, regDate: Date(), comments: comments))
+            
+            
+            return .success(Article(title: title, author: author, readCount: Int(arr)!, content: content, regDate: dd!, comments: comments))
         }
         return Result<Article, CrawlingError>(error: CrawlingError.contentNotFound)
     }

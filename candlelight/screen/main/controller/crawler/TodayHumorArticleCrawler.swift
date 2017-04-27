@@ -84,23 +84,28 @@ class TodayHumorArticleCrawler: ArticleCrawler {
             let authorOption = doc.xpath("//div[contains(@class, 'writerInfoContents')]//div[2]//a").first?.text
             let readCountOption = doc.xpath("//div[contains(@class, 'writerInfoContents')]//div[4]").first?.text
             let contentOption = doc.xpath("//div[contains(@class, 'viewContent')]").first?.innerHTML
+            let regDateOption = doc.xpath("//div[contains(@class, 'writerInfoContents')]//div[7]").first?.text
             
             guard let title = titleOption,
                 let readCount = readCountOption,
-                let content = contentOption
+                let content = contentOption,
+                let regDate = regDateOption
                 else {
                     print("data is invalid")
                     return .success(Article())
             }
             
-            // comment parsing해서 데이터를 얻어야 함
-            print(comments.count.description)
+            let matchedDate = matches(for: "\\d+/\\d+/\\d+\\s\\d+:\\d+:\\d+", in: regDate).first!
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+            let dd = (formatter.date(from: matchedDate))
             
             let author = authorOption ?? "" // TODO: should fix it when name is image.
             
             let arr = readCount.components(separatedBy: ":")[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             
-            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: Date(), comments: comments))
+            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: dd!, comments: comments))
         }
         return Result<Article, CrawlingError>(error: CrawlingError.contentNotFound)
     }
