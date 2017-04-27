@@ -35,7 +35,7 @@ class TodayHumorArticleCrawler: ArticleCrawler {
         if let doc = HTML(html: html, encoding: .utf8) {
             return Future<[Comment], CrawlingError> { complete in
                 
-                let parentId = matches(for: "(?<=id = \")[0-9]+(?=.;)", in: html).first!
+                let parentId = Util.ㅑatches(for: "(?<=id = \")[0-9]+(?=.;)", in: html).first!
                 
                 Alamofire.request("http://www.todayhumor.co.kr/board/ajax_memo_list.php?parent_table=sisa&parent_id=" + parentId).responseJSON { response in
                     switch response.result {
@@ -95,31 +95,16 @@ class TodayHumorArticleCrawler: ArticleCrawler {
                     return .success(Article())
             }
             
-            let matchedDate = matches(for: "\\d+/\\d+/\\d+\\s\\d+:\\d+:\\d+", in: regDate).first!
+            let matchedDate = Util.matches(for: "\\d+/\\d+/\\d+\\s\\d+:\\d+:\\d+", in: regDate).first!
             
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-            let dd = (formatter.date(from: matchedDate))
+            let dd = Util.dateFromString(dateStr: matchedDate, format: "yyyy/MM/dd HH:mm:ss")
             
             let author = authorOption ?? "" // TODO: should fix it when name is image.
             
             let arr = readCount.components(separatedBy: ":")[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             
-            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: dd!, comments: comments))
+            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: dd, comments: comments))
         }
         return Result<Article, CrawlingError>(error: CrawlingError.contentNotFound)
-    }
-    
-    func matches(for regex: String, in text: String) -> [String] {
-        
-        do {
-            let regex = try NSRegularExpression(pattern: regex)
-            let nsString = text as NSString
-            let results = regex.matches(in: text, range: NSRange(location: 0, length: nsString.length))
-            return results.map { nsString.substring(with: $0.range)}
-        } catch let error {
-            print("invalid regex: \(error.localizedDescription)")
-            return []
-        }
     }
 }

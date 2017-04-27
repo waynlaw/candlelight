@@ -57,9 +57,7 @@ class DdanziArticleCrawler: ArticleCrawler {
                 let author = (cts.xpath("//h3[contains(@class, 'author')]").first?.text)!
                 let regDate = (cts.xpath("//p[contains(@class, 'time')]").first?.text)!
                 
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                let dd = (formatter.date(from: regDate))
+                let dd = Util.dateFromString(dateStr: regDate, format: "yyyy-MM-dd HH:mm:ss")
                 
                 let className = (cts.xpath("//div").first?.className)!
 
@@ -70,30 +68,15 @@ class DdanziArticleCrawler: ArticleCrawler {
                 
                 let content = (cts.xpath("//div[contains(@class, 'xe_content')]").first?.text)!
                 
-                return Comment(author: author, content: content, regDate: dd!, depth: depth)
+                return Comment(author: author, content: content, regDate: dd, depth: depth)
             })
             
             let arr = readCount.components(separatedBy: ":")[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd HH:mm"
-            let dd = (formatter.date(from: regDate))
+            let dd = Util.dateFromString(dateStr: regDate, format: "yyyy-MM-dd HH:mm")
             
-            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate:dd!, comments: comments))
+            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate:dd, comments: comments))
         }
         return Result<Article, CrawlingError>(error: CrawlingError.contentNotFound)
-    }
-    
-    func matches(for regex: String, in text: String) -> [String] {
-        
-        do {
-            let regex = try NSRegularExpression(pattern: regex)
-            let nsString = text as NSString
-            let results = regex.matches(in: text, range: NSRange(location: 0, length: nsString.length))
-            return results.map { nsString.substring(with: $0.range)}
-        } catch let error {
-            print("invalid regex: \(error.localizedDescription)")
-            return []
-        }
     }
 }

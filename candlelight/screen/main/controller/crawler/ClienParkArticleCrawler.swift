@@ -59,12 +59,11 @@ class ClienParkArticleCrawler: ArticleCrawler {
                 }
                 let depth = b.components(separatedBy: ":")[1].components(separatedBy: "px")[0] == "1" ? 0 : 1
 
-
                 let authorHtml = cts.xpath("//li[contains(@class, 'user_id')]").first
 
                 var author = ""
                 if (authorHtml?.innerHTML!.contains("img"))! {
-                    author = matches(for: "[a-z0-9]+(?=.gif)", in: (authorHtml?.innerHTML)!).first!
+                    author = Util.matches(for: "[a-z0-9]+(?=.gif)", in: (authorHtml?.innerHTML)!).first!
                 } else {
                     author = (authorHtml?.text)!
                 }
@@ -72,42 +71,20 @@ class ClienParkArticleCrawler: ArticleCrawler {
                 let regDate = (cts.xpath("//li[2]").first?.text)!
                 let content = (cts.xpath("//textarea").first?.text)!
 
-                let matchedDate = matches(for: "\\d+-\\d+-\\d+\\s\\d+:\\d+", in: regDate).first!
+                let matchedDate = Util.matches(for: "\\d+-\\d+-\\d+\\s\\d+:\\d+", in: regDate).first!
+                let dd = Util.dateFromString(dateStr: matchedDate, format: "yyyy-MM-dd HH:mm")
                 
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd HH:mm"
-                let dd = (formatter.date(from: matchedDate))
-                
-                return Comment(author: author, content: content, regDate: dd!, depth: depth)
+                return Comment(author: author, content: content, regDate: dd, depth: depth)
             })
 
-            
             let regDate = readCount.components(separatedBy: ",")[0]
-            
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd HH:mm"
-            let dd = (formatter.date(from: regDate))
+            let dd = Util.dateFromString(dateStr: regDate, format: "yyyy-MM-dd HH:mm")
             
             let arr = readCount.components(separatedBy: ",")[1].components(separatedBy: ":")[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             
             
-            return .success(Article(title: title, author: author, readCount: Int(arr)!, content: content, regDate: dd!, comments: comments))
+            return .success(Article(title: title, author: author, readCount: Int(arr)!, content: content, regDate: dd, comments: comments))
         }
         return Result<Article, CrawlingError>(error: CrawlingError.contentNotFound)
-    }
-
-    func matches(for regex: String, in text: String) -> [String] {
-
-        do {
-            let regex = try NSRegularExpression(pattern: regex)
-            let nsString = text as NSString
-            let results = regex.matches(in: text, range: NSRange(location: 0, length: nsString.length))
-            return results.map {
-                nsString.substring(with: $0.range)
-            }
-        } catch let error {
-            print("invalid regex: \(error.localizedDescription)")
-            return []
-        }
     }
 }
