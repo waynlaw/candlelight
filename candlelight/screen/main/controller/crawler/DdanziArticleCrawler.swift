@@ -51,7 +51,11 @@ class DdanziArticleCrawler: ArticleCrawler {
                 HTML(html: c.toHTML!, encoding: .utf8)!
             }).map({ (cts) -> Comment in
                 let author = (cts.xpath("//h3[contains(@class, 'author')]").first?.text)!
-                let date = (cts.xpath("//p[contains(@class, 'time')]").first?.text)!
+                let regDate = (cts.xpath("//p[contains(@class, 'time')]").first?.text)!
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                let dd = (formatter.date(from: regDate))
                 
                 let className = (cts.xpath("//div").first?.className)!
 
@@ -62,13 +66,12 @@ class DdanziArticleCrawler: ArticleCrawler {
                 
                 let content = (cts.xpath("//div[contains(@class, 'xe_content')]").first?.text)!
                 
-                return Comment(author: author, content: content, regDate: Date(), depth: depth)
-//                return Comment()
+                return Comment(author: author, content: content, regDate: dd!, depth: depth)
             })
             
             let arr = readCount.components(separatedBy: ":")[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: Date(), comments: comments))
             
+            return .success(Article(title: title, author: author, readCount: Int(arr)!,content: content, regDate: Date(), comments: comments))
         }
         return Result<Article, CrawlingError>(error: CrawlingError.contentNotFound)
     }

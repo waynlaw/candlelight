@@ -69,10 +69,16 @@ class ClienParkArticleCrawler: ArticleCrawler {
                     author = (authorHtml?.text)!
                 }
 
-                let date = (cts.xpath("//li[2]").first?.text)!
+                let regDate = (cts.xpath("//li[2]").first?.text)!
                 let content = (cts.xpath("//textarea").first?.text)!
 
-                return Comment(author: author, content: content, regDate: Date(), depth: depth)
+                let matchedDate = matches(for: "\\d+-\\d+-\\d+\\s\\d+:\\d+", in: regDate).first!
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd HH:mm"
+                let dd = (formatter.date(from: matchedDate))
+                
+                return Comment(author: author, content: content, regDate: dd!, depth: depth)
             })
 
             let arr = readCount.components(separatedBy: ",")[1].components(separatedBy: ":")[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)

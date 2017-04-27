@@ -32,7 +32,15 @@ class Comment {
     }
 
     func toHtml() -> String {
-        let res = "<div class='depth\(depth!) '> <p> <span class='author'>\(author!)</span> <span class='reg-date'>\(regDate!)</span> </p> <span class='comment'> \(content!) </span> </div>"
+        let res = "<div class='depth\(depth!) '> <p> <span class='author'>\(author!)</span> <span class='reg-date'>\(dateToString(regDate!))</span> </p> <span class='comment'> \(content!) </span> </div>"
         return res
     }
+
+    func dateToString(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.setLocalizedDateFormatFromTemplate("MM.dd HH:mm:ss")
+        return formatter.string(from: date)
+    }
+
 }

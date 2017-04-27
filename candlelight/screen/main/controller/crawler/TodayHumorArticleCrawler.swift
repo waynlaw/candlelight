@@ -44,8 +44,6 @@ class TodayHumorArticleCrawler: ArticleCrawler {
                         
                         let memos = response["memos"] as! NSArray
                         
-                        
-                        
                         var comments = [Comment]()
                         for memo in memos {
                             let memoDic = memo as! NSDictionary
@@ -55,10 +53,14 @@ class TodayHumorArticleCrawler: ArticleCrawler {
                             let regDate = memoDic["date"] as! String
                             let depth = memoDic["parent_memo_no"] as? String
                             
+                            let formatter = DateFormatter()
+                            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                            let dd = (formatter.date(from: regDate))
+                            
                             if let d = depth {
-                                comments.append(Comment(author: author, content: content, regDate: Date(), depth: 1))
+                                comments.append(Comment(author: author, content: content, regDate: dd!, depth: 1))
                             } else {
-                                comments.append(Comment(author: author, content: content, regDate: Date(), depth: 0))
+                                comments.append(Comment(author: author, content: content, regDate: dd!, depth: 0))
                             }
                         }
                         

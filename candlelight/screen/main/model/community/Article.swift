@@ -73,8 +73,8 @@ class Article {
 
     func dateToString(_ date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US")
-        formatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH:mm:ss")
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.setLocalizedDateFormatFromTemplate("MM.dd HH:mm:ss")
         return formatter.string(from: date)
     }
 /*
