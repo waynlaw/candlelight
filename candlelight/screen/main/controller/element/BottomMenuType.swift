@@ -1,11 +1,10 @@
 import Foundation
 
 enum BottomMenuType: Int {
-    case site = 0
-    case bookmark
-    case undefined_1
-    case undefined_2
-    case configure
+    case home = 0
+    case like
+    case best
+    case config
 
-    static let all = [site, bookmark, undefined_1, undefined_2, configure]
+    static let all = [home, like, best, config]
 }

@@ -31,14 +31,14 @@ class CommunityController: UIViewController {
     
     func setupBottomMenu(parent: UIView) {
         bottomMenuController.setCurrentController(self)
-        bottomMenuController.setController(type: .site, controller: self)
+        bottomMenuController.setController(type: .home, controller: self)
         bottomMenuController.setupBottomButtons(parent: parent)
         
         let configureController = ConfigController(bottomMenuController: bottomMenuController)
         let bookmarkController = BookmarkController(bottomMenuController: bottomMenuController)
         
-        bottomMenuController.setController(type: .bookmark, controller: bookmarkController)
-        bottomMenuController.setController(type: .configure, controller: configureController)
+        bottomMenuController.setController(type: .like, controller: bookmarkController)
+        bottomMenuController.setController(type: .config, controller: configureController)
     }
 
     func setupCollectionView(parent: UIView) {

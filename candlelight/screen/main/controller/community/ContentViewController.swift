@@ -71,7 +71,8 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
 
         let webView: UIWebView = UIWebView(frame: frame)
         webView.isOpaque = false
-        webView.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
+        
+        webView.backgroundColor = UIColor(red: 0.58, green: 0.60, blue: 0.65, alpha: 1.0)
         webView.delegate = self
         webView.scrollView.contentInset = UIEdgeInsetsMake(-statusBarHeight, 0, 0, 0)
         parent.addSubview(webView)
