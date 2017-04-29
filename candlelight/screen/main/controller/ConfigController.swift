@@ -38,16 +38,8 @@ class ConfigController: UIViewController {
         let root = UIView()
         let mainRect = UIScreen.main.bounds
         root.frame = CGRect(x: 0, y: 0, width: mainRect.width, height: mainRect.height)
-        root.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0)
-        
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 80))
-        label.textColor = UIColor.lightGray
-        label.textAlignment = NSTextAlignment.left
-        label.text = " 자주 가는 사이트"
-        root.addSubview(label)
         
         setupCollectionView(parent: root)
-        
         bottomMenuController?.setupBottomButtons(parent: root)
         
         self.view = root
@@ -55,7 +47,13 @@ class ConfigController: UIViewController {
  
     func setupCollectionView(parent: UIView) {
         let parentFrame = parent.frame
-        let frame = CGRect(x: 0, y: 60, width: parentFrame.size.width, height: parentFrame.size.height)
+        let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+        let frame = CGRect(
+            x: parentFrame.origin.x,
+            y: parentFrame.origin.y + statusBarHeight,
+            width: parentFrame.size.width,
+            height: parentFrame.size.height - BottomMenuController.bottomMenuHeight - statusBarHeight
+        )
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: frame.size.width, height: 50)
@@ -69,9 +67,18 @@ class ConfigController: UIViewController {
         collectionView.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0)
         collectionView.dataSource = source
         collectionView.delegate = source
+        collectionView.contentInset = UIEdgeInsetsMake(-statusBarHeight, 0, 0, 0)
         
         parent.addSubview(collectionView)
         
         collectionSource = source
+    }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
