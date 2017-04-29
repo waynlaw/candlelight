@@ -30,7 +30,7 @@ class BottomMenuController: NSObject {
             button.addTarget(self, action: #selector(BottomMenuController.onClickItem(_:)), for: .touchUpInside)
             
             let label = UILabel()
-            label.text = String(describing: menuType)
+            label.text = String(describing: menuType).capitalized
             label.frame = CGRect(x: left, y: parentHeight - BottomMenuController.nameheight, width: right - left, height: BottomMenuController.nameheight)
             label.backgroundColor = UIColor(red: 0.1058, green: 0.1058, blue: 0.1058, alpha: 1.0)
             label.textAlignment = NSTextAlignment.center
