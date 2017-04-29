@@ -1,7 +1,8 @@
 import UIKit
 import GradientLoadingBar
+import MBProgressHUD
 
-class ContentViewController: UIViewController, UIWebViewDelegate {
+class ContentViewController: UIViewController, UIWebViewDelegate, TouchPieMenuListener {
 
     static let collectionReuseIdentifier = "collectionCell"
 
@@ -46,6 +47,7 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
         root.frame = CGRect(x: 0, y: 0, width: mainRect.width, height: mainRect.height)
 
         setupContentsView(parent: root)
+        setupPieMenuView(parent:root)
         bottomMenuController?.setupBottomButtons(parent: root)
         setupProgressView(parent: root)
 
@@ -57,6 +59,15 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
         let progressView = ProgressView(frame: progressFrame)
         parent.addSubview(progressView)
         self.progressView = progressView
+    }
+
+    private func setupPieMenuView(parent: UIView) {
+        let width = TouchPieMenu.size
+        let height = TouchPieMenu.size
+        let menuFrame = CGRect(x: parent.frame.width - width, y: parent.frame.height - 50 - height, width: width, height: height)
+        let pieMenu = TouchPieMenu(frame: menuFrame)
+        pieMenu.setListener(self)
+        parent.addSubview(pieMenu)
     }
 
     func setupContentsView(parent: UIView) {
@@ -89,7 +100,6 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
                 GradientLoadingBar.sharedInstance().hide()
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
-        setupBookmarkButton(parent, parentFrame)
     }
 
     public func webViewDidStartLoad(_ webView: UIWebView) {
@@ -106,18 +116,6 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
         print(error.localizedDescription)
     }
 
-    func setupBookmarkButton(_ parent: UIView, _ parentFrame:CGRect) {
-        let bookmarkButtonWidth = 100.0 as CGFloat
-        let bookmarkButtonHeight = 100.0 as CGFloat
-        let xPos = parentFrame.origin.x + parentFrame.size.width - bookmarkButtonWidth
-        let yPos = parentFrame.origin.y
-        let uiButton = UIButton(type: .system)
-        uiButton.setTitle("Bookmark", for: .normal)
-        uiButton.frame = CGRect(x: xPos, y: yPos, width: bookmarkButtonWidth, height: bookmarkButtonHeight)
-        uiButton.addTarget(self, action: #selector(bookMarkClicked), for: UIControlEvents.touchUpInside)
-        parent.addSubview(uiButton)
-    }
-
     func bookMarkClicked() {
         guard let contentsInfo = self.contentsInfo else {
             return
@@ -128,6 +126,12 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
         bookmark.title = contentsInfo.title
         bookmark.url = contentsInfo.url
         bookmarkManager.upsert(bookmark)
+
+        let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.customView
+        loadingNotification.label.text = "Bookmark Registered."
+        loadingNotification.customView =  UIImageView(image: UIImage(named: "images/checkmark.png"))
+        loadingNotification.hide(animated:true, afterDelay: 2)
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -136,6 +140,10 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+
+    func onBookmark() {
+        bookMarkClicked()
     }
 }
 

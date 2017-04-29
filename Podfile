@@ -12,4 +12,5 @@ target 'candlelight' do
   pod 'Kanna', '~> 2.1.0'
   pod 'RealmSwift', '~> 2.3.0'
   pod 'GradientLoadingBar', '~> 1.0'
+  pod 'MBProgressHUD', '~> 1.0.0'
 end
