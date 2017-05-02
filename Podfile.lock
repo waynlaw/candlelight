@@ -4,6 +4,7 @@ PODS:
     - Result (~> 3.0)
   - GradientLoadingBar (1.1.0)
   - Kanna (2.1.1)
+  - MBProgressHUD (1.0.0)
   - Realm (2.3.0):
     - Realm/Headers (= 2.3.0)
   - Realm/Headers (2.3.0)
@@ -16,6 +17,7 @@ DEPENDENCIES:
   - BrightFutures (~> 5.1.0)
   - GradientLoadingBar (~> 1.0)
   - Kanna (~> 2.1.0)
+  - MBProgressHUD (~> 1.0.0)
   - RealmSwift (~> 2.3.0)
 
 SPEC CHECKSUMS:
@@ -23,10 +25,11 @@ SPEC CHECKSUMS:
   BrightFutures: 62aafb1a63520eda91c9286bf4be33e58e043938
   GradientLoadingBar: df0316cbcb1dfcb32a7806223d75575d8f503555
   Kanna: 9b4b086c218703f2b94f5b21a466217dd2f9332e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Realm: 69d7de9aa569a11eed490aaabc8f2109e3985ecf
   RealmSwift: dc6f99ea55e59490cec69c860f91932b6bf7efb6
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
 
-PODFILE CHECKSUM: f3c78daf87634809c41f11b3dba0aa989c761d65
+PODFILE CHECKSUM: fa314c3152e770bb5bb02a90a64d2c528fb818d2
 
 COCOAPODS: 1.1.1
