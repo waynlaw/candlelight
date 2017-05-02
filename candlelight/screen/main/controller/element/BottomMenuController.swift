@@ -10,10 +10,9 @@ class BottomMenuController: NSObject {
     weak var current: UIViewController? = nil
     var controllers = [BottomMenuType: UIViewController]()
 
-    func setupBottomButtons(parent: UIView) {
+    func setupBottomButtons(parent: UIView, type: BottomMenuType) {
         let btnCount = BottomMenuType.all.count
-
-
+        
         let parentWidth = Int(parent.frame.width)
         let parentHeight = parent.frame.height
         
@@ -22,10 +21,17 @@ class BottomMenuController: NSObject {
             let button = UIButton(type: UIButtonType.custom)
             let left = CGFloat(parentWidth * idx / btnCount)
             let right = CGFloat(parentWidth * (idx + 1) / btnCount)
+            
             button.frame = CGRect(x: left, y: parentHeight - BottomMenuController.buttonHeight - BottomMenuController.nameheight, width: right - left, height: BottomMenuController.buttonHeight)
+            
             button.backgroundColor = UIColor(red: 0.1058, green: 0.1058, blue: 0.1058, alpha: 1.0)
-            button.setImage(UIImage(named: buttonImage(menuType)), for: UIControlState.normal)
+            
+            let image = menuType == type ? UIImage(named: buttonImageActive(menuType)) : UIImage(named: buttonImage(menuType))
+            button.setImage(image, for: .normal)
+            
             button.imageView?.contentMode = .scaleAspectFit
+            
+            button.contentEdgeInsets = UIEdgeInsetsMake(5,5,5,5)
             button.tag = menuType.rawValue
             button.addTarget(self, action: #selector(BottomMenuController.onClickItem(_:)), for: .touchUpInside)
             
@@ -51,10 +57,19 @@ class BottomMenuController: NSObject {
 
     func buttonImage(_ menuType: BottomMenuType) -> String {
         switch menuType {
-            case .home: return "images/btn-home-w.png"
-            case .like: return "images/btn-like-w.png"
-            case .best: return "images/btn-favorites-w.png"
-            case .config: return "images/btn-settings-w.png"
+            case .home: return "images/btn-home-gray.png"
+            case .like: return "images/btn-like-gray.png"
+            case .best: return "images/btn-favorites-gray.png"
+            case .config: return "images/btn-settings-gray.png"
+        }
+    }
+    
+    func buttonImageActive(_ menuType: BottomMenuType) -> String {
+        switch menuType {
+        case .home: return "images/btn-home-w.png"
+        case .like: return "images/btn-like-w.png"
+        case .best: return "images/btn-favorites-w.png"
+        case .config: return "images/btn-settings-w.png"
         }
     }
 
@@ -72,7 +87,9 @@ class BottomMenuController: NSObject {
               let navigationController = current?.navigationController else {
             return
         }
+        
         self.current = controller
+        
         navigationController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         navigationController.setViewControllers([controller], animated: false)
     }

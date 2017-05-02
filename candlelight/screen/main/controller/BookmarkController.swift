@@ -33,7 +33,7 @@ class BookmarkController: UIViewController {
         root.frame = CGRect(x: 0, y: 0, width: mainRect.width, height: mainRect.height)
 
         setupCollectionView(parent: root)
-        bottomMenuController?.setupBottomButtons(parent: root)
+        bottomMenuController?.setupBottomButtons(parent: root, type: .like)
 
         self.view = root
     }

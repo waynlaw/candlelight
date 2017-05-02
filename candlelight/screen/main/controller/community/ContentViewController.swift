@@ -46,7 +46,7 @@ class ContentViewController: UIViewController, UIWebViewDelegate {
         root.frame = CGRect(x: 0, y: 0, width: mainRect.width, height: mainRect.height)
 
         setupContentsView(parent: root)
-        bottomMenuController?.setupBottomButtons(parent: root)
+        bottomMenuController?.setupBottomButtons(parent: root, type: .home)
         setupProgressView(parent: root)
 
         self.view = root

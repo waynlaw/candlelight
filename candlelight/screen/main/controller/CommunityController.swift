@@ -33,7 +33,7 @@ class CommunityController: UIViewController {
     func setupBottomMenu(parent: UIView) {
         bottomMenuController.setCurrentController(self)
         bottomMenuController.setController(type: .home, controller: self)
-        bottomMenuController.setupBottomButtons(parent: parent)
+        bottomMenuController.setupBottomButtons(parent: parent,type: .home)
         
         let configureController = ConfigController(bottomMenuController: bottomMenuController)
         let bookmarkController = BookmarkController(bottomMenuController: bottomMenuController)
