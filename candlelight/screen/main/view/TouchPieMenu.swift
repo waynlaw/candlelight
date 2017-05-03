@@ -4,6 +4,7 @@ import Foundation
 
 protocol TouchPieMenuListener {
     func onBookmark()
+    func onShare()
 }
 
 
@@ -74,6 +75,8 @@ class TouchPieMenu : UIView {
             let dy = pt.y - halfSize
             if 0 > dx && abs(dx) > abs(dy) {
                 listener?.onBookmark()
+            } else if 0 < dx && abs(dx) > abs(dy) {
+                listener?.onShare()
             }
         }
 

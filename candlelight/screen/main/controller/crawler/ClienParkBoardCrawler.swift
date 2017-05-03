@@ -8,6 +8,7 @@ import Kanna
 class ClienParkBoardCrawler: BoardCrawler {
 
     let siteUrl = "http://www.clien.net/cs2/bbs/board.php?bo_table=park&page="
+    let contentsBaseUrl = "http://www.clien.net/cs2/"
 
     func getList(page: Int) -> Future<[ListItem]?, NoError> {
         return Future<[ListItem]?, NoError> { complete in
@@ -39,7 +40,8 @@ class ClienParkBoardCrawler: BoardCrawler {
                     let readCount = readCountOption else {
                     continue
                 }
-                result.append(ListItem(id: pageId, title: title, url: url, author: author, date: "", readCount: readCount))
+                let contentsUrl = contentsBaseUrl + url.substring(from: url.index(url.startIndex, offsetBy: 3))
+                result.append(ListItem(id: pageId, title: title, url: contentsUrl, author: author, date: "", readCount: readCount))
             }
         }
         return .success(result)

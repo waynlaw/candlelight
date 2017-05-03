@@ -13,4 +13,5 @@ target 'candlelight' do
   pod 'RealmSwift', '~> 2.3.0'
   pod 'GradientLoadingBar', '~> 1.0'
   pod 'MBProgressHUD', '~> 1.0.0'
+  pod 'SVWebViewController', '~> 1.0'
 end

@@ -7,11 +7,10 @@ import Kanna
 
 class ClienParkArticleCrawler: ArticleCrawler {
 
-    let baseUrl = "http://www.clien.net/cs2/"
     let url: String
 
     init(_ url: String) {
-        self.url = baseUrl + url.substring(from: url.index(url.startIndex, offsetBy: 3))
+        self.url = url
     }
 
     func getContent() -> Future<Article, CrawlingError> {

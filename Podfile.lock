@@ -11,6 +11,7 @@ PODS:
   - RealmSwift (2.3.0):
     - Realm (= 2.3.0)
   - Result (3.2.1)
+  - SVWebViewController (1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - Kanna (~> 2.1.0)
   - MBProgressHUD (~> 1.0.0)
   - RealmSwift (~> 2.3.0)
+  - SVWebViewController (~> 1.0)
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -29,7 +31,8 @@ SPEC CHECKSUMS:
   Realm: 69d7de9aa569a11eed490aaabc8f2109e3985ecf
   RealmSwift: dc6f99ea55e59490cec69c860f91932b6bf7efb6
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
+  SVWebViewController: c36dda7326e81fcae0abf5d02bf7bbf7e41be901
 
-PODFILE CHECKSUM: fa314c3152e770bb5bb02a90a64d2c528fb818d2
+PODFILE CHECKSUM: df16b7f63e31c271c9f059107fd237d95c204ab7
 
 COCOAPODS: 1.1.1

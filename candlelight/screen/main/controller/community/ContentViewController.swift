@@ -1,6 +1,7 @@
 import UIKit
 import GradientLoadingBar
 import MBProgressHUD
+import SVWebViewController
 
 class ContentViewController: UIViewController, UIWebViewDelegate, TouchPieMenuListener {
 
@@ -147,6 +148,17 @@ class ContentViewController: UIViewController, UIWebViewDelegate, TouchPieMenuLi
 
     func onBookmark() {
         bookMarkClicked()
+    }
+
+    func onShare() {
+        guard let contentsInfo = self.contentsInfo else {
+            return
+        }
+        let textToShare = contentsInfo.url
+        let urlToShare = URL(string:contentsInfo.url)
+        let activities = [SVWebViewControllerActivitySafari(), SVWebViewControllerActivityChrome()];
+        let activityViewController = UIActivityViewController(activityItems: [textToShare, urlToShare!], applicationActivities: activities)
+        present(activityViewController, animated: true, completion: nil)
     }
 }
 

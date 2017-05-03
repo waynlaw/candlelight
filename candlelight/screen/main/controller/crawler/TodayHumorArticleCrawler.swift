@@ -7,11 +7,10 @@ import Kanna
 
 class TodayHumorArticleCrawler: ArticleCrawler {
     
-    let baseUrl = "http://www.todayhumor.co.kr"
     let url: String
     
     init(_ url: String) {
-        self.url = baseUrl + url
+        self.url = url
     }
     
     func getContent() -> Future<Article, CrawlingError>{

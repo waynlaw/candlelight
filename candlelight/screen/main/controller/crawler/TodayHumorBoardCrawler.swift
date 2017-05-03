@@ -8,6 +8,7 @@ import Kanna
 class TodayHumorBoardCrawler: BoardCrawler {
     
     let siteUrl = "http://www.todayhumor.co.kr/board/list.php?table=bestofbest&page="
+    let contentsBaseUrl = "http://www.todayhumor.co.kr"
 
     func getList(page: Int) -> Future<[ListItem]?, NoError> {
         return Future<[ListItem]?, NoError> { complete in
@@ -41,7 +42,8 @@ class TodayHumorBoardCrawler: BoardCrawler {
                     let readCount = readCountOption else {
                         continue
                 }
-                result.append(ListItem(id: pageId, title: title, url: url, author: author, date: "", readCount: readCount))
+                let contentsUrl = contentsBaseUrl + url
+                result.append(ListItem(id: pageId, title: title, url: contentsUrl, author: author, date: "", readCount: readCount))
             }
         }
         return .success(result)
