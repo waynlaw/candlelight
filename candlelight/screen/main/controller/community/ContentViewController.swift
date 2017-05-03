@@ -7,6 +7,7 @@ class ContentViewController: UIViewController, UIWebViewDelegate, TouchPieMenuLi
     static let collectionReuseIdentifier = "collectionCell"
 
     let bottomMenuController: BottomMenuController?
+    let bottomMenuType: BottomMenuType?
 
     var community: Community = Community.CLIEN
     var crawler: ArticleCrawler?
@@ -16,15 +17,17 @@ class ContentViewController: UIViewController, UIWebViewDelegate, TouchPieMenuLi
 
     required init?(coder aDecoder: NSCoder) {
         self.bottomMenuController = nil
+        self.bottomMenuType = nil
 
         super.init(coder: aDecoder)
     }
 
-    init(_ contentsInfo: ListItem, _ community: Community, bottomMenuController: BottomMenuController) {
+    init(_ contentsInfo: ListItem, _ community: Community, bottomMenuController: BottomMenuController, bottomMenuType: BottomMenuType) {
         self.bottomMenuController = bottomMenuController
         self.community = community
         self.crawler = articleCrawler(community, contentsInfo.url)
         self.contentsInfo = contentsInfo
+        self.bottomMenuType = bottomMenuType
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -48,7 +51,7 @@ class ContentViewController: UIViewController, UIWebViewDelegate, TouchPieMenuLi
 
         setupContentsView(parent: root)
         setupPieMenuView(parent:root)
-        bottomMenuController?.setupBottomButtons(parent: root, type: .home)
+        bottomMenuController?.setupBottomButtons(parent: root, type: bottomMenuType!)
         setupProgressView(parent: root)
 
         self.view = root

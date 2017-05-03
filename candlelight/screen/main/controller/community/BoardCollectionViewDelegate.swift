@@ -48,7 +48,7 @@ class BoardCollectionViewDelegate: NSObject, UICollectionViewDataSource, UIColle
             return
         }
         let item = boardItems[indexPath.row]
-        let addController = ContentViewController(item, community, bottomMenuController: bottomMenuController)
+        let addController = ContentViewController(item, community, bottomMenuController: bottomMenuController, bottomMenuType: .home)
         if let navigationController = parent.navigationController {
             navigationController.setNavigationBarHidden(true, animated: false)
             navigationController.interactivePopGestureRecognizer?.delegate = nil
