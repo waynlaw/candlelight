@@ -35,8 +35,9 @@ class TodayHumorArticleCrawler: ArticleCrawler {
             return Future<[Comment], CrawlingError> { complete in
                 
                 let parentId = Util.matches(for: "(?<=id = \")[0-9]+(?=.;)", in: html).first!
-                
-                Alamofire.request("http://www.todayhumor.co.kr/board/ajax_memo_list.php?parent_table=sisa&parent_id=" + parentId).responseJSON { response in
+                let parentTable = Util.matches(for: "(?<=parent_table = \")[a-zA-Z0-9_]+(?=\")", in: html).first!
+                let url = "http://www.todayhumor.co.kr/board/ajax_memo_list.php?parent_table=\(parentTable)&parent_id=\(parentId)"
+                Alamofire.request(url).responseJSON { response in
                     switch response.result {
                     case .success(let JSON):
                         let response = JSON as! NSDictionary
