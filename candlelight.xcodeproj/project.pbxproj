@@ -18,6 +18,8 @@
 		2138B7071EA3939700F9E2E6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2138B7061EA3939700F9E2E6 /* Media.xcassets */; };
 		214D0B161EB23EE100F8BAE2 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D0B151EB23EE100F8BAE2 /* Util.swift */; };
 		21654EEF1E895F3300356429 /* DdanziBoardCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654EEE1E895F3300356429 /* DdanziBoardCrawler.swift */; };
+		217CFD451EBB5F0700360A2B /* PieMenuLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CFD441EBB5F0700360A2B /* PieMenuLocationManager.swift */; };
+		217CFD471EBB5FD100360A2B /* PieMenuLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CFD461EBB5FD100360A2B /* PieMenuLocation.swift */; };
 		2188B6031E3AE306000C1193 /* SiteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188B6021E3AE306000C1193 /* SiteConfigManager.swift */; };
 		2194B2681E64571C00119FBD /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 2194B2671E64571C00119FBD /* template.html */; };
 		2194B26B1E6D816800119FBD /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2194B26A1E6D816800119FBD /* Article.swift */; };
@@ -83,6 +85,8 @@
 		2138B7061EA3939700F9E2E6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../../Desktop/Media.xcassets; sourceTree = "<group>"; };
 		214D0B151EB23EE100F8BAE2 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = common/Util.swift; sourceTree = "<group>"; };
 		21654EEE1E895F3300356429 /* DdanziBoardCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DdanziBoardCrawler.swift; sourceTree = "<group>"; };
+		217CFD441EBB5F0700360A2B /* PieMenuLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PieMenuLocationManager.swift; path = manager/config/PieMenuLocationManager.swift; sourceTree = "<group>"; };
+		217CFD461EBB5FD100360A2B /* PieMenuLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PieMenuLocation.swift; path = config/PieMenuLocation.swift; sourceTree = "<group>"; };
 		2188B6021E3AE306000C1193 /* SiteConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteConfigManager.swift; path = manager/config/SiteConfigManager.swift; sourceTree = "<group>"; };
 		2194B2671E64571C00119FBD /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = template.html; path = html/template.html; sourceTree = "<group>"; };
 		2194B26A1E6D816800119FBD /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Article.swift; path = community/Article.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				2188B6021E3AE306000C1193 /* SiteConfigManager.swift */,
+				217CFD441EBB5F0700360A2B /* PieMenuLocationManager.swift */,
 			);
 			name = config;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				211977C31E34FA11008CFDAE /* SiteConfig.swift */,
 				570A968A6B8FB20CCA642699 /* ContentData.swift */,
 				570A9AC6B3D576CED7474BB7 /* BookmarkData.swift */,
+				217CFD461EBB5FD100360A2B /* PieMenuLocation.swift */,
 			);
 			name = config;
 			sourceTree = "<group>";
@@ -613,6 +619,7 @@
 				570A99718D70AE8213C878BA /* SiteInfo.swift in Sources */,
 				570A917976BC12DBD320C4A7 /* BottomMenuController.swift in Sources */,
 				570A954B935DE77B957C56DB /* BottomMenuType.swift in Sources */,
+				217CFD451EBB5F0700360A2B /* PieMenuLocationManager.swift in Sources */,
 				570A92A6E296EDFD90BED53E /* ClienParkBoardCrawler.swift in Sources */,
 				214D0B161EB23EE100F8BAE2 /* Util.swift in Sources */,
 				DF114BE11E55F27D00799A1F /* ClienParkArticleCrawler.swift in Sources */,
@@ -624,6 +631,7 @@
 				21C1C6821E9BA9AE00B526C0 /* BoardCrawler.swift in Sources */,
 				211644E41E9D197900E31D65 /* TodayHumorBoardCrawler.swift in Sources */,
 				DF8894B01E48A692004D1071 /* CrawlingError.swift in Sources */,
+				217CFD471EBB5FD100360A2B /* PieMenuLocation.swift in Sources */,
 				2194B26B1E6D816800119FBD /* Article.swift in Sources */,
 				570A9844CA4F9C048D5C5DB4 /* ContentData.swift in Sources */,
 				2194B26D1E6D828800119FBD /* Comment.swift in Sources */,

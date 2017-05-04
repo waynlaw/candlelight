@@ -7,6 +7,8 @@ class ContentViewController: UIViewController, UIWebViewDelegate, TouchPieMenuLi
 
     static let collectionReuseIdentifier = "collectionCell"
 
+    let pieMenuLocManager: PieMenuLocationManager = PieMenuLocationManager()
+    
     let bottomMenuController: BottomMenuController?
     let bottomMenuType: BottomMenuType?
 
@@ -68,7 +70,10 @@ class ContentViewController: UIViewController, UIWebViewDelegate, TouchPieMenuLi
     private func setupPieMenuView(parent: UIView) {
         let width = TouchPieMenu.size
         let height = TouchPieMenu.size
-        let menuFrame = CGRect(x: parent.frame.width - width, y: parent.frame.height - 50 - height, width: width, height: height)
+        
+        let locationX = pieMenuLocManager.select() ? parent.frame.width - width : 0
+        let menuFrame = CGRect(x: locationX, y: parent.frame.height - 50 - height, width: width, height: height)
+        
         let pieMenu = TouchPieMenu(frame: menuFrame)
         pieMenu.setListener(self)
         parent.addSubview(pieMenu)
