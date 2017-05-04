@@ -61,6 +61,7 @@ class Article {
                     .replacingOccurrences(of: "{{author}}", with: self.author!)
                     .replacingOccurrences(of: "{{regDate}}", with: dateToString(self.regDate!))
                     .replacingOccurrences(of: "{{readCount}}", with: self.readCount!.description)
+                    .replacingOccurrences(of: "{{commentCount}}", with: comments!.count.description)
                     .replacingOccurrences(of: "{{content}}", with: self.content!)
                     .replacingOccurrences(of: "{{comments}}", with: coms)
 

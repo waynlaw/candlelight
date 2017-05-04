@@ -40,7 +40,7 @@ class BottomMenuController: NSObject {
             label.frame = CGRect(x: left, y: parentHeight - BottomMenuController.nameheight, width: right - left, height: BottomMenuController.nameheight)
             label.backgroundColor = UIColor(red: 0.1058, green: 0.1058, blue: 0.1058, alpha: 1.0)
             label.textAlignment = NSTextAlignment.center
-            label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+            label.textColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)
             label.font = UIFont(name: label.font.fontName, size: 10)
             
             parent.addSubview(button)
