@@ -10,8 +10,8 @@ class ClienParkBoardCrawler: BoardCrawler {
     let siteUrl = "http://www.clien.net/cs2/bbs/board.php?bo_table=park&page="
     let contentsBaseUrl = "http://www.clien.net/cs2/"
 
-    func getList(page: Int) -> Future<[ListItem]?, NoError> {
-        return Future<[ListItem]?, NoError> { complete in
+    func getList(page: Int) -> Future<[BoardItem]?, NoError> {
+        return Future<[BoardItem]?, NoError> { complete in
             let url = self.siteUrl + String(page + 1)
             print(url)
             Alamofire.request(url).responseString(encoding: .utf8, completionHandler: { response in
@@ -24,8 +24,8 @@ class ClienParkBoardCrawler: BoardCrawler {
         }
     }
 
-    func parseHTML(html: String) -> Result<Array<ListItem>?, NoError> {
-        var result = [ListItem]()
+    func parseHTML(html: String) -> Result<Array<BoardItem>?, NoError> {
+        var result = [BoardItem]()
         if let doc = HTML(html: html, encoding: .utf8) {
             for content in doc.xpath("//div[contains(@class, 'board_main')]//tr") {
                 let titleOption = content.xpath("td[2]").first?.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -41,7 +41,7 @@ class ClienParkBoardCrawler: BoardCrawler {
                     continue
                 }
                 let contentsUrl = contentsBaseUrl + url.substring(from: url.index(url.startIndex, offsetBy: 3))
-                result.append(ListItem(id: pageId, title: title, url: contentsUrl, author: author, date: "", readCount: readCount))
+                result.append(BoardItem(id: pageId, title: title, url: contentsUrl, author: author, date: "", readCount: readCount))
             }
         }
         return .success(result)

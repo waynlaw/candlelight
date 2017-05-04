@@ -10,8 +10,8 @@ class TodayHumorBoardCrawler: BoardCrawler {
     let siteUrl = "http://www.todayhumor.co.kr/board/list.php?table=bestofbest&page="
     let contentsBaseUrl = "http://www.todayhumor.co.kr"
 
-    func getList(page: Int) -> Future<[ListItem]?, NoError> {
-        return Future<[ListItem]?, NoError> { complete in
+    func getList(page: Int) -> Future<[BoardItem]?, NoError> {
+        return Future<[BoardItem]?, NoError> { complete in
             let url = self.siteUrl + String(page + 1)
             Alamofire.request(url).responseString(encoding: .utf8, completionHandler: { response in
                 if let html = response.result.value {
@@ -23,8 +23,8 @@ class TodayHumorBoardCrawler: BoardCrawler {
         }
     }
     
-    func parseHTML(html: String) -> Result<Array<ListItem>?, NoError> {
-        var result = [ListItem]()
+    func parseHTML(html: String) -> Result<Array<BoardItem>?, NoError> {
+        var result = [BoardItem]()
         if let doc = HTML(html: html, encoding: .utf8) {
             for content in doc.xpath("//table[contains(@class, 'table_list')]//tr[contains(@class, 'view')]") {
                 
@@ -43,7 +43,7 @@ class TodayHumorBoardCrawler: BoardCrawler {
                         continue
                 }
                 let contentsUrl = contentsBaseUrl + url
-                result.append(ListItem(id: pageId, title: title, url: contentsUrl, author: author, date: "", readCount: readCount))
+                result.append(BoardItem(id: pageId, title: title, url: contentsUrl, author: author, date: "", readCount: readCount))
             }
         }
         return .success(result)

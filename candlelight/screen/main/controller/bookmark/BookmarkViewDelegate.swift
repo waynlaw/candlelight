@@ -43,8 +43,8 @@ class BookmarkViewDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
         }
         let item = bookmarkDataList[indexPath.row]
         let community = Community(rawValue: item.community) ?? Community.CLIEN
-        let listItem = ListItem(id: 0, title: item.title, url: item.url, author: "", date: "", readCount: 0) // TODO: fill full data.
-        let addController = ContentViewController(listItem, community, bottomMenuController: bottomMenuController, bottomMenuType: .like)
+        let boardItem = BoardItem(id: 0, title: item.title, url: item.url, author: "", date: "", readCount: 0) // TODO: fill full data.
+        let addController = ContentViewController(boardItem, community, bottomMenuController: bottomMenuController, bottomMenuType: .like)
         
         if let navigationController = parent.navigationController {
             navigationController.setNavigationBarHidden(true, animated: false)

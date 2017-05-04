@@ -2,7 +2,7 @@ import UIKit
 
 class BoardCollectionViewDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    var boardItems: [ListItem] = []
+    var boardItems: [BoardItem] = []
     let community: Community
 
     weak var viewController: BoardViewController? = nil
@@ -13,7 +13,7 @@ class BoardCollectionViewDelegate: NSObject, UICollectionViewDataSource, UIColle
         self.community = community
     }
 
-    func setBoardList(boardItems: [ListItem]) {
+    func setBoardList(boardItems: [BoardItem]) {
         self.boardItems = boardItems
 
         collectionView?.reloadData()

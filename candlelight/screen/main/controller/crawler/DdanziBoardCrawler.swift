@@ -9,8 +9,8 @@ class DdanziBoardCrawler: BoardCrawler {
     
     let siteUrl = "http://www.ddanzi.com/index.php?mid=free&page="
     
-    func getList(page: Int) -> Future<[ListItem]?, NoError> {
-        return Future<[ListItem]?, NoError> { complete in
+    func getList(page: Int) -> Future<[BoardItem]?, NoError> {
+        return Future<[BoardItem]?, NoError> { complete in
             let url = self.siteUrl + String(page + 1)
             
             // TODO: 일단 일주일 사이 무사히 통과함
@@ -30,7 +30,7 @@ class DdanziBoardCrawler: BoardCrawler {
         }
     }
     
-    func parseHTML(html: String) -> Result<Array<ListItem>?, NoError> {
+    func parseHTML(html: String) -> Result<Array<BoardItem>?, NoError> {
 /*
  <tr>
  <td class="no">3366070</td>
@@ -46,7 +46,7 @@ class DdanziBoardCrawler: BoardCrawler {
  <td class="voteNum">-</td>
  </tr>
  */
-        var result = [ListItem]()
+        var result = [BoardItem]()
         
         if let doc = HTML(html: html, encoding: .utf8) {
             for content in doc.xpath("//table//tbody//tr") {
@@ -63,7 +63,7 @@ class DdanziBoardCrawler: BoardCrawler {
                     let readCount = readCountOption else {
                         continue
                 }
-                result.append(ListItem(id: pageId, title: titleOption, url: url, author: author, date: "", readCount: readCount))
+                result.append(BoardItem(id: pageId, title: titleOption, url: url, author: author, date: "", readCount: readCount))
             }
         }
         return .success(result)

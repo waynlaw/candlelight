@@ -11,7 +11,7 @@ class BoardViewController: UIViewController {
     var collectionSource: BoardCollectionViewDelegate?
     var refreshControl: UIRefreshControl?
     var crawler: BoardCrawler?
-    var boardItems = [ListItem]()
+    var boardItems = [BoardItem]()
     var boardPage = 0
 
     required init?(coder aDecoder: NSCoder) {
@@ -116,7 +116,7 @@ class BoardViewController: UIViewController {
         onNeedToMoreList()
     }
 
-    func updateList(newItems:[ListItem]) {
+    func updateList(newItems:[BoardItem]) {
         var listIdx = 0
         var newIdx = 0
         let newItemsNum = newItems.count

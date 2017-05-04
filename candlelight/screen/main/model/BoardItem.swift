@@ -1,6 +1,6 @@
 import Foundation
 
-class ListItem {
+class BoardItem {
     let id: Int
     let title: String
     let url: String

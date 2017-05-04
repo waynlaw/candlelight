@@ -15,7 +15,7 @@ class ContentViewController: UIViewController, UIWebViewDelegate, TouchPieMenuLi
     var community: Community = Community.CLIEN
     var crawler: ArticleCrawler?
     var contentWebView: UIWebView?
-    var contentsInfo: ListItem?
+    var contentsInfo: BoardItem?
     var progressView: ProgressView?
 
     required init?(coder aDecoder: NSCoder) {
@@ -25,7 +25,7 @@ class ContentViewController: UIViewController, UIWebViewDelegate, TouchPieMenuLi
         super.init(coder: aDecoder)
     }
 
-    init(_ contentsInfo: ListItem, _ community: Community, bottomMenuController: BottomMenuController, bottomMenuType: BottomMenuType) {
+    init(_ contentsInfo: BoardItem, _ community: Community, bottomMenuController: BottomMenuController, bottomMenuType: BottomMenuType) {
         self.bottomMenuController = bottomMenuController
         self.community = community
         self.crawler = articleCrawler(community, contentsInfo.url)
