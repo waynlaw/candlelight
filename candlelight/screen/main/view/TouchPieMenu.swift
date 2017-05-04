@@ -15,6 +15,7 @@ class TouchPieMenu : UIView {
     var centerBtn: UIImageView? = nil
     var fullMenuBtn: UIImageView? = nil
     var listener: TouchPieMenuListener? = nil
+    var touchBeginPt: CGPoint = CGPoint(x: 0, y: 0)
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -59,6 +60,7 @@ class TouchPieMenu : UIView {
             let location = touch.location(in: self)
             if centerBtn.frame.contains(location) {
                 showPieMenu()
+                touchBeginPt = location
             }
         }
 
@@ -70,13 +72,15 @@ class TouchPieMenu : UIView {
 
         if let touch = touches.first {
             let pt = touch.location(in: self)
-            let halfSize = TouchPieMenu.size / 2
-            let dx = pt.x - halfSize
-            let dy = pt.y - halfSize
-            if 0 > dx && abs(dx) > abs(dy) {
-                listener?.onBookmark()
-            } else if 0 < dx && abs(dx) > abs(dy) {
-                listener?.onShare()
+            let minMoveLength = TouchPieMenu.size / 4
+            let dx = pt.x - touchBeginPt.x
+            let dy = pt.y - touchBeginPt.y
+            if dx * dx + dy * dy > minMoveLength * minMoveLength {
+                if 0 > dx && abs(dx) > abs(dy) {
+                    listener?.onBookmark()
+                } else if 0 < dx && abs(dx) > abs(dy) {
+                    listener?.onShare()
+                }
             }
         }
 
