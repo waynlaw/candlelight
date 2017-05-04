@@ -11,7 +11,7 @@ class BookmarkViewDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     
     public init(_ viewController: BookmarkController) {
         self.viewController = viewController
-        bookmarkDataList = bookmarkManager.select()
+        bookmarkDataList = List(bookmarkManager.select().reversed())
     }
 
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -26,6 +26,12 @@ class BookmarkViewDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ConfigController.collectionReuseIdentifier, for: indexPath) as! BookmarkViewCell
         cell.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
         cell.setText(bookmarkDataList[indexPath.row].title)
+        
+        let swipeLeft : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(BookmarkViewDelegate.swipeLeft))
+        swipeLeft.direction = .left
+        
+        cell.addGestureRecognizer(swipeLeft)
+        
         return cell
     }
 
@@ -48,6 +54,28 @@ class BookmarkViewDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     }
 
     public func reloadCollectionView() {
+        bookmarkDataList = List(bookmarkManager.select().reversed())
+        collectionView?.reloadData()
+    }
+    
+    func swipeLeft(sender: UISwipeGestureRecognizer) {
+        let cell = sender.view as! BookmarkViewCell
 
+        let point = sender.location(in: self.collectionView)
+        let indexPath = self.collectionView!.indexPathForItem(at: point)
+        
+        let deletedData = bookmarkDataList.remove(at: indexPath!.row)
+        bookmarkManager.delete(deletedData)
+        
+        cell.setText("")
+        
+        UIView.transition(with: cell.contentView, duration: 1, options: .curveEaseIn, animations: {
+            cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.width - 100, height: cell.frame.height
+            )
+            
+            cell.backgroundColor = UIColor.darkGray
+        }, completion: { finished in
+            self.collectionView?.reloadData()
+        })
     }
 }
