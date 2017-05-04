@@ -118,6 +118,9 @@ class ContentViewController: UIViewController, UIWebViewDelegate, TouchPieMenuLi
 
     public func webViewDidFinishLoad(_ webView: UIWebView) {
         self.progressView?.webViewDidFinishLoad(webView: webView)
+        let frameWidth = webView.frame.size.width
+        let contentHeight = webView.scrollView.contentSize.height
+        webView.scrollView.contentSize = CGSize(width: frameWidth, height: contentHeight)
     }
 
     public func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
