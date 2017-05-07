@@ -7,8 +7,7 @@ protocol BoardCrawler {
 }
 
 extension BoardCrawler {
-    func getList() -> Future<[BoardItem]?, NoError>
-    {
+    func getList() -> Future<[BoardItem]?, NoError> {
         return self.getList(page: 0)
     }
 }

@@ -11,17 +11,10 @@ class ClienParkBoardCrawler: BoardCrawler {
     let contentsBaseUrl = "https://www.clien.net"
 
     func getList(page: Int) -> Future<[BoardItem]?, NoError> {
-        return Future<[BoardItem]?, NoError> { complete in
-            let url = self.siteUrl + String(page)
-            print(url)
-            Alamofire.request(url).responseString(encoding: .utf8, completionHandler: { response in
-                if let html = response.result.value {
-                    complete(.success(self.parseHTML(html: html)))
-                } else {
-                    complete(.success(nil))
-                }
-            })
-        }
+        let url = self.siteUrl + String(page)
+        print(url)
+
+        return AlamofireRequest(url).map(parseHTML)
     }
 
     func parseHTML(html: String) -> [BoardItem] {

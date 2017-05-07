@@ -13,20 +13,12 @@ class ClienParkArticleCrawler: ArticleCrawler {
         self.url = url
     }
 
-    func getContent() -> Future<Article, CrawlingError> {
-        return Future<Article, CrawlingError> { complete in
-            Alamofire.request(url).responseData(completionHandler: { response in
-                if let htmlWithoutEncoding = response.result.value,
-                   let html = String(data: DataEncodingHelper.healing(htmlWithoutEncoding), encoding: .utf8) {
-                    complete(self.parseHTML(html: html))
-                }
-            })
-        }
+    func getContent() -> Future<Article?, NoError> {
+        return AlamofireRequest(url).map(parseHTML)
     }
 
-    func parseHTML(html: String) -> Result<Article, CrawlingError> {
+    func parseHTML(html: String) -> Article? {
         if let doc = HTML(html: html, encoding: .utf8) {
-
             let titleOption = doc.xpath("//div[contains(@class, 'title-subject')]").first?.text?.trim()
             let authorOption = doc.xpath("//span[contains(@class, 'contact-name')]/button").first?.text?.trim()
             let readCountOption = doc.xpath("//span[contains(@class, 'view-count')]").first?.text?.trim()
@@ -39,7 +31,7 @@ class ClienParkArticleCrawler: ArticleCrawler {
                   let postTime = postTimeOption
                     else {
                 print("data is invalid")
-                return .success(Article())
+                return Article()
             }
 
             let author = authorOption ?? "" // TODO: should fix it when name is image.
@@ -47,8 +39,8 @@ class ClienParkArticleCrawler: ArticleCrawler {
 
             let dd = Util.dateFromString(dateStr: postTime, format: "yyyy-MM-dd HH:mm:ss")
             let readCount = Int(readCountText.digitsOnly()) ?? 0
-            return .success(Article(title: title, author: author, readCount: readCount, content: content, regDate: dd, comments: comments))
+            return Article(title: title, author: author, readCount: readCount, content: content, regDate: dd, comments: comments)
         }
-        return Result<Article, CrawlingError>(error: CrawlingError.contentNotFound)
+        return nil
     }
 }

@@ -13,17 +13,21 @@ class TodayHumorBoardCrawler: BoardCrawler {
     func getList(page: Int) -> Future<[BoardItem]?, NoError> {
         return Future<[BoardItem]?, NoError> { complete in
             let url = self.siteUrl + String(page + 1)
-            Alamofire.request(url).responseString(encoding: .utf8, completionHandler: { response in
-                if let html = response.result.value {
-                    complete(self.parseHTML(html: html))
-                } else {
-                    complete(.success(nil))
-                }
-            })
+            let onListData = { self.onList(complete, $0) }
+            Alamofire.request(url)
+                    .responseString(encoding: .utf8, completionHandler: onListData)
+        }
+    }
+
+    func onList(_ complete:(Result<[BoardItem]?, NoError>) -> Void, _ response: DataResponse<String>) {
+        if let html = response.result.value {
+            complete(self.parseHTML(html: html))
+        } else {
+            complete(.success(nil))
         }
     }
     
-    func parseHTML(html: String) -> Result<Array<BoardItem>?, NoError> {
+    func parseHTML(html: String) -> Result<[BoardItem]?, NoError> {
         var result = [BoardItem]()
         if let doc = HTML(html: html, encoding: .utf8) {
             for content in doc.xpath("//table[contains(@class, 'table_list')]//tr[contains(@class, 'view')]") {

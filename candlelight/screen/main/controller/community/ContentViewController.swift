@@ -104,8 +104,10 @@ class ContentViewController: UIViewController, UIWebViewDelegate, TouchPieMenuLi
         
         crawler?.getContent()
             .onSuccess { article in
-                webView.loadHTMLString(article.toHtml(), baseURL: nil)
-                
+                if let article = article {
+                    webView.loadHTMLString(article.toHtml(), baseURL: nil)
+                }
+
                 GradientLoadingBar.sharedInstance().hide()
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }

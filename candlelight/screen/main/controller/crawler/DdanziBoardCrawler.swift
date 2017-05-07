@@ -10,27 +10,16 @@ class DdanziBoardCrawler: BoardCrawler {
     let siteUrl = "http://www.ddanzi.com/index.php?mid=free&page="
     
     func getList(page: Int) -> Future<[BoardItem]?, NoError> {
-        return Future<[BoardItem]?, NoError> { complete in
-            let url = self.siteUrl + String(page + 1)
-            
-            // TODO: 일단 일주일 사이 무사히 통과함
-            
-            let headers = [
+        let url = self.siteUrl + String(page + 1)
+        let headers = [
                 "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
                 "Cookie": "cf_clearance=b675b2b14544cb66477d3cd01b1e152922388c3a-1490010629-86400; __cfduid=d954df114e6868384c1fae97adfa232e41490010661; PHPSESSID=s8m7bsfshh1f3ubc7j486169t7; mobile=false; user-agent=cc5d8203ce9b96784a0bea9c5a67de54; TS015721a6=019b04a842b86c12947c0d3bffc315236029a6014671550088d231380c4630c5f5b1758f9c241f8b91f7f0adfff3d6b666431db32bb174a5c36c8a573d4a09dbca8031285b01af82da6cfa871c7654f372812feeae; _ga=GA1.2.1895096741.1490010661"
-            ]
-            
-            Alamofire.request(url, headers: headers).responseString(encoding: .utf8, completionHandler: { response in
-                if let html = response.result.value {
-                    complete(self.parseHTML(html: html))
-                } else {
-                    complete(.success(nil))
-                }
-            })
-        }
+        ]
+
+        return AlamofireRequest(url, headers: headers).map(parseHTML)
     }
     
-    func parseHTML(html: String) -> Result<Array<BoardItem>?, NoError> {
+    func parseHTML(html: String) -> [BoardItem]? {
 /*
  <tr>
  <td class="no">3366070</td>
@@ -66,6 +55,6 @@ class DdanziBoardCrawler: BoardCrawler {
                 result.append(BoardItem(id: pageId, title: titleOption, url: url, author: author, date: "", readCount: readCount))
             }
         }
-        return .success(result)
+        return result
     }
 }
