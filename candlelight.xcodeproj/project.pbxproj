@@ -26,6 +26,8 @@
 		2194B26D1E6D828800119FBD /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2194B26C1E6D828800119FBD /* Comment.swift */; };
 		21C1C6801E9BA8B700B526C0 /* DdanziArticleCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C1C67F1E9BA8B700B526C0 /* DdanziArticleCrawler.swift */; };
 		21C1C6821E9BA9AE00B526C0 /* BoardCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C1C6811E9BA9AE00B526C0 /* BoardCrawler.swift */; };
+		21CE2B311EBC152500044CCE /* PpomppuBoardCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CE2B301EBC152500044CCE /* PpomppuBoardCrawler.swift */; };
+		21CE2B331EBC225400044CCE /* PpomppuArticleCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CE2B321EBC225400044CCE /* PpomppuArticleCrawler.swift */; };
 		21DA278B1E1A73A400D46551 /* ConfigureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA278A1E1A73A400D46551 /* ConfigureViewCell.swift */; };
 		21DA278D1E1A76F700D46551 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA278C1E1A76F700D46551 /* ConfigController.swift */; };
 		21DBD84A1E92631800C13A6B /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DBD8491E92631800C13A6B /* BookmarkManager.swift */; };
@@ -94,6 +96,8 @@
 		2194B26C1E6D828800119FBD /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = community/Comment.swift; sourceTree = "<group>"; };
 		21C1C67F1E9BA8B700B526C0 /* DdanziArticleCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DdanziArticleCrawler.swift; sourceTree = "<group>"; };
 		21C1C6811E9BA9AE00B526C0 /* BoardCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCrawler.swift; sourceTree = "<group>"; };
+		21CE2B301EBC152500044CCE /* PpomppuBoardCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PpomppuBoardCrawler.swift; sourceTree = "<group>"; };
+		21CE2B321EBC225400044CCE /* PpomppuArticleCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PpomppuArticleCrawler.swift; sourceTree = "<group>"; };
 		21DA278A1E1A73A400D46551 /* ConfigureViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureViewCell.swift; sourceTree = "<group>"; };
 		21DA278C1E1A76F700D46551 /* ConfigController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
 		21DBD8491E92631800C13A6B /* BookmarkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkManager.swift; path = manager/bookmark/BookmarkManager.swift; sourceTree = "<group>"; };
@@ -278,10 +282,12 @@
 				570A9BCFC5EAC3B6A3E76556 /* ClienParkBoardCrawler.swift */,
 				21654EEE1E895F3300356429 /* DdanziBoardCrawler.swift */,
 				211644E31E9D197900E31D65 /* TodayHumorBoardCrawler.swift */,
+				21CE2B301EBC152500044CCE /* PpomppuBoardCrawler.swift */,
 				570A9EA12641C496A2631BD2 /* ArticleCrawler.swift */,
 				DF114BE01E55F27C00799A1F /* ClienParkArticleCrawler.swift */,
 				21C1C67F1E9BA8B700B526C0 /* DdanziArticleCrawler.swift */,
 				21DDC4671E9FC20500EFE301 /* TodayHumorArticleCrawler.swift */,
+				21CE2B321EBC225400044CCE /* PpomppuArticleCrawler.swift */,
 			);
 			path = crawler;
 			sourceTree = "<group>";
@@ -642,6 +648,7 @@
 				21C1C6821E9BA9AE00B526C0 /* BoardCrawler.swift in Sources */,
 				211644E41E9D197900E31D65 /* TodayHumorBoardCrawler.swift in Sources */,
 				DF8894B01E48A692004D1071 /* CrawlingError.swift in Sources */,
+				21CE2B331EBC225400044CCE /* PpomppuArticleCrawler.swift in Sources */,
 				217CFD471EBB5FD100360A2B /* PieMenuLocation.swift in Sources */,
 				2194B26B1E6D816800119FBD /* Article.swift in Sources */,
 				2194B26D1E6D828800119FBD /* Comment.swift in Sources */,
@@ -651,6 +658,7 @@
 				570A92944D78CC58435F3CDA /* BookmarkViewCell.swift in Sources */,
 				570A91A631A53A78139CB66F /* DataEncodingHelper.swift in Sources */,
 				570A9AD0B12D6431195F193B /* ProgressView.swift in Sources */,
+				21CE2B311EBC152500044CCE /* PpomppuBoardCrawler.swift in Sources */,
 				570A9B4878836F869E3E7CE0 /* Community.swift in Sources */,
 				570A97285A8E82FC2367ED71 /* TouchPieMenu.swift in Sources */,
 				570A93A77AF778E65AA1EB29 /* StringHelper.swift in Sources */,

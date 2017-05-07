@@ -67,7 +67,7 @@ class ConfigController: UIViewController {
             x: parentFrame.origin.x,
             y: parentFrame.origin.y + statusBarHeight,
             width: parentFrame.size.width,
-            height: 50 * 3
+            height: CGFloat(50 * Community.TOTAL_COUNT.rawValue)
         )
         
         let layout = UICollectionViewFlowLayout()
@@ -93,10 +93,14 @@ class ConfigController: UIViewController {
         let parentFrame = parent.frame
         
         let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+        let communityOptionsHeight = CGFloat(50 * Community.TOTAL_COUNT.rawValue)
+        let margin = CGFloat(20)
+        
+        let locationY = parentFrame.origin.y + statusBarHeight + communityOptionsHeight + margin
         
         let frame = CGRect(
             x: parentFrame.origin.x,
-            y: parentFrame.origin.y + statusBarHeight + 50 * 3 + 20,
+            y: locationY,
             width: parentFrame.size.width,
             height: 50
         )

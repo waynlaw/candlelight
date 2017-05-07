@@ -60,7 +60,7 @@ class SiteConfigDelegate: NSObject, UICollectionViewDataSource, UICollectionView
         // You can get called index to check the value of sender.tag
         let index = sender.tag
         
-        if sender.tag > 3 {
+        if sender.tag > Community.TOTAL_COUNT.rawValue {
             NSLog("error")
         }
         

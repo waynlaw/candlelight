@@ -5,6 +5,7 @@ enum Community: Int {
     case CLIEN
     case DDANZI
     case TODAY_HUMOR
+    case PPOMPPU
     case TOTAL_COUNT
 }
 
@@ -12,7 +13,8 @@ func name(_ community: Community?) -> String {
     let sites = [
         "클리앙",
         "딴지일보",
-        "오늘의유머"
+        "오늘의유머",
+        "뽐뿌"
     ]
 
     let idx = community?.rawValue ?? -1
@@ -26,7 +28,8 @@ func boardCrawler(_ community: Community?) -> BoardCrawler {
     let crawlers: [() -> BoardCrawler] = [
         {() in return ClienParkBoardCrawler()},
         {() in return DdanziBoardCrawler()},
-        {() in return TodayHumorBoardCrawler()}
+        {() in return TodayHumorBoardCrawler()},
+        {() in return PpomppuBoardCrawler()}
     ]
 
     let idx = community?.rawValue ?? -1
@@ -40,7 +43,8 @@ func articleCrawler(_ community: Community?, _ url: String) -> ArticleCrawler {
     let crawlers: [(String) -> ArticleCrawler] = [
             {(url) in return ClienParkArticleCrawler(url)},
             {(url) in return DdanziArticleCrawler(url)},
-            {(url) in return TodayHumorArticleCrawler(url)}
+            {(url) in return TodayHumorArticleCrawler(url)},
+            {(url) in return PpomppuArticleCrawler(url)}
     ]
 
     let idx = community?.rawValue ?? -1
