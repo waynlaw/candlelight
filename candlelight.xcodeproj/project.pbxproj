@@ -35,6 +35,7 @@
 		570A91A631A53A78139CB66F /* DataEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A998EBEFAC88F49F63A3D /* DataEncodingHelper.swift */; };
 		570A92944D78CC58435F3CDA /* BookmarkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9447AD041E32B066207B /* BookmarkViewCell.swift */; };
 		570A92A6E296EDFD90BED53E /* ClienParkBoardCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9BCFC5EAC3B6A3E76556 /* ClienParkBoardCrawler.swift */; };
+		570A93A77AF778E65AA1EB29 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9476973848EAC2CA314B /* StringHelper.swift */; };
 		570A954B935DE77B957C56DB /* BottomMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A94BFB465E3C582A31863 /* BottomMenuType.swift */; };
 		570A97285A8E82FC2367ED71 /* TouchPieMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A930C18C522EB9729205F /* TouchPieMenu.swift */; };
 		570A9951F90FA11AA58EFE61 /* BookmarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A9AC6B3D576CED7474BB7 /* BookmarkData.swift */; };
@@ -101,6 +102,7 @@
 		570A903C760071BBCE1A708A /* BookmarkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkController.swift; sourceTree = "<group>"; };
 		570A930C18C522EB9729205F /* TouchPieMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchPieMenu.swift; sourceTree = "<group>"; };
 		570A9447AD041E32B066207B /* BookmarkViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkViewCell.swift; sourceTree = "<group>"; };
+		570A9476973848EAC2CA314B /* StringHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		570A94BFB465E3C582A31863 /* BottomMenuType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomMenuType.swift; sourceTree = "<group>"; };
 		570A951378D9D80E1015C5F3 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		570A998EBEFAC88F49F63A3D /* DataEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataEncodingHelper.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				570A998EBEFAC88F49F63A3D /* DataEncodingHelper.swift */,
+				570A9476973848EAC2CA314B /* StringHelper.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				570A9AD0B12D6431195F193B /* ProgressView.swift in Sources */,
 				570A9B4878836F869E3E7CE0 /* Community.swift in Sources */,
 				570A97285A8E82FC2367ED71 /* TouchPieMenu.swift in Sources */,
+				570A93A77AF778E65AA1EB29 /* StringHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
