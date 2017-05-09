@@ -14,7 +14,6 @@ class TodayHumorArticleCrawler: ArticleCrawler {
     }
 
     func getContent() -> Future<Article?, NoError> {
-        // public func flatMap<U>(_ f: @escaping (Value.Value) -> Future<U, Value.Error>) -> Future<U, Value.Error> {
         return AlamofireRequest(url).flatMap(getContentWithHtml)
     }
 
