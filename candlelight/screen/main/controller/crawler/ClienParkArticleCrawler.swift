@@ -66,7 +66,11 @@ class ClienParkArticleCrawler: ArticleCrawler {
                 let commentDic = comment as! NSDictionary
 
                 let content = commentDic["comment"] as! String
-                let author = (commentDic["member"] as! NSDictionary!)["nick"] as! String
+                let member = commentDic["member"]  as? NSDictionary!
+                if member == nil {
+                    continue
+                }
+                let author = (member!)["nick"] as! String
                 let regDate = commentDic["insertDate"] as! String
                 let reCommentSn = commentDic["reCommentSn"] as! Int
 
