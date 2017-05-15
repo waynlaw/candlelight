@@ -13,6 +13,12 @@
 		2105BEED1E51DBEE000FE20C /* CommunityViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105BEEA1E51DBEE000FE20C /* CommunityViewDelegate.swift */; };
 		2105BEEF1E51DBF6000FE20C /* SiteConfigDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105BEEE1E51DBF6000FE20C /* SiteConfigDelegate.swift */; };
 		2105BEF11E51DBFD000FE20C /* CommunityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105BEF01E51DBFD000FE20C /* CommunityController.swift */; };
+		2113F5401EC9D35B0098C7FE /* InvenBoardCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113F53F1EC9D35B0098C7FE /* InvenBoardCrawler.swift */; };
+		2113F5421EC9D39D0098C7FE /* InvenArticleCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113F5411EC9D39D0098C7FE /* InvenArticleCrawler.swift */; };
+		2113F5441EC9D4150098C7FE /* RuliwebBoardCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113F5431EC9D4150098C7FE /* RuliwebBoardCrawler.swift */; };
+		2113F5461EC9D4220098C7FE /* RuliwebArticleCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113F5451EC9D4220098C7FE /* RuliwebArticleCrawler.swift */; };
+		2113F5481EC9D4400098C7FE /* MlbparkBoardCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113F5471EC9D4400098C7FE /* MlbparkBoardCrawler.swift */; };
+		2113F54A1EC9D44F0098C7FE /* MlbparkArticleCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113F5491EC9D44F0098C7FE /* MlbparkArticleCrawler.swift */; };
 		211644E41E9D197900E31D65 /* TodayHumorBoardCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211644E31E9D197900E31D65 /* TodayHumorBoardCrawler.swift */; };
 		211977C41E34FA11008CFDAE /* SiteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211977C31E34FA11008CFDAE /* SiteConfig.swift */; };
 		2138B7071EA3939700F9E2E6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2138B7061EA3939700F9E2E6 /* Media.xcassets */; };
@@ -83,6 +89,12 @@
 		2105BEEA1E51DBEE000FE20C /* CommunityViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommunityViewDelegate.swift; path = community/CommunityViewDelegate.swift; sourceTree = "<group>"; };
 		2105BEEE1E51DBF6000FE20C /* SiteConfigDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteConfigDelegate.swift; path = config/SiteConfigDelegate.swift; sourceTree = "<group>"; };
 		2105BEF01E51DBFD000FE20C /* CommunityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityController.swift; sourceTree = "<group>"; };
+		2113F53F1EC9D35B0098C7FE /* InvenBoardCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvenBoardCrawler.swift; sourceTree = "<group>"; };
+		2113F5411EC9D39D0098C7FE /* InvenArticleCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvenArticleCrawler.swift; sourceTree = "<group>"; };
+		2113F5431EC9D4150098C7FE /* RuliwebBoardCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuliwebBoardCrawler.swift; sourceTree = "<group>"; };
+		2113F5451EC9D4220098C7FE /* RuliwebArticleCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuliwebArticleCrawler.swift; sourceTree = "<group>"; };
+		2113F5471EC9D4400098C7FE /* MlbparkBoardCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MlbparkBoardCrawler.swift; sourceTree = "<group>"; };
+		2113F5491EC9D44F0098C7FE /* MlbparkArticleCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MlbparkArticleCrawler.swift; sourceTree = "<group>"; };
 		211644E31E9D197900E31D65 /* TodayHumorBoardCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayHumorBoardCrawler.swift; sourceTree = "<group>"; };
 		211977C31E34FA11008CFDAE /* SiteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SiteConfig.swift; path = config/SiteConfig.swift; sourceTree = "<group>"; };
 		2138B7061EA3939700F9E2E6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../../Desktop/Media.xcassets; sourceTree = "<group>"; };
@@ -283,11 +295,17 @@
 				21654EEE1E895F3300356429 /* DdanziBoardCrawler.swift */,
 				211644E31E9D197900E31D65 /* TodayHumorBoardCrawler.swift */,
 				21CE2B301EBC152500044CCE /* PpomppuBoardCrawler.swift */,
+				2113F53F1EC9D35B0098C7FE /* InvenBoardCrawler.swift */,
+				2113F5431EC9D4150098C7FE /* RuliwebBoardCrawler.swift */,
+				2113F5471EC9D4400098C7FE /* MlbparkBoardCrawler.swift */,
 				570A9EA12641C496A2631BD2 /* ArticleCrawler.swift */,
 				DF114BE01E55F27C00799A1F /* ClienParkArticleCrawler.swift */,
 				21C1C67F1E9BA8B700B526C0 /* DdanziArticleCrawler.swift */,
 				21DDC4671E9FC20500EFE301 /* TodayHumorArticleCrawler.swift */,
 				21CE2B321EBC225400044CCE /* PpomppuArticleCrawler.swift */,
+				2113F5411EC9D39D0098C7FE /* InvenArticleCrawler.swift */,
+				2113F5451EC9D4220098C7FE /* RuliwebArticleCrawler.swift */,
+				2113F5491EC9D44F0098C7FE /* MlbparkArticleCrawler.swift */,
 			);
 			path = crawler;
 			sourceTree = "<group>";
@@ -620,10 +638,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2113F5421EC9D39D0098C7FE /* InvenArticleCrawler.swift in Sources */,
 				21DA278D1E1A76F700D46551 /* ConfigController.swift in Sources */,
 				21DBD84A1E92631800C13A6B /* BookmarkManager.swift in Sources */,
 				21DDC4681E9FC20500EFE301 /* TodayHumorArticleCrawler.swift in Sources */,
 				DF8B0B551DFEDD7200BC1912 /* AppDelegate.swift in Sources */,
+				2113F5481EC9D4400098C7FE /* MlbparkBoardCrawler.swift in Sources */,
 				2105BEEB1E51DBEE000FE20C /* BoardCollectionViewDelegate.swift in Sources */,
 				2105BEF11E51DBFD000FE20C /* CommunityController.swift in Sources */,
 				21DBD84D1E9263CA00C13A6B /* BookmarkViewDelegate.swift in Sources */,
@@ -631,6 +651,7 @@
 				21654EEF1E895F3300356429 /* DdanziBoardCrawler.swift in Sources */,
 				2105BEED1E51DBEE000FE20C /* CommunityViewDelegate.swift in Sources */,
 				570A9FBFDB7CBF7B408A65B7 /* BoardItem.swift in Sources */,
+				2113F5441EC9D4150098C7FE /* RuliwebBoardCrawler.swift in Sources */,
 				DFA03E261E1A715700D039FC /* SiteCollectionViewCell.swift in Sources */,
 				211977C41E34FA11008CFDAE /* SiteConfig.swift in Sources */,
 				570A99718D70AE8213C878BA /* SiteInfo.swift in Sources */,
@@ -640,8 +661,10 @@
 				570A92A6E296EDFD90BED53E /* ClienParkBoardCrawler.swift in Sources */,
 				214D0B161EB23EE100F8BAE2 /* Util.swift in Sources */,
 				DF114BE11E55F27D00799A1F /* ClienParkArticleCrawler.swift in Sources */,
+				2113F5461EC9D4220098C7FE /* RuliwebArticleCrawler.swift in Sources */,
 				2105BEEF1E51DBF6000FE20C /* SiteConfigDelegate.swift in Sources */,
 				21DA278B1E1A73A400D46551 /* ConfigureViewCell.swift in Sources */,
+				2113F5401EC9D35B0098C7FE /* InvenBoardCrawler.swift in Sources */,
 				2105BEEC1E51DBEE000FE20C /* BoardViewController.swift in Sources */,
 				DF114BDF1E55F26400799A1F /* ContentViewController.swift in Sources */,
 				570A9EC3702C09D7738085A8 /* ArticleCrawler.swift in Sources */,
@@ -655,6 +678,7 @@
 				570A9A77637B1573CDACD171 /* BookmarkController.swift in Sources */,
 				21C1C6801E9BA8B700B526C0 /* DdanziArticleCrawler.swift in Sources */,
 				570A9951F90FA11AA58EFE61 /* BookmarkData.swift in Sources */,
+				2113F54A1EC9D44F0098C7FE /* MlbparkArticleCrawler.swift in Sources */,
 				570A92944D78CC58435F3CDA /* BookmarkViewCell.swift in Sources */,
 				570A91A631A53A78139CB66F /* DataEncodingHelper.swift in Sources */,
 				570A9AD0B12D6431195F193B /* ProgressView.swift in Sources */,
